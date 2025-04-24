@@ -196,4 +196,4 @@ agent/
 
 **MIT License**  
 Use freely, contribute openly.  
-Commercial features (Phase 2) will be available under private licensing.
+Commercial features (Phase 7+) will be available under private licensing.
