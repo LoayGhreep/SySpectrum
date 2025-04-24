@@ -72,9 +72,10 @@ Built with a powerful Node.js agent, a blazing-fast Flutter dashboard, and a zer
 
 ## 🧑‍💻 About the Author
 Loay Ghreep — DevOps & Systems Engineer from Egypt.
-[LinkedIn](https://www.linkedin.com/in/loay-ghreep-379580112/)
 
-I don’t just use tools — I build them.
+- 💼 [LinkedIn](https://www.linkedin.com/in/loay-ghreep-379580112/)
+
+I don’t just use tools, I build them.
 
 ---
 
