@@ -1,5 +1,5 @@
 const os = require('os');
-//const axios = require('axios');
+//const axios = require('axios'); Postponed till the backend is done
 const config = require('./config');
 const logger = require('./utils/logger');
 const { ensureDependencies } = require('./utils/dependencies');
