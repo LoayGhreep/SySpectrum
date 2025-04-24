@@ -57,3 +57,18 @@ Built with a powerful Node.js agent, a blazing-fast Flutter dashboard, and a zer
 - 📡 Remote Restart / System Commands
 
 > *This module will be available privately under commercial licensing.*
+
+---
+
+## 🌍 Use Cases
+
+- 🛡️ Self-hosted server monitoring
+- ⚙️ DevOps observability without Prometheus
+- 🖥️ Personal lab or home infrastructure
+- 👨‍💻 Lightweight alternative to Zabbix, Netdata, etc.
+- 🧪 Internal diagnostics or CI/CD runner visibility
+
+---
+
+## 📜 License
+> *This project is licensed under the MIT License. Phase 2 features are commercially licensed.*
