@@ -22,8 +22,8 @@ Built with a powerful Node.js agent, a blazing-fast Flutter dashboard, and a zer
 
 ## ⚙️ Architecture Overview
 
-    +------------------+     Push API     +------------------+
-    |  Node.js Agent   |  ─────────────▶  |  Backend Server  |
+    +------------------+     Push API    +------------------+
+    |  Node.js Agent   |  ────────────▶ |  Backend Server   |
     |------------------|                 |------------------|
     |  Shell Commands  |                 |  NeDB Storage    |
     |  JSON Output     |                 |  RESTful API     |
