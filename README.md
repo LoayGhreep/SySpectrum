@@ -45,6 +45,7 @@ Built with a powerful Node.js agent, a blazing-fast Flutter dashboard, and a zer
 | 🧰 Processes  | Top processes by CPU & RAM            |
 | 🌡️ Temp       | CPU / system temperature (if available)|
 
+> *Easy peasy?*
 ---
 
 ## 🔧 Phase 2 (Coming Soon — PRO Tier)
