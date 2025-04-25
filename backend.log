@@ -1,0 +1,3 @@
+[2025-04-24T21:35:33.638Z] INFO: 🧠 Syspectrum backend running on port 8080
+[2025-04-24T21:35:47.438Z] INFO: [REQ] GET /api/telemetry/ping
+[2025-04-24T21:35:47.539Z] INFO: [REQ] GET /favicon.ico
