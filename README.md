@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./logo.png" alt="SySpectrum Logo" width="250"/>
+  <img src="./syspectrum.png" alt="SySpectrum Logo" width="250"/>
 </p>
 
 # 🛰️ Syspectrum
