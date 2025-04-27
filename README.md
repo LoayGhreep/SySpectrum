@@ -1,4 +1,6 @@
-# 🛰️ Syspectrum
+<p align="center">
+  <img src="./logo.png" alt="SySpectrum Logo" width="250"/>
+</p>
 
 **Syspectrum** is a high-performance, agent-based system monitoring platform built for developers, sysadmins, and DevOps engineers who want **real-time, low-footprint, no-nonsense telemetry** — without vendor lock-in or bloat.
 
