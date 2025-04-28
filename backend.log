@@ -9,3 +9,89 @@
 [2025-04-28T11:22:59.328Z] INFO: ✅ Tables created successfully!
 [2025-04-28T11:22:59.393Z] INFO: ✅ Default admin user created (username: admin, password: admin123)
 [2025-04-28T11:22:59.394Z] INFO: ✅ Database migrations completed successfully!
+[2025-04-28T13:26:43.442Z] INFO: 📦 SQLite DB loaded from /mnt/c/Users/Anonymous/Desktop/Personal/Projects/SySpectrum/syspectrum.db
+[2025-04-28T13:26:44.850Z] INFO: 🧠 Syspectrum backend running on port 8080
+[2025-04-28T13:31:22.967Z] INFO: 📦 SQLite DB loaded from /mnt/c/Users/Anonymous/Desktop/Personal/Projects/SySpectrum/syspectrum.db
+[2025-04-28T13:31:24.358Z] INFO: 🧠 Syspectrum backend running on port 8080
+[2025-04-28T13:31:35.251Z] INFO: [REQ] GET /healthz
+[2025-04-28T13:33:19.624Z] INFO: [REQ] GET /healthz
+[2025-04-28T13:33:20.040Z] INFO: [REQ] GET /healthz
+[2025-04-28T13:33:20.361Z] INFO: [REQ] GET /healthz
+[2025-04-28T13:33:20.587Z] INFO: [REQ] GET /healthz
+[2025-04-28T13:33:20.827Z] INFO: [REQ] GET /healthz
+[2025-04-28T13:33:21.055Z] INFO: [REQ] GET /healthz
+[2025-04-28T13:33:21.265Z] INFO: [REQ] GET /healthz
+[2025-04-28T13:33:21.492Z] INFO: [REQ] GET /healthz
+[2025-04-28T13:33:21.698Z] INFO: [REQ] GET /healthz
+[2025-04-28T13:33:21.923Z] INFO: [REQ] GET /healthz
+[2025-04-28T13:33:22.150Z] INFO: [REQ] GET /healthz
+[2025-04-28T13:33:22.391Z] INFO: [REQ] GET /healthz
+[2025-04-28T13:33:22.624Z] INFO: [REQ] GET /healthz
+[2025-04-28T13:33:22.851Z] INFO: [REQ] GET /healthz
+[2025-04-28T13:33:23.056Z] INFO: [REQ] GET /healthz
+[2025-04-28T13:33:23.295Z] INFO: [REQ] GET /healthz
+[2025-04-28T13:33:23.540Z] INFO: [REQ] GET /healthz
+[2025-04-28T13:33:24.052Z] INFO: [REQ] GET /healthz
+[2025-04-28T13:39:47.423Z] INFO: [REQ] GET /healthz
+[2025-04-28T13:39:58.105Z] INFO: [REQ] GET /healthz
+[2025-04-28T13:43:45.784Z] INFO: [REQ] GET /healthz
+[2025-04-28T13:50:28.821Z] INFO: [REQ] GET /healthz
+[2025-04-28T13:50:33.587Z] INFO: [REQ] GET /healthz
+[2025-04-28T13:50:46.238Z] INFO: [REQ] GET /healthz
+[2025-04-28T13:51:44.983Z] INFO: [REQ] GET /healthz
+[2025-04-28T13:53:10.998Z] INFO: [REQ] GET /healthz
+[2025-04-28T13:58:43.884Z] INFO: [REQ] GET /healthz
+[2025-04-28T13:59:36.038Z] INFO: [REQ] POST /api/users/login
+[2025-04-28T13:59:36.041Z] ERROR: [ERR] rules is not iterable
+[2025-04-28T14:00:16.597Z] INFO: 📦 SQLite DB loaded from /mnt/c/Users/Anonymous/Desktop/Personal/Projects/SySpectrum/syspectrum.db
+[2025-04-28T14:00:18.038Z] INFO: 🧠 Syspectrum backend running on port 8080
+[2025-04-28T14:00:28.899Z] INFO: [REQ] POST /api/users/login
+[2025-04-28T14:00:28.902Z] ERROR: [ERR] rules is not iterable
+[2025-04-28T14:08:36.107Z] INFO: 📦 SQLite DB loaded from /mnt/c/Users/Anonymous/Desktop/Personal/Projects/SySpectrum/syspectrum.db
+[2025-04-28T14:08:37.488Z] INFO: 🧠 Syspectrum backend running on port 8080
+[2025-04-28T14:08:42.247Z] INFO: [REQ] POST /api/users/login
+[2025-04-28T14:11:09.247Z] INFO: 📦 SQLite DB loaded from /mnt/c/Users/Anonymous/Desktop/Personal/Projects/SySpectrum/syspectrum.db
+[2025-04-28T14:11:10.742Z] INFO: 🧠 Syspectrum backend running on port 8080
+[2025-04-28T14:11:14.728Z] INFO: [REQ] POST /api/users/login
+[2025-04-28T14:12:04.142Z] INFO: 📦 SQLite DB loaded from /mnt/c/Users/Anonymous/Desktop/Personal/Projects/SySpectrum/syspectrum.db
+[2025-04-28T14:12:05.483Z] INFO: 🧠 Syspectrum backend running on port 8080
+[2025-04-28T14:12:08.481Z] INFO: [REQ] POST /api/users/login
+[2025-04-28T14:13:30.229Z] INFO: [REQ] POST /api/users/login
+[2025-04-28T14:13:55.319Z] INFO: 📦 SQLite DB loaded from /mnt/c/Users/Anonymous/Desktop/Personal/Projects/SySpectrum/syspectrum.db
+[2025-04-28T14:13:56.818Z] INFO: 🧠 Syspectrum backend running on port 8080
+[2025-04-28T14:13:59.433Z] INFO: [REQ] POST /api/users/login
+[2025-04-28T14:14:16.402Z] INFO: 📦 SQLite DB loaded from /mnt/c/Users/Anonymous/Desktop/Personal/Projects/SySpectrum/syspectrum.db
+[2025-04-28T14:14:17.844Z] INFO: 🧠 Syspectrum backend running on port 8080
+[2025-04-28T14:14:19.832Z] INFO: [REQ] POST /api/users/login
+[2025-04-28T14:14:19.834Z] INFO: [VALIDATE] No rules passed, direct validation mode
+[2025-04-28T14:18:33.712Z] INFO: 📦 SQLite DB loaded from /mnt/c/Users/Anonymous/Desktop/Personal/Projects/SySpectrum/syspectrum.db
+[2025-04-28T14:18:35.173Z] INFO: 🧠 Syspectrum backend running on port 8080
+[2025-04-28T14:18:39.462Z] INFO: [REQ] POST /api/users/login
+[2025-04-28T14:18:39.464Z] INFO: [VALIDATE] No rules passed, direct validation mode
+[2025-04-28T14:20:45.462Z] INFO: 📦 SQLite DB loaded from /mnt/c/Users/Anonymous/Desktop/Personal/Projects/SySpectrum/syspectrum.db
+[2025-04-28T14:20:46.904Z] INFO: [VALIDATE] Validation rules attached (2 rules)
+[2025-04-28T14:20:46.915Z] INFO: 🧠 Syspectrum backend running on port 8080
+[2025-04-28T14:20:49.231Z] INFO: [REQ] POST /api/users/login
+[2025-04-28T14:20:49.234Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-04-28T14:20:49.234Z] INFO: Model-Users => admin
+[2025-04-28T14:21:56.778Z] INFO: 📦 SQLite DB loaded from /mnt/c/Users/Anonymous/Desktop/Personal/Projects/SySpectrum/syspectrum.db
+[2025-04-28T14:21:58.174Z] INFO: [VALIDATE] Validation rules attached (2 rules)
+[2025-04-28T14:21:58.185Z] INFO: 🧠 Syspectrum backend running on port 8080
+[2025-04-28T14:22:02.038Z] INFO: [REQ] POST /api/users/login
+[2025-04-28T14:22:02.041Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-04-28T14:28:41.428Z] INFO: 📦 SQLite DB loaded from /mnt/c/Users/Anonymous/Desktop/Personal/Projects/SySpectrum/syspectrum.db
+[2025-04-28T14:28:42.931Z] INFO: [VALIDATE] Validation rules attached (2 rules)
+[2025-04-28T14:28:42.931Z] INFO: [VALIDATE] Validation rules attached (3 rules)
+[2025-04-28T14:28:42.932Z] INFO: [VALIDATE] Validation rules attached (2 rules)
+[2025-04-28T14:28:42.943Z] INFO: 🧠 Syspectrum backend running on port 8080
+[2025-04-28T14:28:43.999Z] INFO: [REQ] POST /api/users/login
+[2025-04-28T14:28:44.002Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-04-28T14:33:42.413Z] INFO: 📦 SQLite DB loaded from /mnt/c/Users/Anonymous/Desktop/Personal/Projects/SySpectrum/syspectrum.db
+[2025-04-28T14:33:43.833Z] INFO: [VALIDATE] Validation rules attached (2 rules)
+[2025-04-28T14:33:43.834Z] INFO: [VALIDATE] Validation rules attached (3 rules)
+[2025-04-28T14:33:43.834Z] INFO: [VALIDATE] Validation rules attached (2 rules)
+[2025-04-28T14:33:43.845Z] INFO: 🧠 Syspectrum backend running on port 8080
+[2025-04-28T14:33:47.092Z] INFO: [REQ] POST /api/users/login
+[2025-04-28T14:33:47.094Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-04-28T14:33:47.094Z] INFO: [POST /login] Login attempt started
+[2025-04-28T14:33:47.162Z] INFO: [POST /login] Login successful for username: admin
