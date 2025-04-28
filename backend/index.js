@@ -26,9 +26,9 @@ app.use((req, res, next) => {
 
 // Routes
 app.use('/api/telemetry', telemetryRoutes);
-//app.use('/api/agents', agentsRoutes);
-//app.use('/api/users', usersRoutes);
-//app.use('/api/settings', settingsRoutes);
+app.use('/api/agents', agentsRoutes);
+app.use('/api/users', usersRoutes);
+app.use('/api/settings', settingsRoutes);
 
 // Health Check
 app.get('/healthz', (req, res) => res.send({ status: 'ok' }));

@@ -5,3 +5,5 @@
 [2025-04-25T12:36:38.297Z] INFO: 📦 SQLite DB loaded from /mnt/c/Users/Anonymous/Desktop/Personal/Projects/SySpectrum/syspectrum.db
 [2025-04-25T12:36:38.301Z] INFO: 🚀 Running database migrations...
 [2025-04-25T12:36:38.354Z] INFO: ✅ Database migrations completed successfully!
+[2025-04-28T11:13:10.081Z] INFO: 📦 SQLite DB loaded from /mnt/c/Users/Anonymous/Desktop/Personal/Projects/SySpectrum/syspectrum.db
+[2025-04-28T11:13:15.701Z] INFO: 🧠 Syspectrum backend running on port 8080
