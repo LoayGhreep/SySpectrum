@@ -1,9 +1,11 @@
-[2025-04-24T21:35:33.638Z] INFO: 🧠 Syspectrum backend running on port 8080
-[2025-04-24T21:35:47.438Z] INFO: [REQ] GET /api/telemetry/ping
-[2025-04-24T21:35:47.539Z] INFO: [REQ] GET /favicon.ico
-[2025-04-25T11:39:49.034Z] INFO: 🧠 Syspectrum backend running on port 8080
-[2025-04-25T12:36:38.297Z] INFO: 📦 SQLite DB loaded from /mnt/c/Users/Anonymous/Desktop/Personal/Projects/SySpectrum/syspectrum.db
-[2025-04-25T12:36:38.301Z] INFO: 🚀 Running database migrations...
-[2025-04-25T12:36:38.354Z] INFO: ✅ Database migrations completed successfully!
-[2025-04-28T11:13:10.081Z] INFO: 📦 SQLite DB loaded from /mnt/c/Users/Anonymous/Desktop/Personal/Projects/SySpectrum/syspectrum.db
-[2025-04-28T11:13:15.701Z] INFO: 🧠 Syspectrum backend running on port 8080
+[2025-04-28T11:15:18.501Z] INFO: 📦 SQLite DB loaded from /mnt/c/Users/Anonymous/Desktop/Personal/Projects/SySpectrum/syspectrum.db
+[2025-04-28T11:15:18.502Z] INFO: 🚀 Running database migrations...
+[2025-04-28T11:15:18.525Z] INFO: ✅ Database migrations completed successfully!
+[2025-04-28T11:15:27.852Z] INFO: 📦 SQLite DB loaded from /mnt/c/Users/Anonymous/Desktop/Personal/Projects/SySpectrum/syspectrum.db
+[2025-04-28T11:15:29.262Z] INFO: 🧠 Syspectrum backend running on port 8080
+[2025-04-28T11:16:09.174Z] INFO: [REQ] POST /api/login
+[2025-04-28T11:22:58.819Z] INFO: 📦 SQLite DB loaded from /mnt/c/Users/Anonymous/Desktop/Personal/Projects/SySpectrum/syspectrum.db
+[2025-04-28T11:22:59.306Z] INFO: 🚀 Running database migrations...
+[2025-04-28T11:22:59.328Z] INFO: ✅ Tables created successfully!
+[2025-04-28T11:22:59.393Z] INFO: ✅ Default admin user created (username: admin, password: admin123)
+[2025-04-28T11:22:59.394Z] INFO: ✅ Database migrations completed successfully!
