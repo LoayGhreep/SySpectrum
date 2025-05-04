@@ -257,3 +257,235 @@
 [2025-05-04T14:09:07.934Z] INFO: [VALIDATE] Validation passed (rules applied)
 [2025-05-04T14:09:07.935Z] INFO: [POST /login] Login attempt started
 [2025-05-04T14:09:07.960Z] ERROR: [POST /login] Login error no such table: users
+[2025-05-04T14:13:52.467Z] INFO: 📦 SQLite DB loaded from /mnt/c/Users/Anonymous/Desktop/Personal/Projects/SySpectrum/syspectrum.db
+[2025-05-04T14:13:53.580Z] INFO: [VALIDATE] Validation rules attached (2 rules)
+[2025-05-04T14:13:53.581Z] INFO: [VALIDATE] Validation rules attached (2 rules)
+[2025-05-04T14:13:53.582Z] INFO: [VALIDATE] Validation rules attached (2 rules)
+[2025-05-04T14:13:53.586Z] INFO: [VALIDATE] Validation rules attached (3 rules)
+[2025-05-04T14:13:53.587Z] INFO: [VALIDATE] Validation rules attached (1 rules)
+[2025-05-04T14:13:53.587Z] INFO: [VALIDATE] Validation rules attached (1 rules)
+[2025-05-04T14:13:53.587Z] INFO: [VALIDATE] Validation rules attached (2 rules)
+[2025-05-04T14:13:53.854Z] INFO: [VALIDATE] Validation rules attached (2 rules)
+[2025-05-04T14:13:53.855Z] INFO: [VALIDATE] Validation rules attached (3 rules)
+[2025-05-04T14:13:53.855Z] INFO: [VALIDATE] Validation rules attached (2 rules)
+[2025-05-04T14:13:53.862Z] INFO: [VALIDATE] Validation rules attached (1 rules)
+[2025-05-04T14:13:53.862Z] INFO: [VALIDATE] Validation rules attached (1 rules)
+[2025-05-04T14:13:53.873Z] INFO: 🚀 Running database migrations...
+[2025-05-04T14:13:53.895Z] INFO: ✅ Tables created from schema.sql
+[2025-05-04T14:13:53.963Z] INFO: ✅ Default admin user created (username: admin, password: admin123)
+[2025-05-04T14:13:53.964Z] INFO: ✅ Database migrations completed successfully!
+[2025-05-04T14:13:53.964Z] INFO: ✅ Migrations completed
+[2025-05-04T14:13:53.965Z] INFO: 🧠 Syspectrum backend running on port 8080
+[2025-05-04T14:14:18.104Z] INFO: [REQ] POST /api/users/login
+[2025-05-04T14:14:18.107Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-04T14:14:18.107Z] INFO: [POST /login] Login attempt started
+[2025-05-04T14:14:18.162Z] INFO: [POST /login] Login successful for username: admin
+[2025-05-04T14:14:18.252Z] INFO: [REQ] GET /api/users
+[2025-05-04T14:14:18.254Z] INFO: [GET /users] Listing all users
+[2025-05-04T14:14:18.344Z] INFO: [REQ] POST /api/users
+[2025-05-04T14:14:18.346Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-04T14:14:18.346Z] INFO: [POST /users] Creating user: newuser
+[2025-05-04T14:14:18.400Z] INFO: 🆕 User created: newuser (operator)
+[2025-05-04T14:14:18.400Z] INFO: [POST /users] User created: newuser
+[2025-05-04T14:14:18.470Z] INFO: [REQ] POST /api/users/2
+[2025-05-04T14:14:18.471Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-04T14:14:18.471Z] INFO: [POST /users/:id] Updating user with ID: 2
+[2025-05-04T14:14:18.527Z] INFO: 🔑 Password updated for user ID: 2
+[2025-05-04T14:14:18.528Z] INFO: [POST /users/:id] User updated: 2
+[2025-05-04T14:14:18.612Z] INFO: [REQ] DELETE /api/users/2
+[2025-05-04T14:14:18.613Z] INFO: [DELETE /users/:id] Deleting user with ID: 2
+[2025-05-04T14:14:18.622Z] INFO: 🗑️ User deleted: ID 2
+[2025-05-04T14:14:18.622Z] INFO: [DELETE /users/:id] User deleted: 2
+[2025-05-04T14:14:18.675Z] INFO: [REQ] GET /api/users/me
+[2025-05-04T14:14:18.676Z] INFO: [GET /me] Fetching user info for ID: 1
+[2025-05-04T14:14:18.722Z] INFO: [REQ] GET /api/agents
+[2025-05-04T14:14:18.818Z] INFO: [REQ] GET /api/agents/test-host
+[2025-05-04T14:14:18.882Z] INFO: [REQ] PATCH /api/agents/test-host
+[2025-05-04T14:14:18.884Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-04T14:14:18.886Z] INFO: ✏️ Agent updated: test-host
+[2025-05-04T14:14:18.960Z] INFO: [REQ] GET /api/agents/test-host/health
+[2025-05-04T14:14:19.022Z] INFO: [REQ] GET /api/agents/claim?hostname=test-host
+[2025-05-04T14:14:19.023Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-04T14:14:19.085Z] INFO: [REQ] POST /api/agents/register
+[2025-05-04T14:14:19.086Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-04T14:14:19.096Z] INFO: 🎕 Agent registered and pending: test-host → agent_1746368059086_17657
+[2025-05-04T14:14:19.177Z] INFO: [REQ] POST /api/agents/handshake
+[2025-05-04T14:14:19.177Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-04T14:14:19.180Z] WARN: ❌ Acknowledge failed or invalid status: test-host
+[2025-05-04T14:14:19.270Z] INFO: [REQ] GET /api/telemetry/test-host/summary
+[2025-05-04T14:14:19.271Z] INFO: [GET /telemetry/test-host/summary] Fetching latest telemetry
+[2025-05-04T14:14:19.274Z] WARN: [GET /telemetry/test-host/summary] No telemetry found
+[2025-05-04T14:14:19.333Z] INFO: [REQ] GET /api/telemetry/test-host/chart?from=1710000000000&to=1710500000000
+[2025-05-04T14:14:19.335Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-04T14:14:19.335Z] INFO: [GET /telemetry/test-host/chart] Fetching telemetry timeseries
+[2025-05-04T14:14:19.336Z] INFO: [GET /telemetry/test-host/chart] Timeseries data retrieved
+[2025-05-04T14:14:19.397Z] INFO: [REQ] GET /api/telemetry/test-host/table?page=1&limit=50
+[2025-05-04T14:14:19.398Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-04T14:14:19.399Z] INFO: [GET /telemetry/test-host/table] Fetching telemetry logs
+[2025-05-04T14:14:19.400Z] INFO: [GET /telemetry/test-host/table] Logs retrieved (page 1, limit 50)
+[2025-05-04T14:14:19.460Z] INFO: [REQ] POST /api/telemetry
+[2025-05-04T14:14:19.460Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-04T14:14:19.460Z] INFO: [POST /telemetry] Receiving telemetry from hostname: test-host
+[2025-05-04T14:14:19.463Z] ERROR: ❌ Failed to insert telemetry: NOT NULL constraint failed: telemetry.agent_id
+[2025-05-04T14:14:19.463Z] ERROR: [POST /telemetry] Error inserting telemetry NOT NULL constraint failed: telemetry.agent_id
+[2025-05-04T14:14:19.551Z] INFO: [REQ] GET /api/settings
+[2025-05-04T14:14:19.552Z] INFO: [GET /settings] Fetching all settings
+[2025-05-04T14:14:19.554Z] INFO: [GET /settings] Retrieved 0 settings
+[2025-05-04T14:14:19.615Z] INFO: [REQ] PATCH /api/settings
+[2025-05-04T14:14:19.616Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-04T14:14:19.617Z] INFO: [PATCH /settings] Updating settings
+[2025-05-04T14:14:19.629Z] INFO: 🆕 Setting created: dashboard_refresh_interval
+[2025-05-04T14:14:19.629Z] INFO: [PATCH /settings] Updated setting: dashboard_refresh_interval -> 10
+[2025-05-04T14:14:19.709Z] INFO: [REQ] GET /api/settings/themes
+[2025-05-04T14:14:19.710Z] INFO: [GET /settings/themes] Fetching available themes
+[2025-05-04T14:14:19.710Z] INFO: [GET /settings/themes] Themes list sent
+[2025-05-04T14:14:19.786Z] INFO: [REQ] GET /api/settings/retention
+[2025-05-04T14:14:19.787Z] INFO: [GET /settings/retention] Fetching retention setting
+[2025-05-04T14:14:19.789Z] INFO: [GET /settings/retention] Retention days: 30
+[2025-05-04T14:14:19.881Z] INFO: [REQ] PATCH /api/settings/retention
+[2025-05-04T14:14:19.882Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-04T14:14:19.882Z] INFO: [PATCH /settings/retention] Updating retention to 90 days
+[2025-05-04T14:14:19.895Z] INFO: 🆕 Setting created: retention_days
+[2025-05-04T14:14:19.896Z] INFO: [PATCH /settings/retention] Retention updated to 90 days
+[2025-05-04T14:16:16.818Z] INFO: [REQ] POST /api/users/login
+[2025-05-04T14:16:16.819Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-04T14:16:16.819Z] INFO: [POST /login] Login attempt started
+[2025-05-04T14:16:16.868Z] INFO: [POST /login] Login successful for username: admin
+[2025-05-04T14:16:17.000Z] INFO: [REQ] POST /api/users
+[2025-05-04T14:16:17.001Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-04T14:16:17.001Z] INFO: [POST /users] Creating user: newuser
+[2025-05-04T14:16:17.059Z] INFO: 🆕 User created: newuser (operator)
+[2025-05-04T14:16:17.059Z] INFO: [POST /users] User created: newuser
+[2025-05-04T14:16:17.157Z] INFO: [REQ] POST /api/users/2
+[2025-05-04T14:16:17.159Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-04T14:16:17.159Z] INFO: [POST /users/:id] Updating user with ID: 2
+[2025-05-04T14:16:17.206Z] INFO: 🔑 Password updated for user ID: 2
+[2025-05-04T14:16:17.206Z] INFO: [POST /users/:id] User updated: 2
+[2025-05-04T14:16:17.298Z] INFO: [REQ] GET /api/users
+[2025-05-04T14:16:17.299Z] INFO: [GET /users] Listing all users
+[2025-05-04T14:16:17.393Z] INFO: [REQ] DELETE /api/users/2
+[2025-05-04T14:16:17.394Z] INFO: [DELETE /users/:id] Deleting user with ID: 2
+[2025-05-04T14:16:17.396Z] INFO: 🗑️ User deleted: ID 2
+[2025-05-04T14:16:17.396Z] INFO: [DELETE /users/:id] User deleted: 2
+[2025-05-04T14:16:17.502Z] INFO: [REQ] GET /api/users/me
+[2025-05-04T14:16:17.503Z] INFO: [GET /me] Fetching user info for ID: 1
+[2025-05-04T14:16:17.594Z] INFO: [REQ] GET /api/agents
+[2025-05-04T14:16:17.673Z] INFO: [REQ] GET /api/agents/test-host
+[2025-05-04T14:16:17.768Z] INFO: [REQ] PATCH /api/agents/test-host
+[2025-05-04T14:16:17.769Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-04T14:16:17.771Z] INFO: ✏️ Agent updated: test-host
+[2025-05-04T14:16:17.846Z] INFO: [REQ] GET /api/agents/test-host/health
+[2025-05-04T14:16:17.924Z] INFO: [REQ] GET /api/agents/claim?hostname=test-host
+[2025-05-04T14:16:17.925Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-04T14:16:18.017Z] INFO: [REQ] POST /api/agents/register
+[2025-05-04T14:16:18.018Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-04T14:16:18.019Z] INFO: 🌀 Registration repeated for existing hostname: test-host
+[2025-05-04T14:16:18.095Z] INFO: [REQ] POST /api/agents/handshake
+[2025-05-04T14:16:18.096Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-04T14:16:18.098Z] WARN: ❌ Acknowledge failed or invalid status: test-host
+[2025-05-04T14:16:18.205Z] INFO: [REQ] GET /api/telemetry/test-host/summary
+[2025-05-04T14:16:18.206Z] INFO: [GET /telemetry/test-host/summary] Fetching latest telemetry
+[2025-05-04T14:16:18.207Z] WARN: [GET /telemetry/test-host/summary] No telemetry found
+[2025-05-04T14:16:18.284Z] INFO: [REQ] GET /api/telemetry/test-host/chart?from=1710000000000&to=1710500000000
+[2025-05-04T14:16:18.285Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-04T14:16:18.285Z] INFO: [GET /telemetry/test-host/chart] Fetching telemetry timeseries
+[2025-05-04T14:16:18.286Z] INFO: [GET /telemetry/test-host/chart] Timeseries data retrieved
+[2025-05-04T14:16:18.360Z] INFO: [REQ] GET /api/telemetry/test-host/table?page=1&limit=50
+[2025-05-04T14:16:18.362Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-04T14:16:18.362Z] INFO: [GET /telemetry/test-host/table] Fetching telemetry logs
+[2025-05-04T14:16:18.364Z] INFO: [GET /telemetry/test-host/table] Logs retrieved (page 1, limit 50)
+[2025-05-04T14:16:18.440Z] INFO: [REQ] POST /api/telemetry
+[2025-05-04T14:16:18.440Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-04T14:16:18.440Z] INFO: [POST /telemetry] Receiving telemetry from hostname: test-host
+[2025-05-04T14:16:18.443Z] ERROR: ❌ Failed to insert telemetry: NOT NULL constraint failed: telemetry.agent_id
+[2025-05-04T14:16:18.444Z] ERROR: [POST /telemetry] Error inserting telemetry NOT NULL constraint failed: telemetry.agent_id
+[2025-05-04T14:16:18.518Z] INFO: [REQ] GET /api/settings
+[2025-05-04T14:16:18.519Z] INFO: [GET /settings] Fetching all settings
+[2025-05-04T14:16:18.521Z] INFO: [GET /settings] Retrieved 2 settings
+[2025-05-04T14:16:18.612Z] INFO: [REQ] PATCH /api/settings
+[2025-05-04T14:16:18.613Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-04T14:16:18.613Z] INFO: [PATCH /settings] Updating settings
+[2025-05-04T14:16:18.617Z] INFO: 🔄 Setting updated: dashboard_refresh_interval
+[2025-05-04T14:16:18.617Z] INFO: [PATCH /settings] Updated setting: dashboard_refresh_interval -> 10
+[2025-05-04T14:16:18.691Z] INFO: [REQ] GET /api/settings/themes
+[2025-05-04T14:16:18.692Z] INFO: [GET /settings/themes] Fetching available themes
+[2025-05-04T14:16:18.692Z] INFO: [GET /settings/themes] Themes list sent
+[2025-05-04T14:16:18.799Z] INFO: [REQ] GET /api/settings/retention
+[2025-05-04T14:16:18.800Z] INFO: [GET /settings/retention] Fetching retention setting
+[2025-05-04T14:16:18.803Z] INFO: [GET /settings/retention] Retention days: 90
+[2025-05-04T14:16:18.908Z] INFO: [REQ] PATCH /api/settings/retention
+[2025-05-04T14:16:18.909Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-04T14:16:18.909Z] INFO: [PATCH /settings/retention] Updating retention to 90 days
+[2025-05-04T14:16:18.913Z] INFO: 🔄 Setting updated: retention_days
+[2025-05-04T14:16:18.913Z] INFO: [PATCH /settings/retention] Retention updated to 90 days
+[2025-05-04T14:16:19.001Z] INFO: [REQ] POST /api/users/login
+[2025-05-04T14:16:19.002Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-04T14:16:19.002Z] INFO: [POST /login] Login attempt started
+[2025-05-04T14:16:19.049Z] INFO: [POST /login] Login successful for username: admin
+[2025-05-04T14:16:19.126Z] INFO: [REQ] POST /api/users
+[2025-05-04T14:16:19.128Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-04T14:16:19.128Z] INFO: [POST /users] Creating user: newuser
+[2025-05-04T14:16:19.175Z] ERROR: ❌ Failed to create user: UNIQUE constraint failed: users.username
+[2025-05-04T14:16:19.175Z] ERROR: [POST /users] Error creating user UNIQUE constraint failed: users.username
+[2025-05-04T14:16:19.283Z] INFO: [REQ] POST /api/users/2
+[2025-05-04T14:16:19.284Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-04T14:16:19.284Z] INFO: [POST /users/:id] Updating user with ID: 2
+[2025-05-04T14:16:19.333Z] INFO: 🔑 Password updated for user ID: 2
+[2025-05-04T14:16:19.334Z] INFO: [POST /users/:id] User updated: 2
+[2025-05-04T14:16:19.423Z] INFO: [REQ] GET /api/users
+[2025-05-04T14:16:19.424Z] INFO: [GET /users] Listing all users
+[2025-05-04T14:16:19.532Z] INFO: [REQ] DELETE /api/users/2
+[2025-05-04T14:16:19.533Z] INFO: [DELETE /users/:id] Deleting user with ID: 2
+[2025-05-04T14:16:19.535Z] INFO: 🗑️ User deleted: ID 2
+[2025-05-04T14:16:19.535Z] INFO: [DELETE /users/:id] User deleted: 2
+[2025-05-04T14:16:19.627Z] INFO: [REQ] GET /api/users/me
+[2025-05-04T14:16:19.628Z] INFO: [GET /me] Fetching user info for ID: 1
+[2025-05-04T14:16:19.720Z] INFO: [REQ] GET /api/agents
+[2025-05-04T14:16:19.831Z] INFO: [REQ] GET /api/agents/test-host
+[2025-05-04T14:16:19.956Z] INFO: [REQ] PATCH /api/agents/test-host
+[2025-05-04T14:16:19.957Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-04T14:16:19.959Z] INFO: ✏️ Agent updated: test-host
+[2025-05-04T14:16:20.049Z] INFO: [REQ] GET /api/agents/test-host/health
+[2025-05-04T14:16:20.158Z] INFO: [REQ] GET /api/agents/claim?hostname=test-host
+[2025-05-04T14:16:20.159Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-04T14:16:20.204Z] INFO: [REQ] POST /api/agents/register
+[2025-05-04T14:16:20.204Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-04T14:16:20.206Z] INFO: 🌀 Registration repeated for existing hostname: test-host
+[2025-05-04T14:16:20.330Z] INFO: [REQ] POST /api/agents/handshake
+[2025-05-04T14:16:20.330Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-04T14:16:20.334Z] WARN: ❌ Acknowledge failed or invalid status: test-host
+[2025-05-04T14:16:20.440Z] INFO: [REQ] GET /api/telemetry/test-host/summary
+[2025-05-04T14:16:20.441Z] INFO: [GET /telemetry/test-host/summary] Fetching latest telemetry
+[2025-05-04T14:16:20.442Z] WARN: [GET /telemetry/test-host/summary] No telemetry found
+[2025-05-04T14:16:20.551Z] INFO: [REQ] GET /api/telemetry/test-host/chart?from=1710000000000&to=1710500000000
+[2025-05-04T14:16:20.552Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-04T14:16:20.552Z] INFO: [GET /telemetry/test-host/chart] Fetching telemetry timeseries
+[2025-05-04T14:16:20.555Z] INFO: [GET /telemetry/test-host/chart] Timeseries data retrieved
+[2025-05-04T14:16:20.631Z] INFO: [REQ] GET /api/telemetry/test-host/table?page=1&limit=50
+[2025-05-04T14:16:20.632Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-04T14:16:20.632Z] INFO: [GET /telemetry/test-host/table] Fetching telemetry logs
+[2025-05-04T14:16:20.634Z] INFO: [GET /telemetry/test-host/table] Logs retrieved (page 1, limit 50)
+[2025-05-04T14:16:20.756Z] INFO: [REQ] POST /api/telemetry
+[2025-05-04T14:16:20.757Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-04T14:16:20.757Z] INFO: [POST /telemetry] Receiving telemetry from hostname: test-host
+[2025-05-04T14:16:20.760Z] ERROR: ❌ Failed to insert telemetry: NOT NULL constraint failed: telemetry.agent_id
+[2025-05-04T14:16:20.760Z] ERROR: [POST /telemetry] Error inserting telemetry NOT NULL constraint failed: telemetry.agent_id
+[2025-05-04T14:16:20.851Z] INFO: [REQ] GET /api/settings
+[2025-05-04T14:16:20.852Z] INFO: [GET /settings] Fetching all settings
+[2025-05-04T14:16:20.854Z] INFO: [GET /settings] Retrieved 2 settings
+[2025-05-04T14:16:20.974Z] INFO: [REQ] PATCH /api/settings
+[2025-05-04T14:16:20.975Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-04T14:16:20.976Z] INFO: [PATCH /settings] Updating settings
+[2025-05-04T14:16:20.980Z] INFO: 🔄 Setting updated: dashboard_refresh_interval
+[2025-05-04T14:16:20.980Z] INFO: [PATCH /settings] Updated setting: dashboard_refresh_interval -> 10
+[2025-05-04T14:16:21.083Z] INFO: [REQ] GET /api/settings/themes
+[2025-05-04T14:16:21.084Z] INFO: [GET /settings/themes] Fetching available themes
+[2025-05-04T14:16:21.084Z] INFO: [GET /settings/themes] Themes list sent
+[2025-05-04T14:16:21.193Z] INFO: [REQ] GET /api/settings/retention
+[2025-05-04T14:16:21.194Z] INFO: [GET /settings/retention] Fetching retention setting
+[2025-05-04T14:16:21.196Z] INFO: [GET /settings/retention] Retention days: 90
+[2025-05-04T14:16:21.319Z] INFO: [REQ] PATCH /api/settings/retention
+[2025-05-04T14:16:21.320Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-04T14:16:21.320Z] INFO: [PATCH /settings/retention] Updating retention to 90 days
+[2025-05-04T14:16:21.324Z] INFO: 🔄 Setting updated: retention_days
+[2025-05-04T14:16:21.324Z] INFO: [PATCH /settings/retention] Retention updated to 90 days
