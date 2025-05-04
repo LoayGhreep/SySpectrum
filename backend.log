@@ -489,3 +489,31 @@
 [2025-05-04T14:16:21.320Z] INFO: [PATCH /settings/retention] Updating retention to 90 days
 [2025-05-04T14:16:21.324Z] INFO: 🔄 Setting updated: retention_days
 [2025-05-04T14:16:21.324Z] INFO: [PATCH /settings/retention] Retention updated to 90 days
+[2025-05-04T14:22:09.391Z] INFO: 📦 SQLite DB loaded from /mnt/c/Users/Anonymous/Desktop/Personal/Projects/SySpectrum/syspectrum.db
+[2025-05-04T14:22:10.518Z] INFO: [VALIDATE] Validation rules attached (2 rules)
+[2025-05-04T14:22:10.520Z] INFO: [VALIDATE] Validation rules attached (2 rules)
+[2025-05-04T14:22:10.521Z] INFO: [VALIDATE] Validation rules attached (2 rules)
+[2025-05-04T14:22:10.525Z] INFO: [VALIDATE] Validation rules attached (3 rules)
+[2025-05-04T14:22:10.525Z] INFO: [VALIDATE] Validation rules attached (1 rules)
+[2025-05-04T14:22:10.526Z] INFO: [VALIDATE] Validation rules attached (1 rules)
+[2025-05-04T14:22:10.526Z] INFO: [VALIDATE] Validation rules attached (2 rules)
+[2025-05-04T14:22:10.805Z] INFO: [VALIDATE] Validation rules attached (2 rules)
+[2025-05-04T14:22:10.806Z] INFO: [VALIDATE] Validation rules attached (3 rules)
+[2025-05-04T14:22:10.807Z] INFO: [VALIDATE] Validation rules attached (2 rules)
+[2025-05-04T14:22:10.813Z] INFO: [VALIDATE] Validation rules attached (1 rules)
+[2025-05-04T14:22:10.814Z] INFO: [VALIDATE] Validation rules attached (1 rules)
+[2025-05-04T14:22:10.822Z] INFO: 🚀 Running database migrations...
+[2025-05-04T14:22:10.844Z] INFO: ✅ Tables created from schema.sql
+[2025-05-04T14:22:10.846Z] INFO: ℹ️ Default admin user already exists.
+[2025-05-04T14:22:10.846Z] INFO: ✅ Database migrations completed successfully!
+[2025-05-04T14:22:10.847Z] INFO: ✅ Migrations completed
+[2025-05-04T14:22:10.848Z] INFO: 🧠 Syspectrum backend running on port 8080
+[2025-05-04T14:25:30.953Z] INFO: [REQ] POST /api/agents/register
+[2025-05-04T14:25:30.956Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-04T14:25:30.966Z] INFO: 🎕 Agent registered and pending: DESKTOP-TBUNGH6 → agent_1746368730956_52692
+[2025-05-04T14:25:30.973Z] INFO: [REQ] GET /api/agents/claim?hostname=DESKTOP-TBUNGH6
+[2025-05-04T14:25:30.974Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-04T14:25:45.986Z] INFO: [REQ] GET /api/agents/claim?hostname=DESKTOP-TBUNGH6
+[2025-05-04T14:25:45.987Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-04T14:26:01.003Z] INFO: [REQ] GET /api/agents/claim?hostname=DESKTOP-TBUNGH6
+[2025-05-04T14:26:01.003Z] INFO: [VALIDATE] Validation passed (rules applied)

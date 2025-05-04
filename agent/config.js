@@ -1,5 +1,5 @@
 module.exports = {
-  backendUrl: 'http://localhost:8080/api/telemetry',
+  baseUrl: 'http://localhost:8080',
   pushInterval: 10000, // every 10 seconds
   heartbeatInterval: 5000, // heartbeat every 5s
   logFile: 'app.log',
