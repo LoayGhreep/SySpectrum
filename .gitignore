@@ -2,3 +2,6 @@ node_modules/
 .gitignore
 backend.log
 syspectrum.db
+agent/app.log
+agent/buffer.db
+agent/agent.json

@@ -95,3 +95,165 @@
 [2025-04-28T14:33:47.094Z] INFO: [VALIDATE] Validation passed (rules applied)
 [2025-04-28T14:33:47.094Z] INFO: [POST /login] Login attempt started
 [2025-04-28T14:33:47.162Z] INFO: [POST /login] Login successful for username: admin
+[2025-04-28T14:54:17.882Z] INFO: 📦 SQLite DB loaded from /mnt/c/Users/Anonymous/Desktop/Personal/Projects/SySpectrum/syspectrum.db
+[2025-04-28T14:54:18.973Z] INFO: [VALIDATE] Validation rules attached (2 rules)
+[2025-04-28T14:54:18.975Z] INFO: [VALIDATE] Validation rules attached (2 rules)
+[2025-04-28T14:54:18.975Z] INFO: [VALIDATE] Validation rules attached (2 rules)
+[2025-04-28T14:54:18.997Z] INFO: [VALIDATE] Validation rules attached (2 rules)
+[2025-04-28T14:54:19.269Z] INFO: [VALIDATE] Validation rules attached (2 rules)
+[2025-04-28T14:54:19.270Z] INFO: [VALIDATE] Validation rules attached (3 rules)
+[2025-04-28T14:54:19.271Z] INFO: [VALIDATE] Validation rules attached (2 rules)
+[2025-04-28T14:54:19.278Z] INFO: [VALIDATE] Validation rules attached (1 rules)
+[2025-04-28T14:54:19.278Z] INFO: [VALIDATE] Validation rules attached (1 rules)
+[2025-04-28T14:54:19.282Z] INFO: 🧠 Syspectrum backend running on port 8080
+[2025-05-01T14:13:57.412Z] INFO: 📦 SQLite DB loaded from /mnt/c/Users/Anonymous/Desktop/Personal/Projects/SySpectrum/syspectrum.db
+[2025-05-01T14:14:01.008Z] INFO: [VALIDATE] Validation rules attached (2 rules)
+[2025-05-01T14:14:01.010Z] INFO: [VALIDATE] Validation rules attached (2 rules)
+[2025-05-01T14:14:01.011Z] INFO: [VALIDATE] Validation rules attached (2 rules)
+[2025-05-01T14:14:01.032Z] INFO: [VALIDATE] Validation rules attached (2 rules)
+[2025-05-01T14:14:02.084Z] INFO: [VALIDATE] Validation rules attached (2 rules)
+[2025-05-01T14:14:02.085Z] INFO: [VALIDATE] Validation rules attached (3 rules)
+[2025-05-01T14:14:02.086Z] INFO: [VALIDATE] Validation rules attached (2 rules)
+[2025-05-01T14:14:02.123Z] INFO: [VALIDATE] Validation rules attached (1 rules)
+[2025-05-01T14:14:02.124Z] INFO: [VALIDATE] Validation rules attached (1 rules)
+[2025-05-01T14:14:02.129Z] INFO: 🧠 Syspectrum backend running on port 8080
+[2025-05-01T14:14:07.121Z] INFO: [REQ] POST /api/users/login
+[2025-05-01T14:14:07.124Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-01T14:14:07.125Z] INFO: [POST /login] Login attempt started
+[2025-05-01T14:14:07.196Z] INFO: [POST /login] Login successful for username: admin
+[2025-05-01T14:14:07.400Z] INFO: [REQ] GET /api/users
+[2025-05-01T14:14:07.589Z] INFO: [REQ] POST /api/users
+[2025-05-01T14:14:07.793Z] INFO: [REQ] POST /api/users/2
+[2025-05-01T14:14:07.996Z] INFO: [REQ] DELETE /api/users/2
+[2025-05-01T14:14:08.183Z] INFO: [REQ] GET /api/agents
+[2025-05-01T14:14:08.373Z] INFO: [REQ] GET /api/agents/test-host
+[2025-05-01T14:14:08.577Z] INFO: [REQ] PATCH /api/agents/test-host
+[2025-05-01T14:14:08.793Z] INFO: [REQ] GET /api/agents/test-host/health
+[2025-05-01T14:14:09.012Z] INFO: [REQ] POST /api/telemetry
+[2025-05-01T14:14:09.013Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-01T14:14:09.013Z] INFO: [POST /telemetry] Receiving telemetry from hostname: test-host
+[2025-05-01T14:14:09.028Z] INFO: ✅ Telemetry inserted for host: test-host
+[2025-05-01T14:14:09.037Z] INFO: 🆕 Agent registered: test-host
+[2025-05-01T14:14:09.037Z] INFO: [POST /telemetry] Telemetry accepted and agent upserted: test-host
+[2025-05-01T14:14:09.231Z] INFO: [REQ] GET /api/telemetry/test-host/summary
+[2025-05-01T14:14:09.435Z] INFO: [REQ] GET /api/telemetry/test-host/chart?from=1700000000000&to=1800000000000
+[2025-05-01T14:14:09.624Z] INFO: [REQ] GET /api/telemetry/test-host/table?page=1&limit=50
+[2025-05-01T14:14:09.812Z] INFO: [REQ] GET /api/settings
+[2025-05-01T14:14:10.017Z] INFO: [REQ] PATCH /api/settings
+[2025-05-01T14:14:10.205Z] INFO: [REQ] GET /api/settings/themes
+[2025-05-01T14:14:10.423Z] INFO: [REQ] GET /api/settings/retention
+[2025-05-01T14:14:10.612Z] INFO: [REQ] PATCH /api/settings/retention
+[2025-05-01T15:11:58.888Z] INFO: [REQ] POST /api/users/login
+[2025-05-01T15:11:58.889Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-01T15:11:58.889Z] INFO: [POST /login] Login attempt started
+[2025-05-01T15:11:58.938Z] INFO: [POST /login] Login successful for username: admin
+[2025-05-01T15:11:59.148Z] INFO: [REQ] GET /api/users
+[2025-05-01T15:11:59.352Z] INFO: [REQ] POST /api/users
+[2025-05-01T15:11:59.539Z] INFO: [REQ] POST /api/users/2
+[2025-05-01T15:11:59.742Z] INFO: [REQ] DELETE /api/users/2
+[2025-05-01T15:11:59.960Z] INFO: [REQ] GET /api/agents
+[2025-05-01T15:12:00.166Z] INFO: [REQ] GET /api/agents/test-host
+[2025-05-01T15:12:00.372Z] INFO: [REQ] PATCH /api/agents/test-host
+[2025-05-01T15:12:00.578Z] INFO: [REQ] GET /api/agents/test-host/health
+[2025-05-01T15:12:00.765Z] INFO: [REQ] POST /api/telemetry
+[2025-05-01T15:12:00.766Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-01T15:12:00.766Z] INFO: [POST /telemetry] Receiving telemetry from hostname: test-host
+[2025-05-01T15:12:00.780Z] INFO: ✅ Telemetry inserted for host: test-host
+[2025-05-01T15:12:00.790Z] INFO: 🔄 Agent updated: test-host
+[2025-05-01T15:12:00.790Z] INFO: [POST /telemetry] Telemetry accepted and agent upserted: test-host
+[2025-05-01T15:12:01.001Z] INFO: [REQ] GET /api/telemetry/test-host/summary
+[2025-05-01T15:12:01.189Z] INFO: [REQ] GET /api/telemetry/test-host/chart?from=1700000000000&to=1800000000000
+[2025-05-01T15:12:01.392Z] INFO: [REQ] GET /api/telemetry/test-host/table?page=1&limit=50
+[2025-05-01T15:12:01.595Z] INFO: [REQ] GET /api/settings
+[2025-05-01T15:12:01.815Z] INFO: [REQ] PATCH /api/settings
+[2025-05-01T15:12:02.000Z] INFO: [REQ] GET /api/settings/themes
+[2025-05-01T15:12:02.189Z] INFO: [REQ] GET /api/settings/retention
+[2025-05-01T15:12:02.392Z] INFO: [REQ] PATCH /api/settings/retention
+[2025-05-01T15:13:57.842Z] INFO: [REQ] POST /api/users/login
+[2025-05-01T15:13:57.842Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-01T15:13:57.842Z] INFO: [POST /login] Login attempt started
+[2025-05-01T15:13:57.892Z] INFO: [POST /login] Login successful for username: admin
+[2025-05-01T15:13:58.090Z] INFO: [REQ] GET /api/users
+[2025-05-01T15:13:58.092Z] INFO: [GET /users] Listing all users
+[2025-05-01T15:13:58.293Z] INFO: [REQ] POST /api/users
+[2025-05-01T15:13:58.294Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-01T15:13:58.295Z] INFO: [POST /users] Creating user: newuser
+[2025-05-01T15:13:58.353Z] INFO: 🆕 User created: newuser (operator)
+[2025-05-01T15:13:58.353Z] INFO: [POST /users] User created: newuser
+[2025-05-01T15:13:58.526Z] INFO: [REQ] POST /api/users/2
+[2025-05-01T15:13:58.528Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-01T15:13:58.528Z] INFO: [POST /users/:id] Updating user with ID: 2
+[2025-05-01T15:13:58.584Z] INFO: 🔑 Password updated for user ID: 2
+[2025-05-01T15:13:58.585Z] INFO: [POST /users/:id] User updated: 2
+[2025-05-01T15:13:58.809Z] INFO: [REQ] DELETE /api/users/2
+[2025-05-01T15:13:58.810Z] INFO: [DELETE /users/:id] Deleting user with ID: 2
+[2025-05-01T15:13:58.820Z] INFO: 🗑️ User deleted: ID 2
+[2025-05-01T15:13:58.820Z] INFO: [DELETE /users/:id] User deleted: 2
+[2025-05-01T15:13:59.027Z] INFO: [REQ] GET /api/agents
+[2025-05-01T15:13:59.028Z] INFO: [GET /agents] Fetching all agents
+[2025-05-01T15:13:59.031Z] INFO: [GET /agents] Retrieved 1 agents
+[2025-05-01T15:13:59.229Z] INFO: [REQ] GET /api/agents/test-host
+[2025-05-01T15:13:59.230Z] INFO: [GET /agents/test-host] Fetching agent profile
+[2025-05-01T15:13:59.233Z] INFO: [GET /agents/test-host] Agent profile retrieved
+[2025-05-01T15:13:59.433Z] INFO: [REQ] PATCH /api/agents/test-host
+[2025-05-01T15:13:59.434Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-01T15:13:59.434Z] INFO: [PATCH /agents/test-host] Updating agent
+[2025-05-01T15:13:59.447Z] INFO: ✏️ Agent updated: test-host
+[2025-05-01T15:13:59.447Z] INFO: [PATCH /agents/test-host] Agent updated
+[2025-05-01T15:13:59.650Z] INFO: [REQ] GET /api/agents/test-host/health
+[2025-05-01T15:13:59.651Z] INFO: [GET /agents/test-host/health] Fetching agent health
+[2025-05-01T15:13:59.653Z] INFO: [GET /agents/test-host/health] Agent health retrieved
+[2025-05-01T15:13:59.855Z] INFO: [REQ] POST /api/telemetry
+[2025-05-01T15:13:59.855Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-01T15:13:59.855Z] INFO: [POST /telemetry] Receiving telemetry from hostname: test-host
+[2025-05-01T15:13:59.865Z] INFO: ✅ Telemetry inserted for host: test-host
+[2025-05-01T15:13:59.875Z] INFO: 🔄 Agent updated: test-host
+[2025-05-01T15:13:59.875Z] INFO: [POST /telemetry] Telemetry accepted and agent upserted: test-host
+[2025-05-01T15:14:00.053Z] INFO: [REQ] GET /api/telemetry/test-host/summary
+[2025-05-01T15:14:00.054Z] INFO: [GET /telemetry/test-host/summary] Fetching latest telemetry
+[2025-05-01T15:14:00.057Z] INFO: [GET /telemetry/test-host/summary] Latest telemetry retrieved
+[2025-05-01T15:14:00.241Z] INFO: [REQ] GET /api/telemetry/test-host/chart?from=1700000000000&to=1800000000000
+[2025-05-01T15:14:00.243Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-01T15:14:00.243Z] INFO: [GET /telemetry/test-host/chart] Fetching telemetry timeseries
+[2025-05-01T15:14:00.246Z] INFO: [GET /telemetry/test-host/chart] Timeseries data retrieved
+[2025-05-01T15:14:00.430Z] INFO: [REQ] GET /api/telemetry/test-host/table?page=1&limit=50
+[2025-05-01T15:14:00.431Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-01T15:14:00.431Z] INFO: [GET /telemetry/test-host/table] Fetching telemetry logs
+[2025-05-01T15:14:00.433Z] INFO: [GET /telemetry/test-host/table] Logs retrieved (page 1, limit 50)
+[2025-05-01T15:14:00.601Z] INFO: [REQ] GET /api/settings
+[2025-05-01T15:14:00.602Z] INFO: [GET /settings] Fetching all settings
+[2025-05-01T15:14:00.604Z] INFO: [GET /settings] Retrieved 0 settings
+[2025-05-01T15:14:00.802Z] INFO: [REQ] PATCH /api/settings
+[2025-05-01T15:14:00.803Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-01T15:14:00.803Z] INFO: [PATCH /settings] Updating settings
+[2025-05-01T15:14:00.814Z] INFO: 🆕 Setting created: dashboard_refresh_interval
+[2025-05-01T15:14:00.814Z] INFO: [PATCH /settings] Updated setting: dashboard_refresh_interval -> 10
+[2025-05-01T15:14:01.006Z] INFO: [REQ] GET /api/settings/themes
+[2025-05-01T15:14:01.007Z] INFO: [GET /settings/themes] Fetching available themes
+[2025-05-01T15:14:01.007Z] INFO: [GET /settings/themes] Themes list sent
+[2025-05-01T15:14:01.211Z] INFO: [REQ] GET /api/settings/retention
+[2025-05-01T15:14:01.212Z] INFO: [GET /settings/retention] Fetching retention setting
+[2025-05-01T15:14:01.214Z] INFO: [GET /settings/retention] Retention days: 30
+[2025-05-01T15:14:01.413Z] INFO: [REQ] PATCH /api/settings/retention
+[2025-05-01T15:14:01.414Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-01T15:14:01.414Z] INFO: [PATCH /settings/retention] Updating retention to 90 days
+[2025-05-01T15:14:01.425Z] INFO: 🆕 Setting created: retention_days
+[2025-05-01T15:14:01.425Z] INFO: [PATCH /settings/retention] Retention updated to 90 days
+[2025-05-04T14:08:45.337Z] INFO: 📦 SQLite DB loaded from /mnt/c/Users/Anonymous/Desktop/Personal/Projects/SySpectrum/syspectrum.db
+[2025-05-04T14:08:49.199Z] INFO: [VALIDATE] Validation rules attached (2 rules)
+[2025-05-04T14:08:49.200Z] INFO: [VALIDATE] Validation rules attached (2 rules)
+[2025-05-04T14:08:49.201Z] INFO: [VALIDATE] Validation rules attached (2 rules)
+[2025-05-04T14:08:49.218Z] INFO: [VALIDATE] Validation rules attached (3 rules)
+[2025-05-04T14:08:49.218Z] INFO: [VALIDATE] Validation rules attached (1 rules)
+[2025-05-04T14:08:49.219Z] INFO: [VALIDATE] Validation rules attached (1 rules)
+[2025-05-04T14:08:49.219Z] INFO: [VALIDATE] Validation rules attached (2 rules)
+[2025-05-04T14:08:50.270Z] INFO: [VALIDATE] Validation rules attached (2 rules)
+[2025-05-04T14:08:50.270Z] INFO: [VALIDATE] Validation rules attached (3 rules)
+[2025-05-04T14:08:50.271Z] INFO: [VALIDATE] Validation rules attached (2 rules)
+[2025-05-04T14:08:50.315Z] INFO: [VALIDATE] Validation rules attached (1 rules)
+[2025-05-04T14:08:50.316Z] INFO: [VALIDATE] Validation rules attached (1 rules)
+[2025-05-04T14:08:50.322Z] INFO: 🧠 Syspectrum backend running on port 8080
+[2025-05-04T14:09:07.932Z] INFO: [REQ] POST /api/users/login
+[2025-05-04T14:09:07.934Z] INFO: [VALIDATE] Validation passed (rules applied)
+[2025-05-04T14:09:07.935Z] INFO: [POST /login] Login attempt started
+[2025-05-04T14:09:07.960Z] ERROR: [POST /login] Login error no such table: users

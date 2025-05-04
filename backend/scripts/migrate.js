@@ -1,63 +1,27 @@
 // backend/scripts/migrate.js
+const fs = require('fs');
+const path = require('path');
 const db = require('../db/sqlite');
 const logger = require('../utils/logger');
 const bcrypt = require('bcrypt');
 
-(async () => {
+async function runMigrations() {
   try {
     logger.info('🚀 Running database migrations...');
 
-    // Telemetry table
-    db.prepare(`
-      CREATE TABLE IF NOT EXISTS telemetry (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        hostname TEXT NOT NULL,
-        timestamp INTEGER NOT NULL,
-        cpu_usage REAL,
-        cpu_cores INTEGER,
-        memory_total INTEGER,
-        memory_used INTEGER,
-        memory_percent REAL,
-        disk TEXT,            -- JSON string
-        network TEXT,         -- JSON string
-        processes TEXT,       -- JSON array
-        temperature REAL
-      );
-    `).run();
-    db.prepare(`CREATE INDEX IF NOT EXISTS idx_telemetry_host_time ON telemetry(hostname, timestamp DESC);`).run();
+    // Load schema.sql
+    const schemaPath = path.join(__dirname, '../db/schema.sql');
+    const schema = fs.readFileSync(schemaPath, 'utf8');
 
-    // Agents table
-    db.prepare(`
-      CREATE TABLE IF NOT EXISTS agents (
-        hostname TEXT PRIMARY KEY,
-        first_seen INTEGER NOT NULL,
-        last_seen INTEGER NOT NULL,
-        label TEXT,
-        status TEXT DEFAULT 'active'
-      );
-    `).run();
+    // Execute each SQL statement
+    const statements = schema.split(';').map(s => s.trim()).filter(Boolean);
+    for (const stmt of statements) {
+      db.prepare(stmt).run();
+    }
 
-    // Users table
-    db.prepare(`
-      CREATE TABLE IF NOT EXISTS users (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        username TEXT UNIQUE NOT NULL,
-        password_hash TEXT NOT NULL,
-        role TEXT CHECK(role IN ('admin', 'operator')) NOT NULL
-      );
-    `).run();
+    logger.info('✅ Tables created from schema.sql');
 
-    // Settings table
-    db.prepare(`
-      CREATE TABLE IF NOT EXISTS settings (
-        key TEXT PRIMARY KEY,
-        value TEXT NOT NULL
-      );
-    `).run();
-
-    logger.info('✅ Tables created successfully!');
-
-    // Insert default admin user if not exists
+    // Ensure default admin user exists
     const existingAdmin = db.prepare(`SELECT * FROM users WHERE username = 'admin'`).get();
     if (!existingAdmin) {
       const hashedPassword = await bcrypt.hash('admin123', 10);
@@ -71,6 +35,8 @@ const bcrypt = require('bcrypt');
     logger.info('✅ Database migrations completed successfully!');
   } catch (err) {
     logger.error('❌ Migration failed: ' + err.message);
-    process.exit(1);
+    throw err; // Let index.js handle the error and exit
   }
-})();
+}
+
+module.exports = runMigrations;
