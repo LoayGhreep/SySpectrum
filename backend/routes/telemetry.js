@@ -7,6 +7,11 @@ const { body, query } = require('express-validator');
 const validate = require('../middleware/validate');
 const { success, fail } = require('../utils/respond');
 const logger = require('../utils/logger');
+const { v4: uuidv4 } = require('uuid');
+
+function traceScope() {
+  return uuidv4();
+}
 
 // POST /api/telemetry — Agent pushes telemetry
 router.post(
@@ -16,33 +21,47 @@ router.post(
     body('timestamp').isNumeric()
   ]),
   async (req, res) => {
-    logger.info(`[POST /telemetry] Receiving telemetry from hostname: ${req.body.hostname}`);
+    const traceId = traceScope();
+    const start = Date.now();
+    const { hostname } = req.body;
+
+    logger.debug(`[${traceId}] 🛰️ POST /telemetry | Receiving telemetry | hostname=${hostname}`);
+
     try {
       await telemetryModel.insertTelemetry(req.body);
-      await agentsModel.upsertAgent(req.body.hostname);
-      logger.info(`[POST /telemetry] Telemetry accepted and agent upserted: ${req.body.hostname}`);
+      await agentsModel.upsertAgent(hostname);
+      logger.info(`[${traceId}] ✅ Telemetry inserted and agent upserted | hostname=${hostname}`);
       return success(res, { message: 'Telemetry accepted' });
     } catch (err) {
-      logger.error('[POST /telemetry] Error inserting telemetry', err);
+      logger.error(`[${traceId}] ❌ Error inserting telemetry | hostname=${hostname} | ${err.message}`, { stack: err.stack });
       return fail(res, 'error');
+    } finally {
+      logger.debug(`[${traceId}] ⏱️ POST /telemetry complete | duration=${Date.now() - start}ms`);
     }
   }
 );
 
 // GET /api/telemetry/:hostname/summary — Dashboard widget
 router.get('/:hostname/summary', auth(), async (req, res) => {
-  logger.info(`[GET /telemetry/${req.params.hostname}/summary] Fetching latest telemetry`);
+  const traceId = traceScope();
+  const start = Date.now();
+  const { hostname } = req.params;
+
+  logger.debug(`[${traceId}] 📊 GET /telemetry/${hostname}/summary | Fetching latest telemetry`);
+
   try {
-    const latest = await telemetryModel.getLatestTelemetry(req.params.hostname);
+    const latest = await telemetryModel.getLatestTelemetry(hostname);
     if (!latest) {
-      logger.warn(`[GET /telemetry/${req.params.hostname}/summary] No telemetry found`);
+      logger.warn(`[${traceId}] ⚠️ No telemetry found for ${hostname}`);
       return fail(res, 'No telemetry found', 404);
     }
-    logger.info(`[GET /telemetry/${req.params.hostname}/summary] Latest telemetry retrieved`);
+    logger.info(`[${traceId}] ✅ Latest telemetry retrieved for ${hostname}`);
     return success(res, latest);
   } catch (err) {
-    logger.error(`[GET /telemetry/${req.params.hostname}/summary] Error fetching telemetry`, err);
+    logger.error(`[${traceId}] ❌ Error fetching telemetry summary | ${err.message}`, { stack: err.stack });
     return fail(res, 'error');
+  } finally {
+    logger.debug(`[${traceId}] ⏱️ GET /telemetry/:hostname/summary complete | duration=${Date.now() - start}ms`);
   }
 });
 
@@ -55,15 +74,22 @@ router.get(
     query('to').isNumeric()
   ]),
   async (req, res) => {
-    logger.info(`[GET /telemetry/${req.params.hostname}/chart] Fetching telemetry timeseries`);
+    const traceId = traceScope();
+    const start = Date.now();
+    const { hostname } = req.params;
+    const { from, to } = req.query;
+
+    logger.debug(`[${traceId}] 📈 GET /telemetry/${hostname}/chart | from=${from}, to=${to}`);
+
     try {
-      const { from, to } = req.query;
-      const data = await telemetryModel.getTelemetrySeries(req.params.hostname, from, to);
-      logger.info(`[GET /telemetry/${req.params.hostname}/chart] Timeseries data retrieved`);
+      const data = await telemetryModel.getTelemetrySeries(hostname, from, to);
+      logger.info(`[${traceId}] 📦 Timeseries data retrieved for ${hostname} | count=${data.length}`);
       return success(res, data);
     } catch (err) {
-      logger.error(`[GET /telemetry/${req.params.hostname}/chart] Error fetching timeseries`, err);
+      logger.error(`[${traceId}] ❌ Error fetching timeseries | ${err.message}`, { stack: err.stack });
       return fail(res, 'error');
+    } finally {
+      logger.debug(`[${traceId}] ⏱️ GET /telemetry/:hostname/chart complete | duration=${Date.now() - start}ms`);
     }
   }
 );
@@ -77,16 +103,23 @@ router.get(
     query('limit').optional().isNumeric()
   ]),
   async (req, res) => {
-    logger.info(`[GET /telemetry/${req.params.hostname}/table] Fetching telemetry logs`);
+    const traceId = traceScope();
+    const start = Date.now();
+    const { hostname } = req.params;
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 50;
+
+    logger.debug(`[${traceId}] 📄 GET /telemetry/${hostname}/table | page=${page}, limit=${limit}`);
+
     try {
-      const page = parseInt(req.query.page) || 1;
-      const limit = parseInt(req.query.limit) || 50;
-      const data = await telemetryModel.getTelemetryLogs(req.params.hostname, page, limit);
-      logger.info(`[GET /telemetry/${req.params.hostname}/table] Logs retrieved (page ${page}, limit ${limit})`);
+      const data = await telemetryModel.getTelemetryLogs(hostname, page, limit);
+      logger.info(`[${traceId}] 📥 Logs retrieved for ${hostname} | page=${page}, count=${data.length}`);
       return success(res, data);
     } catch (err) {
-      logger.error(`[GET /telemetry/${req.params.hostname}/table] Error fetching logs`, err);
+      logger.error(`[${traceId}] ❌ Error fetching logs for ${hostname} | ${err.message}`, { stack: err.stack });
       return fail(res, 'error');
+    } finally {
+      logger.debug(`[${traceId}] ⏱️ GET /telemetry/:hostname/table complete | duration=${Date.now() - start}ms`);
     }
   }
 );

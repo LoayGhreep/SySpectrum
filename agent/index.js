@@ -45,7 +45,10 @@ function initBufferDB() {
       data TEXT NOT NULL,
       timestamp INTEGER NOT NULL
     )
-  `);
+  `, (err) => {
+    if (err) logger.error(`🧱 Failed to initialize buffer DB: ${err.message}`);
+    else logger.info('🧱 Telemetry buffer DB initialized');
+  });
 }
 
 // Save to buffer
@@ -59,7 +62,11 @@ function bufferPayload(json) {
 // Flush buffer
 function flushBuffer() {
   db.all(`SELECT * FROM telemetry ORDER BY timestamp ASC`, async (err, rows) => {
-    if (err || !rows.length) return;
+    if (err) {
+      logger.error(`🚱 Failed to read buffer DB: ${err.message}`);
+      return;
+    }
+    if (!rows.length) return;
 
     for (const row of rows) {
       try {
@@ -86,7 +93,8 @@ function validate(name, value) {
     value === null ||
     (Array.isArray(value) && value.length === 0) ||
     (typeof value === 'object' && Object.keys(value).length === 0);
-  if (invalid) logger.warn(`Module '${name}' returned empty or invalid data`);
+  if (invalid) logger.warn(`⚠️ Module '${name}' returned empty or invalid data`);
+  else logger.debug(`✅ Module '${name}' is valid`);
 }
 
 // Main telemetry collection
@@ -105,6 +113,8 @@ async function collectMetrics() {
     top_processes: getProcesses(),
     temperature: getTemperature()
   };
+
+  logger.debug(`📊 Collected metrics: ${JSON.stringify(payload, null, 2)}`);
 
   for (const [key, value] of Object.entries(payload)) {
     if (!['hostname', 'timestamp', 'agentId', 'agentVersion'].includes(key)) {
@@ -131,19 +141,21 @@ async function collectMetrics() {
 async function heartbeat() {
   if (!registered) return;
 
+  const payload = {
+    agentId,
+    agentVersion: config.version,
+    hostname: os.hostname(),
+    timestamp: Date.now()
+  };
+
   try {
-    await axios.post(`${config.baseUrl}/api/heartbeat`, {
-      agentId,
-      agentVersion: config.version,
-      hostname: os.hostname(),
-      timestamp: Date.now()
-    }, {
+    await axios.post(`${config.baseUrl}/api/heartbeat`, payload, {
       headers: {
         'Agent-Version': config.version,
         'Agent-Id': agentId
       }
     });
-    logger.debug(`💓 Heartbeat sent`);
+    logger.debug(`💓 Heartbeat sent with: ${JSON.stringify(payload)}`);
   } catch (err) {
     logger.warn(`💔 Heartbeat failed: ${err.message}`);
   }
@@ -161,6 +173,8 @@ async function registerAgent() {
     timestamp: Date.now()
   };
 
+  logger.debug(`📋 Registration payload: ${JSON.stringify(systemInfo, null, 2)}`);
+
   try {
     logger.info(`🔐 Sending registration request to ${registerUrl}`);
     await axios.post(registerUrl, systemInfo);
@@ -176,13 +190,17 @@ async function registerAgent() {
 async function pollForClaim() {
   const claimUrl = `${config.baseUrl}/api/agents/claim`;
 
+  logger.debug(`🔁 Polling for claim using hostname: ${os.hostname()}`);
+
   try {
     const res = await axios.get(claimUrl, {
       params: { hostname: os.hostname() }
     });
 
-    if (res.data && res.data.agentId) {
-      agentId = res.data.agentId;
+    logger.debug(`📨 Claim response: ${JSON.stringify(res.data)}`);
+
+    if (res.data && res.data.data && res.data.data.agent_id) {
+      agentId = res.data.data.agent_id;
       registered = true;
 
       saveAgentData({
@@ -191,7 +209,7 @@ async function pollForClaim() {
       });
 
       logger.info(`✅ Agent approved! Assigned ID: ${agentId}`);
-      initRuntime(); // Start metrics + heartbeat
+      initRuntime();
     } else {
       logger.info('⏳ Waiting for approval...');
       setTimeout(pollForClaim, 10000);
@@ -204,9 +222,11 @@ async function pollForClaim() {
 
 // Start core loops
 function initRuntime() {
+  logger.debug('🧠 Initializing runtime...');
   initBufferDB();
   setInterval(collectMetrics, config.pushInterval);
   setInterval(heartbeat, config.heartbeatInterval);
+  logger.info('🎯 Runtime initialized with metric and heartbeat loops');
 }
 
 // Bootstrap agent

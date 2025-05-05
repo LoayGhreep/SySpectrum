@@ -7,8 +7,13 @@ const validate = require('../middleware/validate');
 const jwt = require('jsonwebtoken');
 const { success, fail } = require('../utils/respond');
 const logger = require('../utils/logger');
+const { v4: uuidv4 } = require('uuid');
 
 const SECRET = process.env.JWT_SECRET || 'dev_secret';
+
+function traceScope() {
+  return uuidv4();
+}
 
 // POST /api/login — Login and get JWT
 router.post(
@@ -18,11 +23,17 @@ router.post(
     body('password').isString().notEmpty()
   ]),
   async (req, res) => {
-    logger.info('[POST /login] Login attempt started');
+    const traceId = traceScope();
+    const start = Date.now();
+    const { username } = req.body;
+
+    logger.debug(`[${traceId}] 🔐 POST /login | Attempting login for username=${username}`);
+
     try {
-      const user = await usersModel.authenticateUser(req.body.username, req.body.password);
+      const user = await usersModel.authenticateUser(username, req.body.password);
+
       if (!user) {
-        logger.warn('[POST /login] Invalid credentials for username:', req.body.username);
+        logger.warn(`[${traceId}] ❌ Invalid login credentials | username=${username}`);
         return fail(res, 'Invalid credentials', 401);
       }
 
@@ -36,18 +47,24 @@ router.post(
         { expiresIn: '24h' }
       );
 
-      logger.info(`[POST /login] Login successful for username: ${user.username}`);
+      logger.info(`[${traceId}] ✅ Login successful | username=${user.username}`);
       return success(res, { token });
     } catch (err) {
-      logger.error('[POST /login] Login error', err);
+      logger.error(`[${traceId}] ❌ Login error: ${err.message}`, { stack: err.stack });
       return fail(res, 'error');
+    } finally {
+      logger.debug(`[${traceId}] ⏱️ POST /login complete | duration=${Date.now() - start}ms`);
     }
   }
 );
 
 // GET /api/me — Get current user info
 router.get('/me', auth(), async (req, res) => {
-  logger.info(`[GET /me] Fetching user info for ID: ${req.user.id}`);
+  const traceId = traceScope();
+  const start = Date.now();
+
+  logger.debug(`[${traceId}] 🙋‍♂️ GET /me | userId=${req.user.id}`);
+
   try {
     return success(res, {
       id: req.user.id,
@@ -55,20 +72,29 @@ router.get('/me', auth(), async (req, res) => {
       role: req.user.role
     });
   } catch (err) {
-    logger.error('[GET /me] Error fetching user info', err);
+    logger.error(`[${traceId}] ❌ Error fetching current user info: ${err.message}`, { stack: err.stack });
     return fail(res, 'error');
+  } finally {
+    logger.debug(`[${traceId}] ⏱️ GET /me complete | duration=${Date.now() - start}ms`);
   }
 });
 
 // GET /api/users — Admin-only: list users
 router.get('/', auth('admin'), async (req, res) => {
-  logger.info('[GET /users] Listing all users');
+  const traceId = traceScope();
+  const start = Date.now();
+
+  logger.debug(`[${traceId}] 📋 GET /users | Admin request by userId=${req.user.id}`);
+
   try {
     const users = await usersModel.listUsers();
+    logger.info(`[${traceId}] ✅ Users listed | count=${users.length}`);
     return success(res, users);
   } catch (err) {
-    logger.error('[GET /users] Error listing users', err);
+    logger.error(`[${traceId}] ❌ Error listing users: ${err.message}`, { stack: err.stack });
     return fail(res, 'error');
+  } finally {
+    logger.debug(`[${traceId}] ⏱️ GET /users complete | duration=${Date.now() - start}ms`);
   }
 });
 
@@ -82,14 +108,21 @@ router.post(
     body('role').isIn(['admin', 'operator'])
   ]),
   async (req, res) => {
-    logger.info(`[POST /users] Creating user: ${req.body.username}`);
+    const traceId = traceScope();
+    const start = Date.now();
+    const { username, role } = req.body;
+
+    logger.debug(`[${traceId}] ➕ POST /users | Creating user | username=${username}, role=${role}`);
+
     try {
-      await usersModel.createUser(req.body.username, req.body.password, req.body.role);
-      logger.info(`[POST /users] User created: ${req.body.username}`);
+      await usersModel.createUser(username, req.body.password, role);
+      logger.info(`[${traceId}] ✅ User created | username=${username}`);
       return success(res, { message: 'User created' });
     } catch (err) {
-      logger.error('[POST /users] Error creating user', err);
+      logger.error(`[${traceId}] ❌ Error creating user: ${err.message}`, { stack: err.stack });
       return fail(res, 'error');
+    } finally {
+      logger.debug(`[${traceId}] ⏱️ POST /users complete | duration=${Date.now() - start}ms`);
     }
   }
 );
@@ -103,28 +136,42 @@ router.post(
     body('role').optional().isIn(['admin', 'operator'])
   ]),
   async (req, res) => {
-    logger.info(`[POST /users/:id] Updating user with ID: ${req.params.id}`);
+    const traceId = traceScope();
+    const start = Date.now();
+    const userId = req.params.id;
+
+    logger.debug(`[${traceId}] ✏️ POST /users/${userId} | Updating user`);
+
     try {
-      await usersModel.updateUser(req.params.id, req.body);
-      logger.info(`[POST /users/:id] User updated: ${req.params.id}`);
+      await usersModel.updateUser(userId, req.body);
+      logger.info(`[${traceId}] ✅ User updated | userId=${userId}`);
       return success(res, { message: 'User updated' });
     } catch (err) {
-      logger.error('[POST /users/:id] Error updating user', err);
+      logger.error(`[${traceId}] ❌ Error updating user ${userId}: ${err.message}`, { stack: err.stack });
       return fail(res, 'error');
+    } finally {
+      logger.debug(`[${traceId}] ⏱️ POST /users/:id complete | duration=${Date.now() - start}ms`);
     }
   }
 );
 
 // DELETE /api/users/:id — Admin-only: delete user
 router.delete('/:id', auth('admin'), async (req, res) => {
-  logger.info(`[DELETE /users/:id] Deleting user with ID: ${req.params.id}`);
+  const traceId = traceScope();
+  const start = Date.now();
+  const userId = req.params.id;
+
+  logger.debug(`[${traceId}] 🗑️ DELETE /users/${userId} | Attempting delete`);
+
   try {
-    await usersModel.deleteUser(req.params.id);
-    logger.info(`[DELETE /users/:id] User deleted: ${req.params.id}`);
+    await usersModel.deleteUser(userId);
+    logger.info(`[${traceId}] ✅ User deleted | userId=${userId}`);
     return success(res, { message: 'User deleted' });
   } catch (err) {
-    logger.error('[DELETE /users/:id] Error deleting user', err);
+    logger.error(`[${traceId}] ❌ Error deleting user ${userId}: ${err.message}`, { stack: err.stack });
     return fail(res, 'error');
+  } finally {
+    logger.debug(`[${traceId}] ⏱️ DELETE /users/:id complete | duration=${Date.now() - start}ms`);
   }
 });
 

@@ -6,17 +6,27 @@ const { body } = require('express-validator');
 const validate = require('../middleware/validate');
 const { success, fail } = require('../utils/respond');
 const logger = require('../utils/logger');
+const { v4: uuidv4 } = require('uuid');
+
+function traceScope() {
+  return uuidv4();
+}
 
 // GET /api/settings — Get all settings
 router.get('/', auth('admin'), async (req, res) => {
-  logger.info('[GET /settings] Fetching all settings');
+  const traceId = traceScope();
+  const start = Date.now();
+  logger.debug(`[${traceId}] 📥 GET /settings | Fetching all settings`);
+
   try {
     const allSettings = await settingsModel.getAllSettings();
-    logger.info(`[GET /settings] Retrieved ${Object.keys(allSettings).length} settings`);
+    logger.info(`[${traceId}] ✅ Retrieved ${Object.keys(allSettings).length} settings`);
     return success(res, allSettings);
   } catch (err) {
-    logger.error('[GET /settings] Error fetching settings', err);
+    logger.error(`[${traceId}] ❌ Error fetching settings: ${err.message}`, { stack: err.stack });
     return fail(res, 'error');
+  } finally {
+    logger.debug(`[${traceId}] ⏱️ GET /settings complete | duration=${Date.now() - start}ms`);
   }
 });
 
@@ -28,44 +38,59 @@ router.patch(
     body().isObject().notEmpty()
   ]),
   async (req, res) => {
-    logger.info('[PATCH /settings] Updating settings');
+    const traceId = traceScope();
+    const start = Date.now();
+    logger.debug(`[${traceId}] ✏️ PATCH /settings | payload=${JSON.stringify(req.body)}`);
+
     try {
       const updates = req.body;
       for (const key in updates) {
         await settingsModel.setSetting(key, updates[key]);
-        logger.info(`[PATCH /settings] Updated setting: ${key} -> ${updates[key]}`);
+        logger.info(`[${traceId}] 🔄 Updated setting: ${key}`);
       }
       return success(res, { message: 'Settings updated' });
     } catch (err) {
-      logger.error('[PATCH /settings] Error updating settings', err);
+      logger.error(`[${traceId}] ❌ Error updating settings: ${err.message}`, { stack: err.stack });
       return fail(res, 'error');
+    } finally {
+      logger.debug(`[${traceId}] ⏱️ PATCH /settings complete | duration=${Date.now() - start}ms`);
     }
   }
 );
 
 // GET /api/settings/themes — Return available dashboard themes
 router.get('/themes', auth(), async (req, res) => {
-  logger.info('[GET /settings/themes] Fetching available themes');
+  const traceId = traceScope();
+  const start = Date.now();
+  logger.debug(`[${traceId}] 🎨 GET /settings/themes`);
+
   try {
     const themes = ['light', 'dark', 'midnight', 'cyberpunk'];
-    logger.info('[GET /settings/themes] Themes list sent');
+    logger.info(`[${traceId}] ✅ Themes list sent: ${themes.join(', ')}`);
     return success(res, themes);
   } catch (err) {
-    logger.error('[GET /settings/themes] Error fetching themes', err);
+    logger.error(`[${traceId}] ❌ Error fetching themes: ${err.message}`, { stack: err.stack });
     return fail(res, 'error');
+  } finally {
+    logger.debug(`[${traceId}] ⏱️ GET /settings/themes complete | duration=${Date.now() - start}ms`);
   }
 });
 
 // GET /api/settings/retention — Get current retention config
 router.get('/retention', auth('admin'), async (req, res) => {
-  logger.info('[GET /settings/retention] Fetching retention setting');
+  const traceId = traceScope();
+  const start = Date.now();
+  logger.debug(`[${traceId}] 📥 GET /settings/retention`);
+
   try {
     const retentionDays = await settingsModel.getSetting('retention_days');
-    logger.info(`[GET /settings/retention] Retention days: ${retentionDays || 30}`);
+    logger.info(`[${traceId}] ✅ Retention days: ${retentionDays || 30}`);
     return success(res, { retention_days: retentionDays || 30 });
   } catch (err) {
-    logger.error('[GET /settings/retention] Error fetching retention days', err);
+    logger.error(`[${traceId}] ❌ Error fetching retention: ${err.message}`, { stack: err.stack });
     return fail(res, 'error');
+  } finally {
+    logger.debug(`[${traceId}] ⏱️ GET /settings/retention complete | duration=${Date.now() - start}ms`);
   }
 });
 
@@ -77,14 +102,20 @@ router.patch(
     body('retention_days').isNumeric().custom(val => val > 0)
   ]),
   async (req, res) => {
-    logger.info(`[PATCH /settings/retention] Updating retention to ${req.body.retention_days} days`);
+    const traceId = traceScope();
+    const start = Date.now();
+    const newValue = req.body.retention_days;
+    logger.debug(`[${traceId}] ✏️ PATCH /settings/retention | newValue=${newValue}`);
+
     try {
-      await settingsModel.setSetting('retention_days', req.body.retention_days);
-      logger.info(`[PATCH /settings/retention] Retention updated to ${req.body.retention_days} days`);
+      await settingsModel.setSetting('retention_days', newValue);
+      logger.info(`[${traceId}] ✅ Retention updated to ${newValue} days`);
       return success(res, { message: 'Retention policy updated' });
     } catch (err) {
-      logger.error('[PATCH /settings/retention] Error updating retention', err);
+      logger.error(`[${traceId}] ❌ Error updating retention: ${err.message}`, { stack: err.stack });
       return fail(res, 'error');
+    } finally {
+      logger.debug(`[${traceId}] ⏱️ PATCH /settings/retention complete | duration=${Date.now() - start}ms`);
     }
   }
 );
