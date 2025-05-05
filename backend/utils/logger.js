@@ -5,7 +5,7 @@ const path = require('path');
 const logPath = path.join(__dirname, '../../backend.log');
 
 const logger = winston.createLogger({
-  level: 'info',
+  level: 'silly',
   format: winston.format.combine(
     winston.format.timestamp(),
     winston.format.printf(info => `[${info.timestamp}] ${info.level.toUpperCase()}: ${info.message}`)
