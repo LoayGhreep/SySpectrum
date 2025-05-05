@@ -4,6 +4,8 @@ const path = require('path');
 const axios = require('axios');
 const config = require('./config');
 const logger = require('./utils/logger');
+const { v4: uuidv4 } = require('uuid');
+
 const { ensureDependencies } = require('./utils/dependencies');
 const { loadAgentData, saveAgentData } = require('./utils/agentState');
 
@@ -24,21 +26,21 @@ let agentId = null;
 let registered = false;
 
 // Load or generate agentId
+const traceId = uuidv4();
 const agentData = loadAgentData();
 if (agentData && agentData.agentId) {
   agentId = agentData.agentId;
   registered = true;
-  logger.info(`🆔 Loaded agentId: ${agentId}`);
+  logger.info(`[${traceId}] 🆔 Loaded agentId: ${agentId}`);
 } else {
-  logger.warn('🔐 No agentId found — entering registration mode...');
+  logger.warn(`[${traceId}] 🔐 No agentId found — entering registration mode...`);
   registerAgent();
 }
 
-// Ensure dependencies like `sensors`
 ensureDependencies();
 
-// Initialize SQLite buffer table
 function initBufferDB() {
+  logger.debug(`[${traceId}] Initializing telemetry buffer DB`);
   db.run(`
     CREATE TABLE IF NOT EXISTS telemetry (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -46,24 +48,24 @@ function initBufferDB() {
       timestamp INTEGER NOT NULL
     )
   `, (err) => {
-    if (err) logger.error(`🧱 Failed to initialize buffer DB: ${err.message}`);
-    else logger.info('🧱 Telemetry buffer DB initialized');
+    if (err) logger.error(`[${traceId}] 🧱 Failed to initialize buffer DB: ${err.message}`, { stack: err.stack });
+    else logger.info(`[${traceId}] 🧱 Telemetry buffer DB initialized`);
   });
 }
 
-// Save to buffer
 function bufferPayload(json) {
+  logger.debug(`[${traceId}] Buffering payload`);
   db.run(`INSERT INTO telemetry (data, timestamp) VALUES (?, ?)`, [JSON.stringify(json), Date.now()], err => {
-    if (err) logger.error(`❌ Failed to buffer telemetry: ${err.message}`);
-    else logger.info(`📦 Buffered telemetry`);
+    if (err) logger.error(`[${traceId}] ❌ Failed to buffer telemetry: ${err.message}`, { stack: err.stack });
+    else logger.info(`[${traceId}] 📦 Telemetry buffered`);
   });
 }
 
-// Flush buffer
 function flushBuffer() {
+  logger.debug(`[${traceId}] Flushing telemetry buffer`);
   db.all(`SELECT * FROM telemetry ORDER BY timestamp ASC`, async (err, rows) => {
     if (err) {
-      logger.error(`🚱 Failed to read buffer DB: ${err.message}`);
+      logger.error(`[${traceId}] 🚱 Failed to read buffer DB: ${err.message}`, { stack: err.stack });
       return;
     }
     if (!rows.length) return;
@@ -78,27 +80,29 @@ function flushBuffer() {
           }
         });
         db.run(`DELETE FROM telemetry WHERE id = ?`, row.id);
-        logger.info(`✅ Flushed buffered payload id=${row.id}`);
+        logger.info(`[${traceId}] ✅ Flushed buffered payload id=${row.id}`);
       } catch (err) {
-        logger.warn(`🔁 Retry failed for buffered id=${row.id}: ${err.message}`);
+        logger.warn(`[${traceId}] 🔁 Retry failed for buffered id=${row.id}: ${err.message}`);
         break;
       }
     }
   });
 }
 
-// Validate metric modules
 function validate(name, value) {
   const invalid =
     value === null ||
     (Array.isArray(value) && value.length === 0) ||
     (typeof value === 'object' && Object.keys(value).length === 0);
-  if (invalid) logger.warn(`⚠️ Module '${name}' returned empty or invalid data`);
-  else logger.debug(`✅ Module '${name}' is valid`);
+  if (invalid) logger.warn(`[${traceId}] ⚠️ Module '${name}' returned empty or invalid data`);
+  else logger.debug(`[${traceId}] ✅ Module '${name}' is valid`);
 }
 
-// Main telemetry collection
 async function collectMetrics() {
+  const collectionId = uuidv4();
+  logger.debug(`[${collectionId}] 🔄 Starting metric collection`);
+  const start = Date.now();
+
   if (!registered) return;
 
   const payload = {
@@ -114,8 +118,7 @@ async function collectMetrics() {
     temperature: getTemperature()
   };
 
-  logger.debug(`📊 Collected metrics: ${JSON.stringify(payload, null, 2)}`);
-
+  logger.debug(`[${collectionId}] 📊 Collected metrics`);
   for (const [key, value] of Object.entries(payload)) {
     if (!['hostname', 'timestamp', 'agentId', 'agentVersion'].includes(key)) {
       validate(key, value);
@@ -129,16 +132,20 @@ async function collectMetrics() {
         'Agent-Id': agentId
       }
     });
-    logger.info(`📡 Telemetry sent at ${new Date().toISOString()}`);
+    logger.info(`[${collectionId}] 📡 Telemetry sent successfully`);
     flushBuffer();
   } catch (e) {
-    logger.error(`📴 Failed to send telemetry: ${e.message}`);
+    logger.error(`[${collectionId}] 📴 Failed to send telemetry: ${e.message}`, { stack: e.stack });
     bufferPayload(payload);
   }
+
+  logger.debug(`[${collectionId}] ⏱️ Metric collection duration: ${Date.now() - start}ms`);
 }
 
-// Heartbeat
 async function heartbeat() {
+  const heartbeatId = uuidv4();
+  logger.debug(`[${heartbeatId}] 💓 Sending heartbeat...`);
+
   if (!registered) return;
 
   const payload = {
@@ -155,14 +162,14 @@ async function heartbeat() {
         'Agent-Id': agentId
       }
     });
-    logger.debug(`💓 Heartbeat sent with: ${JSON.stringify(payload)}`);
+    logger.debug(`[${heartbeatId}] ✅ Heartbeat sent`);
   } catch (err) {
-    logger.warn(`💔 Heartbeat failed: ${err.message}`);
+    logger.warn(`[${heartbeatId}] 💔 Heartbeat failed: ${err.message}`);
   }
 }
 
-// Registration
 async function registerAgent() {
+  const regId = uuidv4();
   const registerUrl = `${config.baseUrl}/api/agents/register`;
   const systemInfo = {
     hostname: os.hostname(),
@@ -173,64 +180,62 @@ async function registerAgent() {
     timestamp: Date.now()
   };
 
-  logger.debug(`📋 Registration payload: ${JSON.stringify(systemInfo, null, 2)}`);
+  logger.debug(`[${regId}] 📋 Registration payload: ${JSON.stringify(systemInfo, null, 2)}`);
 
   try {
-    logger.info(`🔐 Sending registration request to ${registerUrl}`);
+    logger.info(`[${regId}] 🔐 Sending registration request`);
     await axios.post(registerUrl, systemInfo);
-    logger.info('🕐 Registration request sent. Waiting for approval...');
+    logger.info(`[${regId}] 🕐 Registration request sent. Awaiting approval...`);
     pollForClaim();
   } catch (err) {
-    logger.error(`❌ Registration failed: ${err.message}`);
-    setTimeout(registerAgent, 15000); // Retry
+    logger.error(`[${regId}] ❌ Registration failed: ${err.message}`);
+    setTimeout(registerAgent, 15000);
   }
 }
 
-// Claim polling loop
 async function pollForClaim() {
+  const pollId = uuidv4();
   const claimUrl = `${config.baseUrl}/api/agents/claim`;
 
-  logger.debug(`🔁 Polling for claim using hostname: ${os.hostname()}`);
+  logger.debug(`[${pollId}] 🔁 Polling for claim`);
 
   try {
     const res = await axios.get(claimUrl, {
       params: { hostname: os.hostname() }
     });
 
-    logger.debug(`📨 Claim response: ${JSON.stringify(res.data)}`);
+    logger.debug(`[${pollId}] 📨 Claim response: ${JSON.stringify(res.data)}`);
 
-    if (res.data && res.data.data && res.data.data.agent_id) {
+    if (res.data?.data?.agent_id) {
       agentId = res.data.data.agent_id;
       registered = true;
-
       saveAgentData({
         agentId,
         receivedAt: Date.now()
       });
-
-      logger.info(`✅ Agent approved! Assigned ID: ${agentId}`);
+      logger.info(`[${pollId}] ✅ Agent approved with ID: ${agentId}`);
       initRuntime();
     } else {
-      logger.info('⏳ Waiting for approval...');
+      logger.info(`[${pollId}] ⏳ Approval pending... retrying`);
       setTimeout(pollForClaim, 10000);
     }
   } catch (err) {
-    logger.warn(`📡 Claim poll failed: ${err.message}`);
+    logger.warn(`[${pollId}] 📡 Claim poll failed: ${err.message}`);
     setTimeout(pollForClaim, 15000);
   }
 }
 
-// Start core loops
 function initRuntime() {
-  logger.debug('🧠 Initializing runtime...');
+  const runtimeId = uuidv4();
+  logger.debug(`[${runtimeId}] 🧠 Initializing runtime`);
   initBufferDB();
   setInterval(collectMetrics, config.pushInterval);
   setInterval(heartbeat, config.heartbeatInterval);
-  logger.info('🎯 Runtime initialized with metric and heartbeat loops');
+  logger.info(`[${runtimeId}] 🎯 Runtime initialized with intervals`);
 }
 
-// Bootstrap agent
-logger.info('🛰️ Syspectrum Agent starting...');
+// Start bootstrap
+logger.info(`[${traceId}] 🛰️ Syspectrum Agent starting...`);
 if (registered) {
   initRuntime();
 }
