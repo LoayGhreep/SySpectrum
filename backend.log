@@ -208,3 +208,76 @@ CREATE TAB...
 [2025-05-08T14:20:40.285Z] INFO: [afd824d4-b53e-4d80-a1a1-bfdae70d1ded] ✅ Heartbeat acknowledged | agentId=agent_1746713990019_4809
 [2025-05-08T14:20:40.286Z] DEBUG: [afd824d4-b53e-4d80-a1a1-bfdae70d1ded] ⏱️ /agents/heartbeat complete | duration=14ms
 [2025-05-08T14:20:40.286Z] INFO: [aca1b2d4-0e41-46ae-b234-9bbf018d156f] 📤 POST /api/agents/heartbeat | 200 | 15ms
+[2025-05-08T14:21:28.614Z] INFO: 📦 SQLite DB loaded from /mnt/c/Users/Anonymous/Desktop/Personal/Projects/SySpectrum/syspectrum.db
+[2025-05-08T14:21:29.499Z] DEBUG: [058a3723-235f-45b2-aa14-068935c9eba6] 🧪 Validation middleware initialized with 2 rules
+[2025-05-08T14:21:29.501Z] DEBUG: [89ab6b51-b5b1-4d26-b491-53d278c519de] 🧪 Validation middleware initialized with 2 rules
+[2025-05-08T14:21:29.502Z] DEBUG: [c8113280-7b7f-42b3-816a-a85a291f1460] 🧪 Validation middleware initialized with 2 rules
+[2025-05-08T14:21:29.506Z] DEBUG: [7ccae298-6cc4-44a3-a394-754443860756] 🧪 Validation middleware initialized with 3 rules
+[2025-05-08T14:21:29.506Z] DEBUG: [09210de7-0393-4eb7-a2e7-f940eec29254] 🧪 Validation middleware initialized with 1 rules
+[2025-05-08T14:21:29.506Z] DEBUG: [d1e502ac-d7dc-496a-9164-17ee55014446] 🧪 Validation middleware initialized with 1 rules
+[2025-05-08T14:21:29.507Z] DEBUG: [1f73ce32-1072-4701-8926-e3d8db50cfde] 🧪 Validation middleware initialized with 2 rules
+[2025-05-08T14:21:29.507Z] DEBUG: [e7818e2c-8ba4-48d6-9397-2f4cc7c18240] 🧪 Validation middleware initialized with 1 rules
+[2025-05-08T14:21:29.743Z] DEBUG: [f94c3845-10c5-4539-8da1-3cb3869e0b88] 🧪 Validation middleware initialized with 2 rules
+[2025-05-08T14:21:29.744Z] DEBUG: [c633b6dd-577d-4564-8578-40500c81b7ce] 🧪 Validation middleware initialized with 3 rules
+[2025-05-08T14:21:29.744Z] DEBUG: [5ed3b8df-18e7-41d1-9409-2c2c10b35952] 🧪 Validation middleware initialized with 2 rules
+[2025-05-08T14:21:29.752Z] DEBUG: [d6c007bf-20cf-47ae-9d5b-ec06ead883ed] 🧪 Validation middleware initialized with 1 rules
+[2025-05-08T14:21:29.753Z] DEBUG: [b98b8b86-b863-4e9a-bef1-9df3d559f759] 🧪 Validation middleware initialized with 1 rules
+[2025-05-08T14:21:29.761Z] INFO: [8ed59d0a-5525-4cdf-a803-755f2caee38d] 🚀 Running migrations...
+[2025-05-08T14:21:29.762Z] INFO: [31d0a16b-4c86-4801-b9a0-be3a1344648b] 🚀 Starting database migration
+[2025-05-08T14:21:29.762Z] DEBUG: [31d0a16b-4c86-4801-b9a0-be3a1344648b] 📄 Loading schema from /mnt/c/Users/Anonymous/Desktop/Personal/Projects/SySpectrum/backend/db/schema.sql
+[2025-05-08T14:21:29.764Z] DEBUG: [31d0a16b-4c86-4801-b9a0-be3a1344648b] ✅ Schema file read successfully
+[2025-05-08T14:21:29.764Z] DEBUG: [31d0a16b-4c86-4801-b9a0-be3a1344648b] 🧱 Executing 5 schema statements
+[2025-05-08T14:21:29.784Z] DEBUG: [31d0a16b-4c86-4801-b9a0-be3a1344648b] ✅ Executed statement: -- 📊 Telemetry Table — stores agent metrics over ...
+[2025-05-08T14:21:29.785Z] DEBUG: [31d0a16b-4c86-4801-b9a0-be3a1344648b] ✅ Executed statement: CREATE INDEX IF NOT EXISTS idx_telemetry_agent_tim...
+[2025-05-08T14:21:29.787Z] DEBUG: [31d0a16b-4c86-4801-b9a0-be3a1344648b] ✅ Executed statement: -- 🛰️ Agents Table — registered agents with full ...
+[2025-05-08T14:21:29.788Z] DEBUG: [31d0a16b-4c86-4801-b9a0-be3a1344648b] ✅ Executed statement: -- 👥 Users Table — system users (admin/operator)...
+[2025-05-08T14:21:29.789Z] DEBUG: [31d0a16b-4c86-4801-b9a0-be3a1344648b] ✅ Executed statement: -- ⚙️ Settings Table — global settings
+CREATE TAB...
+[2025-05-08T14:21:29.790Z] INFO: [31d0a16b-4c86-4801-b9a0-be3a1344648b] ✅ Tables created from schema.sql
+[2025-05-08T14:21:29.790Z] DEBUG: [31d0a16b-4c86-4801-b9a0-be3a1344648b] 🔎 Checking for default admin user
+[2025-05-08T14:21:29.792Z] INFO: [31d0a16b-4c86-4801-b9a0-be3a1344648b] ℹ️ Default admin user already exists
+[2025-05-08T14:21:29.792Z] INFO: [31d0a16b-4c86-4801-b9a0-be3a1344648b] ✅ Database migrations completed successfully in 30ms
+[2025-05-08T14:21:29.794Z] INFO: [8ed59d0a-5525-4cdf-a803-755f2caee38d] ✅ Migrations completed in 33ms
+[2025-05-08T14:21:29.796Z] INFO: [8ed59d0a-5525-4cdf-a803-755f2caee38d] 🧠 Syspectrum backend running on port 8080
+[2025-05-08T14:21:31.358Z] INFO: [d21774e9-faa1-4b0a-9fb4-728204b038c6] 📥 GET /api/telemetry/DESKTOP-TBUNGH6/chart?from=1710000000000&to=1810500000000
+[2025-05-08T14:21:31.359Z] DEBUG: [707f4414-ff76-4866-ad64-44ea7fb7f1ce] 🔐 auth middleware invoked | requiredRole=any
+[2025-05-08T14:21:31.360Z] DEBUG: [707f4414-ff76-4866-ad64-44ea7fb7f1ce] ✅ Token verified | user=admin, role=admin
+[2025-05-08T14:21:31.361Z] DEBUG: [707f4414-ff76-4866-ad64-44ea7fb7f1ce] 🔓 Access granted | user=admin
+[2025-05-08T14:21:31.362Z] DEBUG: [707f4414-ff76-4866-ad64-44ea7fb7f1ce] ⏱️ auth middleware complete | duration=3ms
+[2025-05-08T14:21:31.363Z] DEBUG: [89ab6b51-b5b1-4d26-b491-53d278c519de] 📝 Running validation on GET /api/telemetry/DESKTOP-TBUNGH6/chart?from=1710000000000&to=1810500000000
+[2025-05-08T14:21:31.363Z] INFO: [89ab6b51-b5b1-4d26-b491-53d278c519de] ✅ Validation passed
+[2025-05-08T14:21:31.363Z] DEBUG: [89ab6b51-b5b1-4d26-b491-53d278c519de] ⏱️ Validation duration: 0ms
+[2025-05-08T14:21:31.363Z] DEBUG: [1a294095-ce70-4187-9eae-528bec4a7fc3] 📈 GET /telemetry/DESKTOP-TBUNGH6/chart | from=1710000000000, to=1810500000000
+[2025-05-08T14:21:31.364Z] DEBUG: [f60d2b90-661f-40bb-a285-069c9304d6e1] 📈 Enter getTelemetrySeries | hostname=DESKTOP-TBUNGH6, from=1710000000000, to=1810500000000
+[2025-05-08T14:21:31.366Z] DEBUG: [f60d2b90-661f-40bb-a285-069c9304d6e1] 📊 getTelemetrySeries result | count=3
+[2025-05-08T14:21:31.366Z] DEBUG: [f60d2b90-661f-40bb-a285-069c9304d6e1] ⏱️ Exit getTelemetrySeries | duration=2ms
+[2025-05-08T14:21:31.366Z] INFO: [1a294095-ce70-4187-9eae-528bec4a7fc3] 📦 Timeseries data retrieved for DESKTOP-TBUNGH6 | count=3
+[2025-05-08T14:21:31.368Z] DEBUG: [1a294095-ce70-4187-9eae-528bec4a7fc3] ⏱️ GET /telemetry/:hostname/chart complete | duration=5ms
+[2025-05-08T14:21:31.368Z] INFO: [707f4414-ff76-4866-ad64-44ea7fb7f1ce] 📤 GET /api/telemetry/DESKTOP-TBUNGH6/chart?from=1710000000000&to=1810500000000 | 200 | 10ms
+[2025-05-08T14:21:44.642Z] INFO: [83c0788b-6cf8-48d3-8285-0ef6a03144af] 📥 GET /api/agents
+[2025-05-08T14:21:44.643Z] DEBUG: [3261fcdb-33c9-4b4e-bc43-31b305b414cf] 🔐 auth middleware invoked | requiredRole=any
+[2025-05-08T14:21:44.644Z] DEBUG: [3261fcdb-33c9-4b4e-bc43-31b305b414cf] ✅ Token verified | user=admin, role=admin
+[2025-05-08T14:21:44.644Z] DEBUG: [3261fcdb-33c9-4b4e-bc43-31b305b414cf] 🔓 Access granted | user=admin
+[2025-05-08T14:21:44.644Z] DEBUG: [f28c03b8-a564-4ea4-9232-e74e5374e065] 🔎 GET /agents
+[2025-05-08T14:21:44.644Z] DEBUG: [55f0c33b-a578-4e7d-acba-2e433807d4c3] 📋 Enter getAllAgents
+[2025-05-08T14:21:44.646Z] DEBUG: [55f0c33b-a578-4e7d-acba-2e433807d4c3] 📋 Retrieved 1 agents
+[2025-05-08T14:21:44.646Z] DEBUG: [55f0c33b-a578-4e7d-acba-2e433807d4c3] ⏱️ Exit getAllAgents | duration=2ms
+[2025-05-08T14:21:44.646Z] INFO: [f28c03b8-a564-4ea4-9232-e74e5374e065] 📋 Retrieved 1 agents
+[2025-05-08T14:21:44.646Z] DEBUG: [f28c03b8-a564-4ea4-9232-e74e5374e065] ⏱️ /agents list complete | duration=2ms
+[2025-05-08T14:21:44.646Z] DEBUG: [3261fcdb-33c9-4b4e-bc43-31b305b414cf] ⏱️ auth middleware complete | duration=3ms
+[2025-05-08T14:21:44.647Z] INFO: [3261fcdb-33c9-4b4e-bc43-31b305b414cf] 📤 GET /api/agents | 200 | 5ms
+[2025-05-08T14:23:05.248Z] INFO: [5abc8131-4d75-464e-b450-76cfb1affff2] 📥 GET /api/telemetry/DESKTOP-TBUNGH6/chart?from=1710000000000&to=1810500000000
+[2025-05-08T14:23:05.248Z] DEBUG: [fc0a5958-882f-4ba2-8d64-8157d1b664de] 🔐 auth middleware invoked | requiredRole=any
+[2025-05-08T14:23:05.249Z] DEBUG: [fc0a5958-882f-4ba2-8d64-8157d1b664de] ✅ Token verified | user=admin, role=admin
+[2025-05-08T14:23:05.249Z] DEBUG: [fc0a5958-882f-4ba2-8d64-8157d1b664de] 🔓 Access granted | user=admin
+[2025-05-08T14:23:05.250Z] DEBUG: [fc0a5958-882f-4ba2-8d64-8157d1b664de] ⏱️ auth middleware complete | duration=2ms
+[2025-05-08T14:23:05.250Z] DEBUG: [89ab6b51-b5b1-4d26-b491-53d278c519de] 📝 Running validation on GET /api/telemetry/DESKTOP-TBUNGH6/chart?from=1710000000000&to=1810500000000
+[2025-05-08T14:23:05.250Z] INFO: [89ab6b51-b5b1-4d26-b491-53d278c519de] ✅ Validation passed
+[2025-05-08T14:23:05.251Z] DEBUG: [89ab6b51-b5b1-4d26-b491-53d278c519de] ⏱️ Validation duration: 0ms
+[2025-05-08T14:23:05.251Z] DEBUG: [b757e48b-7d10-4794-b2ce-8b3d2c24b30a] 📈 GET /telemetry/DESKTOP-TBUNGH6/chart | from=1710000000000, to=1810500000000
+[2025-05-08T14:23:05.251Z] DEBUG: [d1926bf7-0b6c-49e7-b84f-d8ec2df811da] 📈 Enter getTelemetrySeries | hostname=DESKTOP-TBUNGH6, from=1710000000000, to=1810500000000
+[2025-05-08T14:23:05.252Z] DEBUG: [d1926bf7-0b6c-49e7-b84f-d8ec2df811da] 📊 getTelemetrySeries result | count=3
+[2025-05-08T14:23:05.252Z] DEBUG: [d1926bf7-0b6c-49e7-b84f-d8ec2df811da] ⏱️ Exit getTelemetrySeries | duration=1ms
+[2025-05-08T14:23:05.252Z] INFO: [b757e48b-7d10-4794-b2ce-8b3d2c24b30a] 📦 Timeseries data retrieved for DESKTOP-TBUNGH6 | count=3
+[2025-05-08T14:23:05.253Z] DEBUG: [b757e48b-7d10-4794-b2ce-8b3d2c24b30a] ⏱️ GET /telemetry/:hostname/chart complete | duration=2ms
+[2025-05-08T14:23:05.253Z] INFO: [fc0a5958-882f-4ba2-8d64-8157d1b664de] 📤 GET /api/telemetry/DESKTOP-TBUNGH6/chart?from=1710000000000&to=1810500000000 | 200 | 5ms
