@@ -9,7 +9,6 @@ const { v4: uuidv4 } = require('uuid');
 const { ensureDependencies } = require('./utils/dependencies');
 const { loadAgentData, saveAgentData } = require('./utils/agentState');
 
-// Metric modules
 const { getCPU } = require('./modules/cpu');
 const { getMemory } = require('./modules/memory');
 const { getDisk } = require('./modules/disk');
@@ -17,15 +16,17 @@ const { getNetwork } = require('./modules/network');
 const { getProcesses } = require('./modules/processes');
 const { getTemperature } = require('./modules/temperature');
 
-// SQLite buffer
 const sqlite3 = require('sqlite3').verbose();
 const db = new sqlite3.Database(path.join(__dirname, 'buffer.db'));
 
-// Initialize agentId and flag
+let pollRetryCount = 0;
+const MAX_POLL_RETRIES = 10;
+const POLL_BASE_DELAY = 10000;
+const POLL_MAX_DELAY = 60000;
+
 let agentId = null;
 let registered = false;
 
-// Load or generate agentId
 const traceId = uuidv4();
 const agentData = loadAgentData();
 if (agentData && agentData.agentId) {
@@ -197,7 +198,12 @@ async function pollForClaim() {
   const pollId = uuidv4();
   const claimUrl = `${config.baseUrl}/api/agents/claim`;
 
-  logger.debug(`[${pollId}] 🔁 Polling for claim`);
+  if (pollRetryCount >= MAX_POLL_RETRIES) {
+    logger.error(`[${pollId}] 🚫 Max poll retries (${MAX_POLL_RETRIES}) reached. Aborting claim attempts.`);
+    return;
+  }
+
+  logger.debug(`[${pollId}] 🔁 Polling for claim attempt ${pollRetryCount + 1}`);
 
   try {
     const res = await axios.get(claimUrl, {
@@ -209,6 +215,7 @@ async function pollForClaim() {
     if (res.data?.data?.agent_id) {
       agentId = res.data.data.agent_id;
       registered = true;
+      pollRetryCount = 0;
       saveAgentData({
         agentId,
         receivedAt: Date.now()
@@ -216,12 +223,16 @@ async function pollForClaim() {
       logger.info(`[${pollId}] ✅ Agent approved with ID: ${agentId}`);
       initRuntime();
     } else {
-      logger.info(`[${pollId}] ⏳ Approval pending... retrying`);
-      setTimeout(pollForClaim, 10000);
+      pollRetryCount++;
+      const delay = Math.min(POLL_BASE_DELAY * pollRetryCount, POLL_MAX_DELAY);
+      logger.info(`[${pollId}] ⏳ Approval pending... retrying in ${delay / 1000}s`);
+      setTimeout(pollForClaim, delay);
     }
   } catch (err) {
-    logger.warn(`[${pollId}] 📡 Claim poll failed: ${err.message}`);
-    setTimeout(pollForClaim, 15000);
+    pollRetryCount++;
+    const delay = Math.min(POLL_BASE_DELAY * pollRetryCount, POLL_MAX_DELAY);
+    logger.warn(`[${pollId}] 📡 Claim poll failed (retry ${pollRetryCount}): ${err.message}`);
+    setTimeout(pollForClaim, delay);
   }
 }
 

@@ -29,7 +29,7 @@ router.post(
 
     try {
       await telemetryModel.insertTelemetry(req.body);
-      await agentsModel.upsertAgent(hostname);
+      await agentsModel.upsertAgent(hostname, req.body);
       logger.info(`[${traceId}] ✅ Telemetry inserted and agent upserted | hostname=${hostname}`);
       return success(res, { message: 'Telemetry accepted' });
     } catch (err) {

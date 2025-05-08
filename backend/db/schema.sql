@@ -24,10 +24,13 @@ CREATE TABLE IF NOT EXISTS agents (
   agent_id TEXT PRIMARY KEY,                  -- Permanent UUID from backend
   hostname TEXT NOT NULL UNIQUE,              -- Last known hostname (can change)
   platform TEXT,                              -- linux, darwin, etc
+  arch TEXT,                                   -- x64, arm64, etc
   version TEXT,                               -- agent version string
-  first_seen INTEGER NOT NULL,
-  last_seen INTEGER NOT NULL,
-  label TEXT,
+  cpu_cores INTEGER,                          -- Total physical/logical cores
+  memory_total_mb INTEGER,                    -- Total system memory in MB
+  first_seen INTEGER NOT NULL,                -- Timestamp of first registration
+  last_seen INTEGER NOT NULL,                 -- Timestamp of last telemetry/heartbeat
+  label TEXT,                                 -- Optional custom label
   status INTEGER DEFAULT 0                    -- See: agentStatus enum
 );
 

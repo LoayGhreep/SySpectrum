@@ -1,283 +1,511 @@
-[2025-05-08T14:19:41.033Z] INFO: 📦 SQLite DB loaded from /mnt/c/Users/Anonymous/Desktop/Personal/Projects/SySpectrum/syspectrum.db
-[2025-05-08T14:19:42.067Z] DEBUG: [660c0f14-99f8-4f7a-9b35-565a013fde83] 🧪 Validation middleware initialized with 2 rules
-[2025-05-08T14:19:42.068Z] DEBUG: [05c65ea8-796f-43e5-b546-782f758bda94] 🧪 Validation middleware initialized with 2 rules
-[2025-05-08T14:19:42.069Z] DEBUG: [f6afa10f-0602-42a1-b420-c45e27a9a853] 🧪 Validation middleware initialized with 2 rules
-[2025-05-08T14:19:42.075Z] DEBUG: [ed13aa67-145a-4f83-863d-db14931a3bf3] 🧪 Validation middleware initialized with 3 rules
-[2025-05-08T14:19:42.075Z] DEBUG: [349c3633-a553-4205-aa6e-c05da5fbef15] 🧪 Validation middleware initialized with 1 rules
-[2025-05-08T14:19:42.076Z] DEBUG: [7523d25b-a028-4ac7-8bf1-2b3bce487d0d] 🧪 Validation middleware initialized with 1 rules
-[2025-05-08T14:19:42.076Z] DEBUG: [e6ed197e-197d-40e0-b5b4-87df3e005db0] 🧪 Validation middleware initialized with 2 rules
-[2025-05-08T14:19:42.076Z] DEBUG: [25c96da5-a032-4e8a-b1bc-d2ef44608209] 🧪 Validation middleware initialized with 1 rules
-[2025-05-08T14:19:42.336Z] DEBUG: [b4d32ed3-d3d3-4e75-a370-0c49b8cf1e58] 🧪 Validation middleware initialized with 2 rules
-[2025-05-08T14:19:42.337Z] DEBUG: [100958d3-0b18-4711-bb24-83ce9bad754e] 🧪 Validation middleware initialized with 3 rules
-[2025-05-08T14:19:42.337Z] DEBUG: [b7f31d56-83bf-4862-a3a8-84e239575fd5] 🧪 Validation middleware initialized with 2 rules
-[2025-05-08T14:19:42.346Z] DEBUG: [6e333c31-2c4f-4dbb-a693-8301e873c267] 🧪 Validation middleware initialized with 1 rules
-[2025-05-08T14:19:42.347Z] DEBUG: [7ae82fc7-a545-4e38-b2a8-3300e45c84d0] 🧪 Validation middleware initialized with 1 rules
-[2025-05-08T14:19:42.355Z] INFO: [074423d9-edfb-48c4-9b77-b8407f841297] 🚀 Running migrations...
-[2025-05-08T14:19:42.355Z] INFO: [fb907f60-b87f-402e-9cb9-f971a1cf72f1] 🚀 Starting database migration
-[2025-05-08T14:19:42.355Z] DEBUG: [fb907f60-b87f-402e-9cb9-f971a1cf72f1] 📄 Loading schema from /mnt/c/Users/Anonymous/Desktop/Personal/Projects/SySpectrum/backend/db/schema.sql
-[2025-05-08T14:19:42.357Z] DEBUG: [fb907f60-b87f-402e-9cb9-f971a1cf72f1] ✅ Schema file read successfully
-[2025-05-08T14:19:42.357Z] DEBUG: [fb907f60-b87f-402e-9cb9-f971a1cf72f1] 🧱 Executing 5 schema statements
-[2025-05-08T14:19:42.387Z] DEBUG: [fb907f60-b87f-402e-9cb9-f971a1cf72f1] ✅ Executed statement: -- 📊 Telemetry Table — stores agent metrics over ...
-[2025-05-08T14:19:42.394Z] DEBUG: [fb907f60-b87f-402e-9cb9-f971a1cf72f1] ✅ Executed statement: CREATE INDEX IF NOT EXISTS idx_telemetry_agent_tim...
-[2025-05-08T14:19:42.401Z] DEBUG: [fb907f60-b87f-402e-9cb9-f971a1cf72f1] ✅ Executed statement: -- 🛰️ Agents Table — registered agents with full ...
-[2025-05-08T14:19:42.409Z] DEBUG: [fb907f60-b87f-402e-9cb9-f971a1cf72f1] ✅ Executed statement: -- 👥 Users Table — system users (admin/operator)...
-[2025-05-08T14:19:42.416Z] DEBUG: [fb907f60-b87f-402e-9cb9-f971a1cf72f1] ✅ Executed statement: -- ⚙️ Settings Table — global settings
+[2025-05-08T14:54:50.265Z] INFO: 📦 SQLite DB loaded from /mnt/c/Users/Anonymous/Desktop/Personal/Projects/SySpectrum/syspectrum.db
+[2025-05-08T14:54:51.175Z] DEBUG: [70572c31-4954-4925-9ff6-9c1cf3ab024f] 🧪 Validation middleware initialized with 2 rules
+[2025-05-08T14:54:51.177Z] DEBUG: [babdd7c1-9c9d-487c-aef2-2418e01ed71a] 🧪 Validation middleware initialized with 2 rules
+[2025-05-08T14:54:51.178Z] DEBUG: [bd45f739-b5c5-4187-be8f-740077b2777c] 🧪 Validation middleware initialized with 2 rules
+[2025-05-08T14:54:51.182Z] DEBUG: [699906a9-16ae-4510-aadd-8b67470e0552] 🧪 Validation middleware initialized with 3 rules
+[2025-05-08T14:54:51.182Z] DEBUG: [df0f69ca-82bc-4d70-9f35-b1ffcf9dbdc1] 🧪 Validation middleware initialized with 1 rules
+[2025-05-08T14:54:51.182Z] DEBUG: [de5e11d5-9884-4dc3-bcaa-8e009f0a0188] 🧪 Validation middleware initialized with 1 rules
+[2025-05-08T14:54:51.183Z] DEBUG: [dcaf734a-c304-4a2d-90b0-9c3a240d13ee] 🧪 Validation middleware initialized with 2 rules
+[2025-05-08T14:54:51.183Z] DEBUG: [5886bb3a-c42b-4737-805e-f12389733cf3] 🧪 Validation middleware initialized with 1 rules
+[2025-05-08T14:54:51.419Z] DEBUG: [f0257e36-202d-41b0-8b9d-ebc36a636d13] 🧪 Validation middleware initialized with 2 rules
+[2025-05-08T14:54:51.420Z] DEBUG: [1386ac4c-4d2e-4815-8cb9-5eb875a8dc65] 🧪 Validation middleware initialized with 3 rules
+[2025-05-08T14:54:51.420Z] DEBUG: [68b4fcb5-acc3-4316-8617-a3fa777c3307] 🧪 Validation middleware initialized with 2 rules
+[2025-05-08T14:54:51.427Z] DEBUG: [47dca607-6903-4f93-9eca-d45879848558] 🧪 Validation middleware initialized with 1 rules
+[2025-05-08T14:54:51.427Z] DEBUG: [6d4f803c-cc9b-4da5-803a-abd110865059] 🧪 Validation middleware initialized with 1 rules
+[2025-05-08T14:54:51.433Z] INFO: [6977e20a-8083-46a4-81f7-ccb61930b029] 🚀 Running migrations...
+[2025-05-08T14:54:51.434Z] INFO: [691237e2-9aa4-4042-b4d9-0a0144f8ce84] 🚀 Starting database migration
+[2025-05-08T14:54:51.434Z] DEBUG: [691237e2-9aa4-4042-b4d9-0a0144f8ce84] 📄 Loading schema from /mnt/c/Users/Anonymous/Desktop/Personal/Projects/SySpectrum/backend/db/schema.sql
+[2025-05-08T14:54:51.435Z] DEBUG: [691237e2-9aa4-4042-b4d9-0a0144f8ce84] ✅ Schema file read successfully
+[2025-05-08T14:54:51.435Z] DEBUG: [691237e2-9aa4-4042-b4d9-0a0144f8ce84] 🧱 Executing 5 schema statements
+[2025-05-08T14:54:51.461Z] DEBUG: [691237e2-9aa4-4042-b4d9-0a0144f8ce84] ✅ Executed statement: -- 📊 Telemetry Table — stores agent metrics over ...
+[2025-05-08T14:54:51.467Z] DEBUG: [691237e2-9aa4-4042-b4d9-0a0144f8ce84] ✅ Executed statement: CREATE INDEX IF NOT EXISTS idx_telemetry_agent_tim...
+[2025-05-08T14:54:51.475Z] DEBUG: [691237e2-9aa4-4042-b4d9-0a0144f8ce84] ✅ Executed statement: -- 🛰️ Agents Table — registered agents with full ...
+[2025-05-08T14:54:51.481Z] DEBUG: [691237e2-9aa4-4042-b4d9-0a0144f8ce84] ✅ Executed statement: -- 👥 Users Table — system users (admin/operator)...
+[2025-05-08T14:54:51.488Z] DEBUG: [691237e2-9aa4-4042-b4d9-0a0144f8ce84] ✅ Executed statement: -- ⚙️ Settings Table — global settings
 CREATE TAB...
-[2025-05-08T14:19:42.417Z] INFO: [fb907f60-b87f-402e-9cb9-f971a1cf72f1] ✅ Tables created from schema.sql
-[2025-05-08T14:19:42.417Z] DEBUG: [fb907f60-b87f-402e-9cb9-f971a1cf72f1] 🔎 Checking for default admin user
-[2025-05-08T14:19:42.418Z] DEBUG: [fb907f60-b87f-402e-9cb9-f971a1cf72f1] 🆕 Admin user not found, creating default admin
-[2025-05-08T14:19:42.478Z] INFO: [fb907f60-b87f-402e-9cb9-f971a1cf72f1] ✅ Default admin user created (username: admin)
-[2025-05-08T14:19:42.479Z] INFO: [fb907f60-b87f-402e-9cb9-f971a1cf72f1] ✅ Database migrations completed successfully in 123ms
-[2025-05-08T14:19:42.479Z] INFO: [074423d9-edfb-48c4-9b77-b8407f841297] ✅ Migrations completed in 124ms
-[2025-05-08T14:19:42.480Z] INFO: [074423d9-edfb-48c4-9b77-b8407f841297] 🧠 Syspectrum backend running on port 8080
-[2025-05-08T14:19:50.015Z] INFO: [bc466682-5408-47c8-9284-88ef82a12f8e] 📥 POST /api/agents/register
-[2025-05-08T14:19:50.018Z] DEBUG: [ed13aa67-145a-4f83-863d-db14931a3bf3] 📝 Running validation on POST /api/agents/register
-[2025-05-08T14:19:50.018Z] INFO: [ed13aa67-145a-4f83-863d-db14931a3bf3] ✅ Validation passed
-[2025-05-08T14:19:50.018Z] DEBUG: [ed13aa67-145a-4f83-863d-db14931a3bf3] ⏱️ Validation duration: 0ms
-[2025-05-08T14:19:50.018Z] DEBUG: [ee65b58c-da6c-43cb-9f91-16b0e84a947f] 📝 POST /agents/register | payload={"hostname":"DESKTOP-TBUNGH6","platform":"linux","arch":"x64","release":"5.15.167.4-microsoft-standard-WSL2","agentVersion":"1.0.0","timestamp":1746713989895}
-[2025-05-08T14:19:50.019Z] DEBUG: [e148350b-c43f-4890-9d71-4f0a4930ce55] ➕ Enter registerAgent | hostname=DESKTOP-TBUNGH6, platform=linux, agentVersion=1.0.0
-[2025-05-08T14:19:50.029Z] INFO: [e148350b-c43f-4890-9d71-4f0a4930ce55] 🎕 Agent registered and pending: DESKTOP-TBUNGH6 → agent_1746713990019_4809
-[2025-05-08T14:19:50.029Z] DEBUG: [e148350b-c43f-4890-9d71-4f0a4930ce55] ⏱️ Exit registerAgent | duration=10ms
-[2025-05-08T14:19:50.029Z] INFO: [ee65b58c-da6c-43cb-9f91-16b0e84a947f] ✅ Agent registered | hostname=DESKTOP-TBUNGH6
-[2025-05-08T14:19:50.032Z] DEBUG: [ee65b58c-da6c-43cb-9f91-16b0e84a947f] ⏱️ /register complete | duration=14ms
-[2025-05-08T14:19:50.033Z] INFO: [bc466682-5408-47c8-9284-88ef82a12f8e] 📤 POST /api/agents/register | 200 | 18ms
-[2025-05-08T14:19:50.038Z] INFO: [af56aa9b-373c-48d0-be48-03f9f3b73497] 📥 GET /api/agents/claim?hostname=DESKTOP-TBUNGH6
-[2025-05-08T14:19:50.040Z] DEBUG: [349c3633-a553-4205-aa6e-c05da5fbef15] 📝 Running validation on GET /api/agents/claim?hostname=DESKTOP-TBUNGH6
-[2025-05-08T14:19:50.040Z] INFO: [349c3633-a553-4205-aa6e-c05da5fbef15] ✅ Validation passed
-[2025-05-08T14:19:50.040Z] DEBUG: [349c3633-a553-4205-aa6e-c05da5fbef15] ⏱️ Validation duration: 0ms
-[2025-05-08T14:19:50.040Z] DEBUG: [23d8d205-7356-421d-8c41-b4972e473c2c] 📥 GET /agents/claim | hostname=DESKTOP-TBUNGH6
-[2025-05-08T14:19:50.040Z] DEBUG: [6b522986-58d7-467a-8e40-88eca3406eed] 🔍 Enter getClaimedAgent | hostname=DESKTOP-TBUNGH6
-[2025-05-08T14:19:50.041Z] DEBUG: [6b522986-58d7-467a-8e40-88eca3406eed] ↩️ getClaimedAgent result | found=false
-[2025-05-08T14:19:50.041Z] DEBUG: [6b522986-58d7-467a-8e40-88eca3406eed] ⏱️ Exit getClaimedAgent | duration=1ms
-[2025-05-08T14:19:50.041Z] INFO: [23d8d205-7356-421d-8c41-b4972e473c2c] ⏳ Claim not approved | hostname=DESKTOP-TBUNGH6
-[2025-05-08T14:19:50.042Z] DEBUG: [23d8d205-7356-421d-8c41-b4972e473c2c] ⏱️ /claim complete | duration=2ms
-[2025-05-08T14:19:50.042Z] INFO: [af56aa9b-373c-48d0-be48-03f9f3b73497] 📤 GET /api/agents/claim?hostname=DESKTOP-TBUNGH6 | 404 | 4ms
-[2025-05-08T14:19:53.148Z] INFO: [8cc37649-a152-4cd1-a301-33d1025edbd0] 📥 POST /api/users/login
-[2025-05-08T14:19:53.149Z] DEBUG: [b4d32ed3-d3d3-4e75-a370-0c49b8cf1e58] 📝 Running validation on POST /api/users/login
-[2025-05-08T14:19:53.149Z] INFO: [b4d32ed3-d3d3-4e75-a370-0c49b8cf1e58] ✅ Validation passed
-[2025-05-08T14:19:53.149Z] DEBUG: [b4d32ed3-d3d3-4e75-a370-0c49b8cf1e58] ⏱️ Validation duration: 1ms
-[2025-05-08T14:19:53.149Z] DEBUG: [96dd23ef-aa2c-40ab-81c1-979e6c7275ed] 🔐 POST /login | Attempting login for username=admin
-[2025-05-08T14:19:53.149Z] DEBUG: [f2a7e72e-6d8e-4b6f-84ca-3624c8222ea9] 🔐 Enter authenticateUser | username=admin
-[2025-05-08T14:19:53.196Z] INFO: [f2a7e72e-6d8e-4b6f-84ca-3624c8222ea9] ✅ Authentication successful for user: admin
-[2025-05-08T14:19:53.196Z] DEBUG: [f2a7e72e-6d8e-4b6f-84ca-3624c8222ea9] ⏱️ Exit authenticateUser | duration=47ms
-[2025-05-08T14:19:53.199Z] INFO: [96dd23ef-aa2c-40ab-81c1-979e6c7275ed] ✅ Login successful | username=admin
-[2025-05-08T14:19:53.199Z] DEBUG: [96dd23ef-aa2c-40ab-81c1-979e6c7275ed] ⏱️ POST /login complete | duration=50ms
-[2025-05-08T14:19:53.200Z] INFO: [8cc37649-a152-4cd1-a301-33d1025edbd0] 📤 POST /api/users/login | 200 | 52ms
-[2025-05-08T14:19:59.975Z] INFO: [ee3a9b80-edd9-49d7-a76b-03b8b507ff9c] 📥 PATCH /api/agents/DESKTOP-TBUNGH6
-[2025-05-08T14:19:59.976Z] DEBUG: [8a61fc5a-572d-40ff-8491-6484d20bc057] 🔐 auth middleware invoked | requiredRole=any
-[2025-05-08T14:19:59.977Z] DEBUG: [8a61fc5a-572d-40ff-8491-6484d20bc057] ✅ Token verified | user=admin, role=admin
-[2025-05-08T14:19:59.977Z] DEBUG: [8a61fc5a-572d-40ff-8491-6484d20bc057] 🔓 Access granted | user=admin
-[2025-05-08T14:19:59.978Z] DEBUG: [8a61fc5a-572d-40ff-8491-6484d20bc057] ⏱️ auth middleware complete | duration=2ms
-[2025-05-08T14:19:59.978Z] DEBUG: [e6ed197e-197d-40e0-b5b4-87df3e005db0] 📝 Running validation on PATCH /api/agents/DESKTOP-TBUNGH6
-[2025-05-08T14:19:59.978Z] INFO: [e6ed197e-197d-40e0-b5b4-87df3e005db0] ✅ Validation passed
-[2025-05-08T14:19:59.978Z] DEBUG: [e6ed197e-197d-40e0-b5b4-87df3e005db0] ⏱️ Validation duration: 0ms
-[2025-05-08T14:19:59.978Z] DEBUG: [d90a1321-44ee-40b1-b16a-c1e4ceb7da80] ✏️ PATCH /agents/DESKTOP-TBUNGH6 | payload={"label":"WebServer","status":1}
-[2025-05-08T14:19:59.978Z] DEBUG: [78b0066a-9f3f-4770-90f9-460519ed1508] ✏️ Enter updateAgentByHostname | hostname=DESKTOP-TBUNGH6, fields={"label":"WebServer","status":1}
-[2025-05-08T14:19:59.987Z] INFO: [78b0066a-9f3f-4770-90f9-460519ed1508] ✏️ Agent updated via hostname: DESKTOP-TBUNGH6
-[2025-05-08T14:19:59.987Z] DEBUG: [78b0066a-9f3f-4770-90f9-460519ed1508] ⏱️ Exit updateAgentByHostname | duration=9ms
-[2025-05-08T14:19:59.987Z] INFO: [d90a1321-44ee-40b1-b16a-c1e4ceb7da80] ✅ Agent updated | hostname=DESKTOP-TBUNGH6
-[2025-05-08T14:19:59.988Z] DEBUG: [d90a1321-44ee-40b1-b16a-c1e4ceb7da80] ⏱️ /agents/:hostname PATCH complete | duration=10ms
-[2025-05-08T14:19:59.988Z] INFO: [8a61fc5a-572d-40ff-8491-6484d20bc057] 📤 PATCH /api/agents/DESKTOP-TBUNGH6 | 200 | 13ms
-[2025-05-08T14:20:05.056Z] INFO: [52ff6893-be17-41d4-9f69-7e57cf53c87e] 📥 GET /api/agents/claim?hostname=DESKTOP-TBUNGH6
-[2025-05-08T14:20:05.057Z] DEBUG: [349c3633-a553-4205-aa6e-c05da5fbef15] 📝 Running validation on GET /api/agents/claim?hostname=DESKTOP-TBUNGH6
-[2025-05-08T14:20:05.057Z] INFO: [349c3633-a553-4205-aa6e-c05da5fbef15] ✅ Validation passed
-[2025-05-08T14:20:05.057Z] DEBUG: [349c3633-a553-4205-aa6e-c05da5fbef15] ⏱️ Validation duration: 0ms
-[2025-05-08T14:20:05.057Z] DEBUG: [767c5a6d-804c-468e-bf9b-2a87eb26ee87] 📥 GET /agents/claim | hostname=DESKTOP-TBUNGH6
-[2025-05-08T14:20:05.057Z] DEBUG: [eadb7f00-00b0-408f-b5ac-1d807afbbfd4] 🔍 Enter getClaimedAgent | hostname=DESKTOP-TBUNGH6
-[2025-05-08T14:20:05.061Z] DEBUG: [eadb7f00-00b0-408f-b5ac-1d807afbbfd4] ↩️ getClaimedAgent result | found=true
-[2025-05-08T14:20:05.061Z] DEBUG: [eadb7f00-00b0-408f-b5ac-1d807afbbfd4] ⏱️ Exit getClaimedAgent | duration=4ms
-[2025-05-08T14:20:05.061Z] INFO: [767c5a6d-804c-468e-bf9b-2a87eb26ee87] 📦 Claim approved | hostname=DESKTOP-TBUNGH6
-[2025-05-08T14:20:05.061Z] DEBUG: [767c5a6d-804c-468e-bf9b-2a87eb26ee87] ⏱️ /claim complete | duration=4ms
-[2025-05-08T14:20:05.062Z] INFO: [52ff6893-be17-41d4-9f69-7e57cf53c87e] 📤 GET /api/agents/claim?hostname=DESKTOP-TBUNGH6 | 200 | 5ms
-[2025-05-08T14:20:10.069Z] INFO: [c0052042-509f-4b0a-9f54-1a77d12bd733] 📥 POST /api/agents/heartbeat
-[2025-05-08T14:20:10.069Z] DEBUG: [25c96da5-a032-4e8a-b1bc-d2ef44608209] 📝 Running validation on POST /api/agents/heartbeat
-[2025-05-08T14:20:10.069Z] INFO: [25c96da5-a032-4e8a-b1bc-d2ef44608209] ✅ Validation passed
-[2025-05-08T14:20:10.069Z] DEBUG: [25c96da5-a032-4e8a-b1bc-d2ef44608209] ⏱️ Validation duration: 0ms
-[2025-05-08T14:20:10.069Z] DEBUG: [06e99dd5-c25b-4cbe-ac04-76068f5f91be] 💓 POST /agents/heartbeat | payload={"agentId":"agent_1746713990019_4809","agentVersion":"1.0.0","hostname":"DESKTOP-TBUNGH6","timestamp":1746714010067}
-[2025-05-08T14:20:10.070Z] DEBUG: [fa533dd5-d75e-4a40-97e3-773f9ffb5e1d] ❤️ Enter updateHeartbeat | agentId=agent_1746713990019_4809
-[2025-05-08T14:20:10.083Z] DEBUG: [fa533dd5-d75e-4a40-97e3-773f9ffb5e1d] 🧽 Agent heartbeat updated: agent_1746713990019_4809, newStatus=1
-[2025-05-08T14:20:10.083Z] DEBUG: [fa533dd5-d75e-4a40-97e3-773f9ffb5e1d] ⏱️ Exit updateHeartbeat | duration=13ms
-[2025-05-08T14:20:10.084Z] INFO: [06e99dd5-c25b-4cbe-ac04-76068f5f91be] ✅ Heartbeat acknowledged | agentId=agent_1746713990019_4809
-[2025-05-08T14:20:10.084Z] DEBUG: [06e99dd5-c25b-4cbe-ac04-76068f5f91be] ⏱️ /agents/heartbeat complete | duration=15ms
-[2025-05-08T14:20:10.084Z] INFO: [c0052042-509f-4b0a-9f54-1a77d12bd733] 📤 POST /api/agents/heartbeat | 200 | 15ms
-[2025-05-08T14:20:15.268Z] INFO: [0ec8326f-fcf2-4d21-8427-a343ff0aee50] 📥 POST /api/agents/heartbeat
-[2025-05-08T14:20:15.269Z] DEBUG: [25c96da5-a032-4e8a-b1bc-d2ef44608209] 📝 Running validation on POST /api/agents/heartbeat
-[2025-05-08T14:20:15.269Z] INFO: [25c96da5-a032-4e8a-b1bc-d2ef44608209] ✅ Validation passed
-[2025-05-08T14:20:15.269Z] DEBUG: [25c96da5-a032-4e8a-b1bc-d2ef44608209] ⏱️ Validation duration: 0ms
-[2025-05-08T14:20:15.269Z] DEBUG: [c43b1e1e-6ea3-49f3-94f0-e96561d8bd38] 💓 POST /agents/heartbeat | payload={"agentId":"agent_1746713990019_4809","agentVersion":"1.0.0","hostname":"DESKTOP-TBUNGH6","timestamp":1746714015265}
-[2025-05-08T14:20:15.269Z] DEBUG: [6fcf1d49-c503-41bc-af84-92ba2e378185] ❤️ Enter updateHeartbeat | agentId=agent_1746713990019_4809
-[2025-05-08T14:20:15.279Z] DEBUG: [6fcf1d49-c503-41bc-af84-92ba2e378185] 🧽 Agent heartbeat updated: agent_1746713990019_4809, newStatus=1
-[2025-05-08T14:20:15.279Z] DEBUG: [6fcf1d49-c503-41bc-af84-92ba2e378185] ⏱️ Exit updateHeartbeat | duration=10ms
-[2025-05-08T14:20:15.279Z] INFO: [c43b1e1e-6ea3-49f3-94f0-e96561d8bd38] ✅ Heartbeat acknowledged | agentId=agent_1746713990019_4809
-[2025-05-08T14:20:15.279Z] DEBUG: [c43b1e1e-6ea3-49f3-94f0-e96561d8bd38] ⏱️ /agents/heartbeat complete | duration=10ms
-[2025-05-08T14:20:15.280Z] INFO: [0ec8326f-fcf2-4d21-8427-a343ff0aee50] 📤 POST /api/agents/heartbeat | 200 | 12ms
-[2025-05-08T14:20:20.272Z] INFO: [b7fc8be6-8d55-4886-a4cf-cc39029f97aa] 📥 POST /api/agents/heartbeat
-[2025-05-08T14:20:20.272Z] DEBUG: [25c96da5-a032-4e8a-b1bc-d2ef44608209] 📝 Running validation on POST /api/agents/heartbeat
-[2025-05-08T14:20:20.272Z] INFO: [25c96da5-a032-4e8a-b1bc-d2ef44608209] ✅ Validation passed
-[2025-05-08T14:20:20.272Z] DEBUG: [25c96da5-a032-4e8a-b1bc-d2ef44608209] ⏱️ Validation duration: 0ms
-[2025-05-08T14:20:20.272Z] DEBUG: [797b46b5-1ab4-41ae-ba6f-61c597d8a767] 💓 POST /agents/heartbeat | payload={"agentId":"agent_1746713990019_4809","agentVersion":"1.0.0","hostname":"DESKTOP-TBUNGH6","timestamp":1746714020270}
-[2025-05-08T14:20:20.272Z] DEBUG: [06768e10-18b6-42c7-8f3e-6c72791d6473] ❤️ Enter updateHeartbeat | agentId=agent_1746713990019_4809
-[2025-05-08T14:20:20.286Z] DEBUG: [06768e10-18b6-42c7-8f3e-6c72791d6473] 🧽 Agent heartbeat updated: agent_1746713990019_4809, newStatus=1
-[2025-05-08T14:20:20.286Z] DEBUG: [06768e10-18b6-42c7-8f3e-6c72791d6473] ⏱️ Exit updateHeartbeat | duration=14ms
-[2025-05-08T14:20:20.286Z] INFO: [797b46b5-1ab4-41ae-ba6f-61c597d8a767] ✅ Heartbeat acknowledged | agentId=agent_1746713990019_4809
-[2025-05-08T14:20:20.287Z] DEBUG: [797b46b5-1ab4-41ae-ba6f-61c597d8a767] ⏱️ /agents/heartbeat complete | duration=15ms
-[2025-05-08T14:20:20.287Z] INFO: [b7fc8be6-8d55-4886-a4cf-cc39029f97aa] 📤 POST /api/agents/heartbeat | 200 | 15ms
-[2025-05-08T14:20:25.259Z] INFO: [0c4a8b53-67ef-4855-af77-9212537a6d6d] 📥 POST /api/telemetry
-[2025-05-08T14:20:25.260Z] DEBUG: [660c0f14-99f8-4f7a-9b35-565a013fde83] 📝 Running validation on POST /api/telemetry
-[2025-05-08T14:20:25.260Z] INFO: [660c0f14-99f8-4f7a-9b35-565a013fde83] ✅ Validation passed
-[2025-05-08T14:20:25.260Z] DEBUG: [660c0f14-99f8-4f7a-9b35-565a013fde83] ⏱️ Validation duration: 0ms
-[2025-05-08T14:20:25.260Z] DEBUG: [6105e71b-3d92-4229-8557-b79445bb8af0] 🛰️ POST /telemetry | Receiving telemetry | hostname=DESKTOP-TBUNGH6
-[2025-05-08T14:20:25.260Z] DEBUG: [ab32774e-facd-44a2-9426-55b9f5d1fb12] 📥 Enter insertTelemetry | safePreview={"agentId":"agent_1746713990019_4809","hostname":"DESKTOP-TBUNGH6","timestamp":1746714025076,"cpu":{"usage":0,"cores":14},"memory":{"total_mb":30084,"used_mb":569,"percent":1.89},"disk":{"root":21},"network":{"eth0":{"rx_kbps":0,"tx_kbps":0}},"temperature":{"cpu":null},"top_processes":[{"name":"node","cpu":1.4,"mem":0.2},{"name":"node","cpu":0.9,"mem":0.2},{"name":"systemd","cpu":0,"mem":0},{"name":"init-systemd(Ub","cpu":0,"mem":0},{"name":"init","cpu":0,"mem":0}]}
-[2025-05-08T14:20:25.271Z] INFO: [ab32774e-facd-44a2-9426-55b9f5d1fb12] ✅ Telemetry inserted for agent: agent_1746713990019_4809
-[2025-05-08T14:20:25.272Z] DEBUG: [ab32774e-facd-44a2-9426-55b9f5d1fb12] ⏱️ Exit insertTelemetry | duration=12ms
-[2025-05-08T14:20:25.272Z] DEBUG: [ec77fbe9-a291-44aa-b1aa-b03cbf947bd5] ♻️ Enter upsertAgent | hostname=DESKTOP-TBUNGH6
-[2025-05-08T14:20:25.279Z] INFO: [ec77fbe9-a291-44aa-b1aa-b03cbf947bd5] 🔄 Agent updated (legacy): DESKTOP-TBUNGH6
-[2025-05-08T14:20:25.279Z] DEBUG: [ec77fbe9-a291-44aa-b1aa-b03cbf947bd5] ⏱️ Exit upsertAgent | duration=7ms
-[2025-05-08T14:20:25.279Z] INFO: [6105e71b-3d92-4229-8557-b79445bb8af0] ✅ Telemetry inserted and agent upserted | hostname=DESKTOP-TBUNGH6
-[2025-05-08T14:20:25.280Z] DEBUG: [6105e71b-3d92-4229-8557-b79445bb8af0] ⏱️ POST /telemetry complete | duration=20ms
-[2025-05-08T14:20:25.280Z] INFO: [0c4a8b53-67ef-4855-af77-9212537a6d6d] 📤 POST /api/telemetry | 200 | 21ms
-[2025-05-08T14:20:25.281Z] INFO: [1cde6482-64d0-4201-b5d8-b1246d2a4d39] 📥 POST /api/agents/heartbeat
-[2025-05-08T14:20:25.281Z] DEBUG: [25c96da5-a032-4e8a-b1bc-d2ef44608209] 📝 Running validation on POST /api/agents/heartbeat
-[2025-05-08T14:20:25.281Z] INFO: [25c96da5-a032-4e8a-b1bc-d2ef44608209] ✅ Validation passed
-[2025-05-08T14:20:25.281Z] DEBUG: [25c96da5-a032-4e8a-b1bc-d2ef44608209] ⏱️ Validation duration: 0ms
-[2025-05-08T14:20:25.281Z] DEBUG: [98b28a3c-7ece-4070-a44e-cd7446066a29] 💓 POST /agents/heartbeat | payload={"agentId":"agent_1746713990019_4809","agentVersion":"1.0.0","hostname":"DESKTOP-TBUNGH6","timestamp":1746714025270}
-[2025-05-08T14:20:25.281Z] DEBUG: [c2324822-f187-4350-8256-29d9d7016a79] ❤️ Enter updateHeartbeat | agentId=agent_1746713990019_4809
-[2025-05-08T14:20:25.291Z] DEBUG: [c2324822-f187-4350-8256-29d9d7016a79] 🧽 Agent heartbeat updated: agent_1746713990019_4809, newStatus=1
-[2025-05-08T14:20:25.291Z] DEBUG: [c2324822-f187-4350-8256-29d9d7016a79] ⏱️ Exit updateHeartbeat | duration=10ms
-[2025-05-08T14:20:25.291Z] INFO: [98b28a3c-7ece-4070-a44e-cd7446066a29] ✅ Heartbeat acknowledged | agentId=agent_1746713990019_4809
-[2025-05-08T14:20:25.291Z] DEBUG: [98b28a3c-7ece-4070-a44e-cd7446066a29] ⏱️ /agents/heartbeat complete | duration=10ms
-[2025-05-08T14:20:25.292Z] INFO: [1cde6482-64d0-4201-b5d8-b1246d2a4d39] 📤 POST /api/agents/heartbeat | 200 | 11ms
-[2025-05-08T14:20:25.292Z] INFO: [6f96134d-940d-431a-8619-b1c9aa89223e] 📥 POST /api/telemetry
-[2025-05-08T14:20:25.293Z] DEBUG: [660c0f14-99f8-4f7a-9b35-565a013fde83] 📝 Running validation on POST /api/telemetry
-[2025-05-08T14:20:25.293Z] INFO: [660c0f14-99f8-4f7a-9b35-565a013fde83] ✅ Validation passed
-[2025-05-08T14:20:25.293Z] DEBUG: [660c0f14-99f8-4f7a-9b35-565a013fde83] ⏱️ Validation duration: 0ms
-[2025-05-08T14:20:25.293Z] DEBUG: [acf655c4-3e60-456f-a612-09c119db318b] 🛰️ POST /telemetry | Receiving telemetry | hostname=DESKTOP-TBUNGH6
-[2025-05-08T14:20:25.293Z] DEBUG: [7f9319d1-a3f7-4ca7-b4ab-d936f35ef5af] 📥 Enter insertTelemetry | safePreview={"agentId":"agent_1746713990019_4809","hostname":"DESKTOP-TBUNGH6","timestamp":1746714015072,"cpu":{"usage":0,"cores":14},"memory":{"total_mb":30084,"used_mb":571,"percent":1.9},"disk":{"root":21},"network":{},"temperature":{"cpu":null},"top_processes":[{"name":"node","cpu":1.8,"mem":0.2},{"name":"node","cpu":1.2,"mem":0.1},{"name":"systemd","cpu":0,"mem":0},{"name":"init-systemd(Ub","cpu":0,"mem":0},{"name":"init","cpu":0,"mem":0}]}
-[2025-05-08T14:20:25.302Z] INFO: [7f9319d1-a3f7-4ca7-b4ab-d936f35ef5af] ✅ Telemetry inserted for agent: agent_1746713990019_4809
-[2025-05-08T14:20:25.302Z] DEBUG: [7f9319d1-a3f7-4ca7-b4ab-d936f35ef5af] ⏱️ Exit insertTelemetry | duration=9ms
-[2025-05-08T14:20:25.302Z] DEBUG: [8fa0b629-8293-42e8-8f32-69f5ecc854cd] ♻️ Enter upsertAgent | hostname=DESKTOP-TBUNGH6
-[2025-05-08T14:20:25.309Z] INFO: [8fa0b629-8293-42e8-8f32-69f5ecc854cd] 🔄 Agent updated (legacy): DESKTOP-TBUNGH6
-[2025-05-08T14:20:25.309Z] DEBUG: [8fa0b629-8293-42e8-8f32-69f5ecc854cd] ⏱️ Exit upsertAgent | duration=7ms
-[2025-05-08T14:20:25.309Z] INFO: [acf655c4-3e60-456f-a612-09c119db318b] ✅ Telemetry inserted and agent upserted | hostname=DESKTOP-TBUNGH6
-[2025-05-08T14:20:25.310Z] DEBUG: [acf655c4-3e60-456f-a612-09c119db318b] ⏱️ POST /telemetry complete | duration=17ms
-[2025-05-08T14:20:25.310Z] INFO: [6f96134d-940d-431a-8619-b1c9aa89223e] 📤 POST /api/telemetry | 200 | 18ms
-[2025-05-08T14:20:30.271Z] INFO: [8e5c481c-c75a-4f44-ba83-4c23f3aa7b0c] 📥 POST /api/agents/heartbeat
-[2025-05-08T14:20:30.271Z] DEBUG: [25c96da5-a032-4e8a-b1bc-d2ef44608209] 📝 Running validation on POST /api/agents/heartbeat
-[2025-05-08T14:20:30.272Z] INFO: [25c96da5-a032-4e8a-b1bc-d2ef44608209] ✅ Validation passed
-[2025-05-08T14:20:30.272Z] DEBUG: [25c96da5-a032-4e8a-b1bc-d2ef44608209] ⏱️ Validation duration: 1ms
-[2025-05-08T14:20:30.272Z] DEBUG: [eff4ae89-10f9-4434-84c8-fdf3239f335b] 💓 POST /agents/heartbeat | payload={"agentId":"agent_1746713990019_4809","agentVersion":"1.0.0","hostname":"DESKTOP-TBUNGH6","timestamp":1746714030270}
-[2025-05-08T14:20:30.272Z] DEBUG: [b3f1be52-1cde-42ac-a107-691df7cea2a9] ❤️ Enter updateHeartbeat | agentId=agent_1746713990019_4809
-[2025-05-08T14:20:30.286Z] DEBUG: [b3f1be52-1cde-42ac-a107-691df7cea2a9] 🧽 Agent heartbeat updated: agent_1746713990019_4809, newStatus=1
-[2025-05-08T14:20:30.286Z] DEBUG: [b3f1be52-1cde-42ac-a107-691df7cea2a9] ⏱️ Exit updateHeartbeat | duration=14ms
-[2025-05-08T14:20:30.286Z] INFO: [eff4ae89-10f9-4434-84c8-fdf3239f335b] ✅ Heartbeat acknowledged | agentId=agent_1746713990019_4809
-[2025-05-08T14:20:30.286Z] DEBUG: [eff4ae89-10f9-4434-84c8-fdf3239f335b] ⏱️ /agents/heartbeat complete | duration=14ms
-[2025-05-08T14:20:30.287Z] INFO: [8e5c481c-c75a-4f44-ba83-4c23f3aa7b0c] 📤 POST /api/agents/heartbeat | 200 | 16ms
-[2025-05-08T14:20:35.262Z] INFO: [550d7e56-ca85-441d-bfc3-d855bef641bd] 📥 POST /api/telemetry
-[2025-05-08T14:20:35.262Z] DEBUG: [660c0f14-99f8-4f7a-9b35-565a013fde83] 📝 Running validation on POST /api/telemetry
-[2025-05-08T14:20:35.262Z] INFO: [660c0f14-99f8-4f7a-9b35-565a013fde83] ✅ Validation passed
-[2025-05-08T14:20:35.262Z] DEBUG: [660c0f14-99f8-4f7a-9b35-565a013fde83] ⏱️ Validation duration: 0ms
-[2025-05-08T14:20:35.262Z] DEBUG: [089a5560-fe7b-49f6-b317-38309c4c3fe1] 🛰️ POST /telemetry | Receiving telemetry | hostname=DESKTOP-TBUNGH6
-[2025-05-08T14:20:35.262Z] DEBUG: [115ce212-d7f3-4326-a817-458c69ce909a] 📥 Enter insertTelemetry | safePreview={"agentId":"agent_1746713990019_4809","hostname":"DESKTOP-TBUNGH6","timestamp":1746714035081,"cpu":{"usage":0,"cores":14},"memory":{"total_mb":30084,"used_mb":568,"percent":1.89},"disk":{"root":21},"network":{"eth0":{"rx_kbps":0,"tx_kbps":0}},"temperature":{"cpu":null},"top_processes":[{"name":"node","cpu":1.2,"mem":0.2},{"name":"node","cpu":0.8,"mem":0.2},{"name":"systemd","cpu":0,"mem":0},{"name":"init-systemd(Ub","cpu":0,"mem":0},{"name":"init","cpu":0,"mem":0}]}
-[2025-05-08T14:20:35.273Z] INFO: [115ce212-d7f3-4326-a817-458c69ce909a] ✅ Telemetry inserted for agent: agent_1746713990019_4809
-[2025-05-08T14:20:35.273Z] DEBUG: [115ce212-d7f3-4326-a817-458c69ce909a] ⏱️ Exit insertTelemetry | duration=11ms
-[2025-05-08T14:20:35.274Z] DEBUG: [5b01d293-ad66-4247-b031-57afa64d206c] ♻️ Enter upsertAgent | hostname=DESKTOP-TBUNGH6
-[2025-05-08T14:20:35.282Z] INFO: [5b01d293-ad66-4247-b031-57afa64d206c] 🔄 Agent updated (legacy): DESKTOP-TBUNGH6
-[2025-05-08T14:20:35.282Z] DEBUG: [5b01d293-ad66-4247-b031-57afa64d206c] ⏱️ Exit upsertAgent | duration=8ms
-[2025-05-08T14:20:35.282Z] INFO: [089a5560-fe7b-49f6-b317-38309c4c3fe1] ✅ Telemetry inserted and agent upserted | hostname=DESKTOP-TBUNGH6
-[2025-05-08T14:20:35.283Z] DEBUG: [089a5560-fe7b-49f6-b317-38309c4c3fe1] ⏱️ POST /telemetry complete | duration=21ms
-[2025-05-08T14:20:35.283Z] INFO: [550d7e56-ca85-441d-bfc3-d855bef641bd] 📤 POST /api/telemetry | 200 | 21ms
-[2025-05-08T14:20:35.284Z] INFO: [25538d1b-06c1-49ea-8470-80d6ff131df6] 📥 POST /api/agents/heartbeat
-[2025-05-08T14:20:35.284Z] DEBUG: [25c96da5-a032-4e8a-b1bc-d2ef44608209] 📝 Running validation on POST /api/agents/heartbeat
-[2025-05-08T14:20:35.284Z] INFO: [25c96da5-a032-4e8a-b1bc-d2ef44608209] ✅ Validation passed
-[2025-05-08T14:20:35.284Z] DEBUG: [25c96da5-a032-4e8a-b1bc-d2ef44608209] ⏱️ Validation duration: 0ms
-[2025-05-08T14:20:35.284Z] DEBUG: [542c599a-dcc7-4405-b562-c2c669d6f463] 💓 POST /agents/heartbeat | payload={"agentId":"agent_1746713990019_4809","agentVersion":"1.0.0","hostname":"DESKTOP-TBUNGH6","timestamp":1746714035270}
-[2025-05-08T14:20:35.284Z] DEBUG: [aa49f709-073c-4931-b2cf-eb6361b08578] ❤️ Enter updateHeartbeat | agentId=agent_1746713990019_4809
-[2025-05-08T14:20:35.292Z] DEBUG: [aa49f709-073c-4931-b2cf-eb6361b08578] 🧽 Agent heartbeat updated: agent_1746713990019_4809, newStatus=1
-[2025-05-08T14:20:35.293Z] DEBUG: [aa49f709-073c-4931-b2cf-eb6361b08578] ⏱️ Exit updateHeartbeat | duration=9ms
-[2025-05-08T14:20:35.293Z] INFO: [542c599a-dcc7-4405-b562-c2c669d6f463] ✅ Heartbeat acknowledged | agentId=agent_1746713990019_4809
-[2025-05-08T14:20:35.293Z] DEBUG: [542c599a-dcc7-4405-b562-c2c669d6f463] ⏱️ /agents/heartbeat complete | duration=9ms
-[2025-05-08T14:20:35.293Z] INFO: [25538d1b-06c1-49ea-8470-80d6ff131df6] 📤 POST /api/agents/heartbeat | 200 | 9ms
-[2025-05-08T14:20:40.271Z] INFO: [aca1b2d4-0e41-46ae-b234-9bbf018d156f] 📥 POST /api/agents/heartbeat
-[2025-05-08T14:20:40.271Z] DEBUG: [25c96da5-a032-4e8a-b1bc-d2ef44608209] 📝 Running validation on POST /api/agents/heartbeat
-[2025-05-08T14:20:40.271Z] INFO: [25c96da5-a032-4e8a-b1bc-d2ef44608209] ✅ Validation passed
-[2025-05-08T14:20:40.271Z] DEBUG: [25c96da5-a032-4e8a-b1bc-d2ef44608209] ⏱️ Validation duration: 0ms
-[2025-05-08T14:20:40.272Z] DEBUG: [afd824d4-b53e-4d80-a1a1-bfdae70d1ded] 💓 POST /agents/heartbeat | payload={"agentId":"agent_1746713990019_4809","agentVersion":"1.0.0","hostname":"DESKTOP-TBUNGH6","timestamp":1746714040270}
-[2025-05-08T14:20:40.272Z] DEBUG: [7be7a6bb-4679-474d-aed0-1961cb57ce84] ❤️ Enter updateHeartbeat | agentId=agent_1746713990019_4809
-[2025-05-08T14:20:40.285Z] DEBUG: [7be7a6bb-4679-474d-aed0-1961cb57ce84] 🧽 Agent heartbeat updated: agent_1746713990019_4809, newStatus=1
-[2025-05-08T14:20:40.285Z] DEBUG: [7be7a6bb-4679-474d-aed0-1961cb57ce84] ⏱️ Exit updateHeartbeat | duration=13ms
-[2025-05-08T14:20:40.285Z] INFO: [afd824d4-b53e-4d80-a1a1-bfdae70d1ded] ✅ Heartbeat acknowledged | agentId=agent_1746713990019_4809
-[2025-05-08T14:20:40.286Z] DEBUG: [afd824d4-b53e-4d80-a1a1-bfdae70d1ded] ⏱️ /agents/heartbeat complete | duration=14ms
-[2025-05-08T14:20:40.286Z] INFO: [aca1b2d4-0e41-46ae-b234-9bbf018d156f] 📤 POST /api/agents/heartbeat | 200 | 15ms
-[2025-05-08T14:21:28.614Z] INFO: 📦 SQLite DB loaded from /mnt/c/Users/Anonymous/Desktop/Personal/Projects/SySpectrum/syspectrum.db
-[2025-05-08T14:21:29.499Z] DEBUG: [058a3723-235f-45b2-aa14-068935c9eba6] 🧪 Validation middleware initialized with 2 rules
-[2025-05-08T14:21:29.501Z] DEBUG: [89ab6b51-b5b1-4d26-b491-53d278c519de] 🧪 Validation middleware initialized with 2 rules
-[2025-05-08T14:21:29.502Z] DEBUG: [c8113280-7b7f-42b3-816a-a85a291f1460] 🧪 Validation middleware initialized with 2 rules
-[2025-05-08T14:21:29.506Z] DEBUG: [7ccae298-6cc4-44a3-a394-754443860756] 🧪 Validation middleware initialized with 3 rules
-[2025-05-08T14:21:29.506Z] DEBUG: [09210de7-0393-4eb7-a2e7-f940eec29254] 🧪 Validation middleware initialized with 1 rules
-[2025-05-08T14:21:29.506Z] DEBUG: [d1e502ac-d7dc-496a-9164-17ee55014446] 🧪 Validation middleware initialized with 1 rules
-[2025-05-08T14:21:29.507Z] DEBUG: [1f73ce32-1072-4701-8926-e3d8db50cfde] 🧪 Validation middleware initialized with 2 rules
-[2025-05-08T14:21:29.507Z] DEBUG: [e7818e2c-8ba4-48d6-9397-2f4cc7c18240] 🧪 Validation middleware initialized with 1 rules
-[2025-05-08T14:21:29.743Z] DEBUG: [f94c3845-10c5-4539-8da1-3cb3869e0b88] 🧪 Validation middleware initialized with 2 rules
-[2025-05-08T14:21:29.744Z] DEBUG: [c633b6dd-577d-4564-8578-40500c81b7ce] 🧪 Validation middleware initialized with 3 rules
-[2025-05-08T14:21:29.744Z] DEBUG: [5ed3b8df-18e7-41d1-9409-2c2c10b35952] 🧪 Validation middleware initialized with 2 rules
-[2025-05-08T14:21:29.752Z] DEBUG: [d6c007bf-20cf-47ae-9d5b-ec06ead883ed] 🧪 Validation middleware initialized with 1 rules
-[2025-05-08T14:21:29.753Z] DEBUG: [b98b8b86-b863-4e9a-bef1-9df3d559f759] 🧪 Validation middleware initialized with 1 rules
-[2025-05-08T14:21:29.761Z] INFO: [8ed59d0a-5525-4cdf-a803-755f2caee38d] 🚀 Running migrations...
-[2025-05-08T14:21:29.762Z] INFO: [31d0a16b-4c86-4801-b9a0-be3a1344648b] 🚀 Starting database migration
-[2025-05-08T14:21:29.762Z] DEBUG: [31d0a16b-4c86-4801-b9a0-be3a1344648b] 📄 Loading schema from /mnt/c/Users/Anonymous/Desktop/Personal/Projects/SySpectrum/backend/db/schema.sql
-[2025-05-08T14:21:29.764Z] DEBUG: [31d0a16b-4c86-4801-b9a0-be3a1344648b] ✅ Schema file read successfully
-[2025-05-08T14:21:29.764Z] DEBUG: [31d0a16b-4c86-4801-b9a0-be3a1344648b] 🧱 Executing 5 schema statements
-[2025-05-08T14:21:29.784Z] DEBUG: [31d0a16b-4c86-4801-b9a0-be3a1344648b] ✅ Executed statement: -- 📊 Telemetry Table — stores agent metrics over ...
-[2025-05-08T14:21:29.785Z] DEBUG: [31d0a16b-4c86-4801-b9a0-be3a1344648b] ✅ Executed statement: CREATE INDEX IF NOT EXISTS idx_telemetry_agent_tim...
-[2025-05-08T14:21:29.787Z] DEBUG: [31d0a16b-4c86-4801-b9a0-be3a1344648b] ✅ Executed statement: -- 🛰️ Agents Table — registered agents with full ...
-[2025-05-08T14:21:29.788Z] DEBUG: [31d0a16b-4c86-4801-b9a0-be3a1344648b] ✅ Executed statement: -- 👥 Users Table — system users (admin/operator)...
-[2025-05-08T14:21:29.789Z] DEBUG: [31d0a16b-4c86-4801-b9a0-be3a1344648b] ✅ Executed statement: -- ⚙️ Settings Table — global settings
-CREATE TAB...
-[2025-05-08T14:21:29.790Z] INFO: [31d0a16b-4c86-4801-b9a0-be3a1344648b] ✅ Tables created from schema.sql
-[2025-05-08T14:21:29.790Z] DEBUG: [31d0a16b-4c86-4801-b9a0-be3a1344648b] 🔎 Checking for default admin user
-[2025-05-08T14:21:29.792Z] INFO: [31d0a16b-4c86-4801-b9a0-be3a1344648b] ℹ️ Default admin user already exists
-[2025-05-08T14:21:29.792Z] INFO: [31d0a16b-4c86-4801-b9a0-be3a1344648b] ✅ Database migrations completed successfully in 30ms
-[2025-05-08T14:21:29.794Z] INFO: [8ed59d0a-5525-4cdf-a803-755f2caee38d] ✅ Migrations completed in 33ms
-[2025-05-08T14:21:29.796Z] INFO: [8ed59d0a-5525-4cdf-a803-755f2caee38d] 🧠 Syspectrum backend running on port 8080
-[2025-05-08T14:21:31.358Z] INFO: [d21774e9-faa1-4b0a-9fb4-728204b038c6] 📥 GET /api/telemetry/DESKTOP-TBUNGH6/chart?from=1710000000000&to=1810500000000
-[2025-05-08T14:21:31.359Z] DEBUG: [707f4414-ff76-4866-ad64-44ea7fb7f1ce] 🔐 auth middleware invoked | requiredRole=any
-[2025-05-08T14:21:31.360Z] DEBUG: [707f4414-ff76-4866-ad64-44ea7fb7f1ce] ✅ Token verified | user=admin, role=admin
-[2025-05-08T14:21:31.361Z] DEBUG: [707f4414-ff76-4866-ad64-44ea7fb7f1ce] 🔓 Access granted | user=admin
-[2025-05-08T14:21:31.362Z] DEBUG: [707f4414-ff76-4866-ad64-44ea7fb7f1ce] ⏱️ auth middleware complete | duration=3ms
-[2025-05-08T14:21:31.363Z] DEBUG: [89ab6b51-b5b1-4d26-b491-53d278c519de] 📝 Running validation on GET /api/telemetry/DESKTOP-TBUNGH6/chart?from=1710000000000&to=1810500000000
-[2025-05-08T14:21:31.363Z] INFO: [89ab6b51-b5b1-4d26-b491-53d278c519de] ✅ Validation passed
-[2025-05-08T14:21:31.363Z] DEBUG: [89ab6b51-b5b1-4d26-b491-53d278c519de] ⏱️ Validation duration: 0ms
-[2025-05-08T14:21:31.363Z] DEBUG: [1a294095-ce70-4187-9eae-528bec4a7fc3] 📈 GET /telemetry/DESKTOP-TBUNGH6/chart | from=1710000000000, to=1810500000000
-[2025-05-08T14:21:31.364Z] DEBUG: [f60d2b90-661f-40bb-a285-069c9304d6e1] 📈 Enter getTelemetrySeries | hostname=DESKTOP-TBUNGH6, from=1710000000000, to=1810500000000
-[2025-05-08T14:21:31.366Z] DEBUG: [f60d2b90-661f-40bb-a285-069c9304d6e1] 📊 getTelemetrySeries result | count=3
-[2025-05-08T14:21:31.366Z] DEBUG: [f60d2b90-661f-40bb-a285-069c9304d6e1] ⏱️ Exit getTelemetrySeries | duration=2ms
-[2025-05-08T14:21:31.366Z] INFO: [1a294095-ce70-4187-9eae-528bec4a7fc3] 📦 Timeseries data retrieved for DESKTOP-TBUNGH6 | count=3
-[2025-05-08T14:21:31.368Z] DEBUG: [1a294095-ce70-4187-9eae-528bec4a7fc3] ⏱️ GET /telemetry/:hostname/chart complete | duration=5ms
-[2025-05-08T14:21:31.368Z] INFO: [707f4414-ff76-4866-ad64-44ea7fb7f1ce] 📤 GET /api/telemetry/DESKTOP-TBUNGH6/chart?from=1710000000000&to=1810500000000 | 200 | 10ms
-[2025-05-08T14:21:44.642Z] INFO: [83c0788b-6cf8-48d3-8285-0ef6a03144af] 📥 GET /api/agents
-[2025-05-08T14:21:44.643Z] DEBUG: [3261fcdb-33c9-4b4e-bc43-31b305b414cf] 🔐 auth middleware invoked | requiredRole=any
-[2025-05-08T14:21:44.644Z] DEBUG: [3261fcdb-33c9-4b4e-bc43-31b305b414cf] ✅ Token verified | user=admin, role=admin
-[2025-05-08T14:21:44.644Z] DEBUG: [3261fcdb-33c9-4b4e-bc43-31b305b414cf] 🔓 Access granted | user=admin
-[2025-05-08T14:21:44.644Z] DEBUG: [f28c03b8-a564-4ea4-9232-e74e5374e065] 🔎 GET /agents
-[2025-05-08T14:21:44.644Z] DEBUG: [55f0c33b-a578-4e7d-acba-2e433807d4c3] 📋 Enter getAllAgents
-[2025-05-08T14:21:44.646Z] DEBUG: [55f0c33b-a578-4e7d-acba-2e433807d4c3] 📋 Retrieved 1 agents
-[2025-05-08T14:21:44.646Z] DEBUG: [55f0c33b-a578-4e7d-acba-2e433807d4c3] ⏱️ Exit getAllAgents | duration=2ms
-[2025-05-08T14:21:44.646Z] INFO: [f28c03b8-a564-4ea4-9232-e74e5374e065] 📋 Retrieved 1 agents
-[2025-05-08T14:21:44.646Z] DEBUG: [f28c03b8-a564-4ea4-9232-e74e5374e065] ⏱️ /agents list complete | duration=2ms
-[2025-05-08T14:21:44.646Z] DEBUG: [3261fcdb-33c9-4b4e-bc43-31b305b414cf] ⏱️ auth middleware complete | duration=3ms
-[2025-05-08T14:21:44.647Z] INFO: [3261fcdb-33c9-4b4e-bc43-31b305b414cf] 📤 GET /api/agents | 200 | 5ms
-[2025-05-08T14:23:05.248Z] INFO: [5abc8131-4d75-464e-b450-76cfb1affff2] 📥 GET /api/telemetry/DESKTOP-TBUNGH6/chart?from=1710000000000&to=1810500000000
-[2025-05-08T14:23:05.248Z] DEBUG: [fc0a5958-882f-4ba2-8d64-8157d1b664de] 🔐 auth middleware invoked | requiredRole=any
-[2025-05-08T14:23:05.249Z] DEBUG: [fc0a5958-882f-4ba2-8d64-8157d1b664de] ✅ Token verified | user=admin, role=admin
-[2025-05-08T14:23:05.249Z] DEBUG: [fc0a5958-882f-4ba2-8d64-8157d1b664de] 🔓 Access granted | user=admin
-[2025-05-08T14:23:05.250Z] DEBUG: [fc0a5958-882f-4ba2-8d64-8157d1b664de] ⏱️ auth middleware complete | duration=2ms
-[2025-05-08T14:23:05.250Z] DEBUG: [89ab6b51-b5b1-4d26-b491-53d278c519de] 📝 Running validation on GET /api/telemetry/DESKTOP-TBUNGH6/chart?from=1710000000000&to=1810500000000
-[2025-05-08T14:23:05.250Z] INFO: [89ab6b51-b5b1-4d26-b491-53d278c519de] ✅ Validation passed
-[2025-05-08T14:23:05.251Z] DEBUG: [89ab6b51-b5b1-4d26-b491-53d278c519de] ⏱️ Validation duration: 0ms
-[2025-05-08T14:23:05.251Z] DEBUG: [b757e48b-7d10-4794-b2ce-8b3d2c24b30a] 📈 GET /telemetry/DESKTOP-TBUNGH6/chart | from=1710000000000, to=1810500000000
-[2025-05-08T14:23:05.251Z] DEBUG: [d1926bf7-0b6c-49e7-b84f-d8ec2df811da] 📈 Enter getTelemetrySeries | hostname=DESKTOP-TBUNGH6, from=1710000000000, to=1810500000000
-[2025-05-08T14:23:05.252Z] DEBUG: [d1926bf7-0b6c-49e7-b84f-d8ec2df811da] 📊 getTelemetrySeries result | count=3
-[2025-05-08T14:23:05.252Z] DEBUG: [d1926bf7-0b6c-49e7-b84f-d8ec2df811da] ⏱️ Exit getTelemetrySeries | duration=1ms
-[2025-05-08T14:23:05.252Z] INFO: [b757e48b-7d10-4794-b2ce-8b3d2c24b30a] 📦 Timeseries data retrieved for DESKTOP-TBUNGH6 | count=3
-[2025-05-08T14:23:05.253Z] DEBUG: [b757e48b-7d10-4794-b2ce-8b3d2c24b30a] ⏱️ GET /telemetry/:hostname/chart complete | duration=2ms
-[2025-05-08T14:23:05.253Z] INFO: [fc0a5958-882f-4ba2-8d64-8157d1b664de] 📤 GET /api/telemetry/DESKTOP-TBUNGH6/chart?from=1710000000000&to=1810500000000 | 200 | 5ms
+[2025-05-08T14:54:51.488Z] INFO: [691237e2-9aa4-4042-b4d9-0a0144f8ce84] ✅ Tables created from schema.sql
+[2025-05-08T14:54:51.488Z] DEBUG: [691237e2-9aa4-4042-b4d9-0a0144f8ce84] 🔎 Checking for default admin user
+[2025-05-08T14:54:51.489Z] DEBUG: [691237e2-9aa4-4042-b4d9-0a0144f8ce84] 🆕 Admin user not found, creating default admin
+[2025-05-08T14:54:51.548Z] INFO: [691237e2-9aa4-4042-b4d9-0a0144f8ce84] ✅ Default admin user created (username: admin)
+[2025-05-08T14:54:51.549Z] INFO: [691237e2-9aa4-4042-b4d9-0a0144f8ce84] ✅ Database migrations completed successfully in 115ms
+[2025-05-08T14:54:51.549Z] INFO: [6977e20a-8083-46a4-81f7-ccb61930b029] ✅ Migrations completed in 116ms
+[2025-05-08T14:54:51.551Z] INFO: [6977e20a-8083-46a4-81f7-ccb61930b029] 🧠 Syspectrum backend running on port 8080
+[2025-05-08T14:54:55.614Z] INFO: [70b62be1-c485-4ed2-a89b-3c30e26ace7b] 📥 POST /api/agents/register
+[2025-05-08T14:54:55.616Z] DEBUG: [699906a9-16ae-4510-aadd-8b67470e0552] 📝 Running validation on POST /api/agents/register
+[2025-05-08T14:54:55.617Z] INFO: [699906a9-16ae-4510-aadd-8b67470e0552] ✅ Validation passed
+[2025-05-08T14:54:55.617Z] DEBUG: [699906a9-16ae-4510-aadd-8b67470e0552] ⏱️ Validation duration: 1ms
+[2025-05-08T14:54:55.617Z] DEBUG: [d938fd73-6a35-4709-a033-aeabd5b838fc] 📝 POST /agents/register | payload={"hostname":"DESKTOP-TBUNGH6","platform":"linux","arch":"x64","release":"5.15.167.4-microsoft-standard-WSL2","agentVersion":"1.0.0","timestamp":1746716095512}
+[2025-05-08T14:54:55.617Z] DEBUG: [583c9587-d4e5-449c-8fe9-06f8b457783a] ➕ Enter registerAgent | hostname=DESKTOP-TBUNGH6, platform=linux, agentVersion=1.0.0
+[2025-05-08T14:54:55.625Z] INFO: [583c9587-d4e5-449c-8fe9-06f8b457783a] 🎕 Agent registered and pending: DESKTOP-TBUNGH6 → agent_1746716095617_17081
+[2025-05-08T14:54:55.625Z] DEBUG: [583c9587-d4e5-449c-8fe9-06f8b457783a] ⏱️ Exit registerAgent | duration=8ms
+[2025-05-08T14:54:55.625Z] INFO: [d938fd73-6a35-4709-a033-aeabd5b838fc] ✅ Agent registered | hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:54:55.628Z] DEBUG: [d938fd73-6a35-4709-a033-aeabd5b838fc] ⏱️ /register complete | duration=11ms
+[2025-05-08T14:54:55.628Z] INFO: [70b62be1-c485-4ed2-a89b-3c30e26ace7b] 📤 POST /api/agents/register | 200 | 14ms
+[2025-05-08T14:54:55.632Z] INFO: [bb898058-4ead-4644-9dd9-432eb010e7b5] 📥 GET /api/agents/claim?hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:54:55.633Z] DEBUG: [df0f69ca-82bc-4d70-9f35-b1ffcf9dbdc1] 📝 Running validation on GET /api/agents/claim?hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:54:55.633Z] INFO: [df0f69ca-82bc-4d70-9f35-b1ffcf9dbdc1] ✅ Validation passed
+[2025-05-08T14:54:55.633Z] DEBUG: [df0f69ca-82bc-4d70-9f35-b1ffcf9dbdc1] ⏱️ Validation duration: 0ms
+[2025-05-08T14:54:55.634Z] DEBUG: [41cb6ed6-d9d5-4700-92c1-7e047cf3147a] 📥 GET /agents/claim | hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:54:55.634Z] DEBUG: [73a743e6-4146-4ed2-add4-08e5dbbbb292] 🔍 Enter getClaimedAgent | hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:54:55.635Z] DEBUG: [73a743e6-4146-4ed2-add4-08e5dbbbb292] ↩️ getClaimedAgent result | found=false
+[2025-05-08T14:54:55.635Z] DEBUG: [73a743e6-4146-4ed2-add4-08e5dbbbb292] ⏱️ Exit getClaimedAgent | duration=1ms
+[2025-05-08T14:54:55.635Z] INFO: [41cb6ed6-d9d5-4700-92c1-7e047cf3147a] ⏳ Claim not approved | hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:54:55.635Z] DEBUG: [41cb6ed6-d9d5-4700-92c1-7e047cf3147a] ⏱️ /claim complete | duration=1ms
+[2025-05-08T14:54:55.635Z] INFO: [bb898058-4ead-4644-9dd9-432eb010e7b5] 📤 GET /api/agents/claim?hostname=DESKTOP-TBUNGH6 | 404 | 3ms
+[2025-05-08T14:55:05.644Z] INFO: [4b13a8db-8129-4a7e-a4f1-dfcdc24cb6ca] 📥 GET /api/agents/claim?hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:55:05.645Z] DEBUG: [df0f69ca-82bc-4d70-9f35-b1ffcf9dbdc1] 📝 Running validation on GET /api/agents/claim?hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:55:05.645Z] INFO: [df0f69ca-82bc-4d70-9f35-b1ffcf9dbdc1] ✅ Validation passed
+[2025-05-08T14:55:05.645Z] DEBUG: [df0f69ca-82bc-4d70-9f35-b1ffcf9dbdc1] ⏱️ Validation duration: 0ms
+[2025-05-08T14:55:05.645Z] DEBUG: [65a6189f-f03b-4ccb-ab11-a43d3aa2e1fd] 📥 GET /agents/claim | hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:55:05.645Z] DEBUG: [8abeda4c-84e7-463b-afa7-6cfed04243b3] 🔍 Enter getClaimedAgent | hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:55:05.651Z] DEBUG: [8abeda4c-84e7-463b-afa7-6cfed04243b3] ↩️ getClaimedAgent result | found=false
+[2025-05-08T14:55:05.651Z] DEBUG: [8abeda4c-84e7-463b-afa7-6cfed04243b3] ⏱️ Exit getClaimedAgent | duration=6ms
+[2025-05-08T14:55:05.651Z] INFO: [65a6189f-f03b-4ccb-ab11-a43d3aa2e1fd] ⏳ Claim not approved | hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:55:05.652Z] DEBUG: [65a6189f-f03b-4ccb-ab11-a43d3aa2e1fd] ⏱️ /claim complete | duration=7ms
+[2025-05-08T14:55:05.652Z] INFO: [4b13a8db-8129-4a7e-a4f1-dfcdc24cb6ca] 📤 GET /api/agents/claim?hostname=DESKTOP-TBUNGH6 | 404 | 8ms
+[2025-05-08T14:55:25.661Z] INFO: [6d8e1b60-0d1c-41b9-9095-4cba609823d3] 📥 GET /api/agents/claim?hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:55:25.662Z] DEBUG: [df0f69ca-82bc-4d70-9f35-b1ffcf9dbdc1] 📝 Running validation on GET /api/agents/claim?hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:55:25.662Z] INFO: [df0f69ca-82bc-4d70-9f35-b1ffcf9dbdc1] ✅ Validation passed
+[2025-05-08T14:55:25.662Z] DEBUG: [df0f69ca-82bc-4d70-9f35-b1ffcf9dbdc1] ⏱️ Validation duration: 0ms
+[2025-05-08T14:55:25.662Z] DEBUG: [8b189c71-1bcb-4372-ba4c-7f057f71081a] 📥 GET /agents/claim | hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:55:25.662Z] DEBUG: [2101e8a2-1cf3-441b-a229-241548dae692] 🔍 Enter getClaimedAgent | hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:55:25.665Z] DEBUG: [2101e8a2-1cf3-441b-a229-241548dae692] ↩️ getClaimedAgent result | found=false
+[2025-05-08T14:55:25.665Z] DEBUG: [2101e8a2-1cf3-441b-a229-241548dae692] ⏱️ Exit getClaimedAgent | duration=3ms
+[2025-05-08T14:55:25.665Z] INFO: [8b189c71-1bcb-4372-ba4c-7f057f71081a] ⏳ Claim not approved | hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:55:25.665Z] DEBUG: [8b189c71-1bcb-4372-ba4c-7f057f71081a] ⏱️ /claim complete | duration=3ms
+[2025-05-08T14:55:25.666Z] INFO: [6d8e1b60-0d1c-41b9-9095-4cba609823d3] 📤 GET /api/agents/claim?hostname=DESKTOP-TBUNGH6 | 404 | 5ms
+[2025-05-08T14:55:45.796Z] INFO: [2336c81e-2670-42b6-aa1f-f2eef63881d7] 📥 PATCH /api/agents/DESKTOP-TBUNGH6
+[2025-05-08T14:55:45.797Z] DEBUG: [e01692e9-3e1e-4b99-a68b-a2e911228433] 🔐 auth middleware invoked | requiredRole=any
+[2025-05-08T14:55:45.799Z] DEBUG: [e01692e9-3e1e-4b99-a68b-a2e911228433] ✅ Token verified | user=admin, role=admin
+[2025-05-08T14:55:45.799Z] DEBUG: [e01692e9-3e1e-4b99-a68b-a2e911228433] 🔓 Access granted | user=admin
+[2025-05-08T14:55:45.800Z] DEBUG: [e01692e9-3e1e-4b99-a68b-a2e911228433] ⏱️ auth middleware complete | duration=3ms
+[2025-05-08T14:55:45.800Z] DEBUG: [dcaf734a-c304-4a2d-90b0-9c3a240d13ee] 📝 Running validation on PATCH /api/agents/DESKTOP-TBUNGH6
+[2025-05-08T14:55:45.801Z] INFO: [dcaf734a-c304-4a2d-90b0-9c3a240d13ee] ✅ Validation passed
+[2025-05-08T14:55:45.801Z] DEBUG: [dcaf734a-c304-4a2d-90b0-9c3a240d13ee] ⏱️ Validation duration: 1ms
+[2025-05-08T14:55:45.801Z] DEBUG: [387ca528-39f5-49c0-82b0-5c395302a9be] ✏️ PATCH /agents/DESKTOP-TBUNGH6 | payload={"label":"WebServer","status":1}
+[2025-05-08T14:55:45.801Z] DEBUG: [775e4a8c-8953-40e4-ada5-e50dfa1ac67f] ✏️ Enter updateAgentByHostname | hostname=DESKTOP-TBUNGH6, fields={"label":"WebServer","status":1}
+[2025-05-08T14:55:45.812Z] INFO: [775e4a8c-8953-40e4-ada5-e50dfa1ac67f] ✏️ Agent updated via hostname: DESKTOP-TBUNGH6
+[2025-05-08T14:55:45.812Z] DEBUG: [775e4a8c-8953-40e4-ada5-e50dfa1ac67f] ⏱️ Exit updateAgentByHostname | duration=11ms
+[2025-05-08T14:55:45.812Z] INFO: [387ca528-39f5-49c0-82b0-5c395302a9be] ✅ Agent updated | hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:55:45.812Z] DEBUG: [387ca528-39f5-49c0-82b0-5c395302a9be] ⏱️ /agents/:hostname PATCH complete | duration=11ms
+[2025-05-08T14:55:45.813Z] INFO: [e01692e9-3e1e-4b99-a68b-a2e911228433] 📤 PATCH /api/agents/DESKTOP-TBUNGH6 | 200 | 17ms
+[2025-05-08T14:55:55.697Z] INFO: [1319b3f8-dc3f-4a19-9887-1b6352ba0a29] 📥 GET /api/agents/claim?hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:55:55.698Z] DEBUG: [df0f69ca-82bc-4d70-9f35-b1ffcf9dbdc1] 📝 Running validation on GET /api/agents/claim?hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:55:55.698Z] INFO: [df0f69ca-82bc-4d70-9f35-b1ffcf9dbdc1] ✅ Validation passed
+[2025-05-08T14:55:55.698Z] DEBUG: [df0f69ca-82bc-4d70-9f35-b1ffcf9dbdc1] ⏱️ Validation duration: 0ms
+[2025-05-08T14:55:55.698Z] DEBUG: [ff50483f-d3bb-4d6a-a7c7-928990c468d8] 📥 GET /agents/claim | hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:55:55.698Z] DEBUG: [81c73493-0b68-4234-968c-839e11019fc7] 🔍 Enter getClaimedAgent | hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:55:55.701Z] DEBUG: [81c73493-0b68-4234-968c-839e11019fc7] ↩️ getClaimedAgent result | found=true
+[2025-05-08T14:55:55.701Z] DEBUG: [81c73493-0b68-4234-968c-839e11019fc7] ⏱️ Exit getClaimedAgent | duration=3ms
+[2025-05-08T14:55:55.702Z] INFO: [ff50483f-d3bb-4d6a-a7c7-928990c468d8] 📦 Claim approved | hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:55:55.702Z] DEBUG: [ff50483f-d3bb-4d6a-a7c7-928990c468d8] ⏱️ /claim complete | duration=4ms
+[2025-05-08T14:55:55.702Z] INFO: [1319b3f8-dc3f-4a19-9887-1b6352ba0a29] 📤 GET /api/agents/claim?hostname=DESKTOP-TBUNGH6 | 200 | 5ms
+[2025-05-08T14:56:00.714Z] INFO: [63aabcd0-5835-4343-8c1b-ca4195537fed] 📥 POST /api/agents/heartbeat
+[2025-05-08T14:56:00.716Z] DEBUG: [5886bb3a-c42b-4737-805e-f12389733cf3] 📝 Running validation on POST /api/agents/heartbeat
+[2025-05-08T14:56:00.716Z] INFO: [5886bb3a-c42b-4737-805e-f12389733cf3] ✅ Validation passed
+[2025-05-08T14:56:00.716Z] DEBUG: [5886bb3a-c42b-4737-805e-f12389733cf3] ⏱️ Validation duration: 0ms
+[2025-05-08T14:56:00.716Z] DEBUG: [055d2933-8e86-4f7d-bd42-db4eb5c71de5] 💓 POST /agents/heartbeat | payload={"agentId":"agent_1746716095617_17081","agentVersion":"1.0.0","hostname":"DESKTOP-TBUNGH6","timestamp":1746716160708}
+[2025-05-08T14:56:00.717Z] DEBUG: [91620879-a3c6-4338-8930-ab7f9a8910fd] ❤️ Enter updateHeartbeat | agentId=agent_1746716095617_17081
+[2025-05-08T14:56:00.733Z] DEBUG: [91620879-a3c6-4338-8930-ab7f9a8910fd] 🧽 Agent heartbeat updated: agent_1746716095617_17081, newStatus=1
+[2025-05-08T14:56:00.733Z] DEBUG: [91620879-a3c6-4338-8930-ab7f9a8910fd] ⏱️ Exit updateHeartbeat | duration=16ms
+[2025-05-08T14:56:00.733Z] INFO: [055d2933-8e86-4f7d-bd42-db4eb5c71de5] ✅ Heartbeat acknowledged | agentId=agent_1746716095617_17081
+[2025-05-08T14:56:00.733Z] DEBUG: [055d2933-8e86-4f7d-bd42-db4eb5c71de5] ⏱️ /agents/heartbeat complete | duration=17ms
+[2025-05-08T14:56:00.734Z] INFO: [63aabcd0-5835-4343-8c1b-ca4195537fed] 📤 POST /api/agents/heartbeat | 200 | 20ms
+[2025-05-08T14:56:05.910Z] INFO: [41583d94-7a6e-4ddd-8f73-6288e85e15b8] 📥 POST /api/agents/heartbeat
+[2025-05-08T14:56:05.910Z] DEBUG: [5886bb3a-c42b-4737-805e-f12389733cf3] 📝 Running validation on POST /api/agents/heartbeat
+[2025-05-08T14:56:05.910Z] INFO: [5886bb3a-c42b-4737-805e-f12389733cf3] ✅ Validation passed
+[2025-05-08T14:56:05.910Z] DEBUG: [5886bb3a-c42b-4737-805e-f12389733cf3] ⏱️ Validation duration: 0ms
+[2025-05-08T14:56:05.910Z] DEBUG: [d536e8f7-6161-44ed-82aa-822c22eae771] 💓 POST /agents/heartbeat | payload={"agentId":"agent_1746716095617_17081","agentVersion":"1.0.0","hostname":"DESKTOP-TBUNGH6","timestamp":1746716165907}
+[2025-05-08T14:56:05.911Z] DEBUG: [0539b3a0-a15f-49d7-beb3-f9a6103e737d] ❤️ Enter updateHeartbeat | agentId=agent_1746716095617_17081
+[2025-05-08T14:56:05.919Z] DEBUG: [0539b3a0-a15f-49d7-beb3-f9a6103e737d] 🧽 Agent heartbeat updated: agent_1746716095617_17081, newStatus=1
+[2025-05-08T14:56:05.919Z] DEBUG: [0539b3a0-a15f-49d7-beb3-f9a6103e737d] ⏱️ Exit updateHeartbeat | duration=9ms
+[2025-05-08T14:56:05.919Z] INFO: [d536e8f7-6161-44ed-82aa-822c22eae771] ✅ Heartbeat acknowledged | agentId=agent_1746716095617_17081
+[2025-05-08T14:56:05.919Z] DEBUG: [d536e8f7-6161-44ed-82aa-822c22eae771] ⏱️ /agents/heartbeat complete | duration=9ms
+[2025-05-08T14:56:05.920Z] INFO: [41583d94-7a6e-4ddd-8f73-6288e85e15b8] 📤 POST /api/agents/heartbeat | 200 | 10ms
+[2025-05-08T14:56:10.917Z] INFO: [b91b9ca2-df1f-4c3b-a68f-91f6e628208e] 📥 POST /api/agents/heartbeat
+[2025-05-08T14:56:10.919Z] DEBUG: [5886bb3a-c42b-4737-805e-f12389733cf3] 📝 Running validation on POST /api/agents/heartbeat
+[2025-05-08T14:56:10.919Z] INFO: [5886bb3a-c42b-4737-805e-f12389733cf3] ✅ Validation passed
+[2025-05-08T14:56:10.919Z] DEBUG: [5886bb3a-c42b-4737-805e-f12389733cf3] ⏱️ Validation duration: 0ms
+[2025-05-08T14:56:10.920Z] DEBUG: [0e3d6a5b-9574-40fb-8aa7-f5933453bb99] 💓 POST /agents/heartbeat | payload={"agentId":"agent_1746716095617_17081","agentVersion":"1.0.0","hostname":"DESKTOP-TBUNGH6","timestamp":1746716170913}
+[2025-05-08T14:56:10.920Z] DEBUG: [66edd82c-94bb-4ff0-9fd3-1573e2fd11bb] ❤️ Enter updateHeartbeat | agentId=agent_1746716095617_17081
+[2025-05-08T14:56:10.939Z] DEBUG: [66edd82c-94bb-4ff0-9fd3-1573e2fd11bb] 🧽 Agent heartbeat updated: agent_1746716095617_17081, newStatus=1
+[2025-05-08T14:56:10.940Z] DEBUG: [66edd82c-94bb-4ff0-9fd3-1573e2fd11bb] ⏱️ Exit updateHeartbeat | duration=20ms
+[2025-05-08T14:56:10.940Z] INFO: [0e3d6a5b-9574-40fb-8aa7-f5933453bb99] ✅ Heartbeat acknowledged | agentId=agent_1746716095617_17081
+[2025-05-08T14:56:10.940Z] DEBUG: [0e3d6a5b-9574-40fb-8aa7-f5933453bb99] ⏱️ /agents/heartbeat complete | duration=20ms
+[2025-05-08T14:56:10.941Z] INFO: [b91b9ca2-df1f-4c3b-a68f-91f6e628208e] 📤 POST /api/agents/heartbeat | 200 | 24ms
+[2025-05-08T14:56:15.909Z] INFO: [8ef04526-a97e-4576-9008-f877b39a2c55] 📥 POST /api/telemetry
+[2025-05-08T14:56:15.910Z] DEBUG: [70572c31-4954-4925-9ff6-9c1cf3ab024f] 📝 Running validation on POST /api/telemetry
+[2025-05-08T14:56:15.910Z] INFO: [70572c31-4954-4925-9ff6-9c1cf3ab024f] ✅ Validation passed
+[2025-05-08T14:56:15.910Z] DEBUG: [70572c31-4954-4925-9ff6-9c1cf3ab024f] ⏱️ Validation duration: 0ms
+[2025-05-08T14:56:15.910Z] DEBUG: [264db07a-8d2f-4033-a4c7-a3487bf2a6b9] 🛰️ POST /telemetry | Receiving telemetry | hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:56:15.910Z] DEBUG: [8db453b5-79eb-4e9c-a913-3dda87e770f8] 📥 Enter insertTelemetry | safePreview={"agentId":"agent_1746716095617_17081","hostname":"DESKTOP-TBUNGH6","timestamp":1746716175717,"cpu":{"usage":0.5,"cores":14},"memory":{"total_mb":30084,"used_mb":583,"percent":1.94},"disk":{"root":21},"network":{"eth0":{"rx_kbps":0,"tx_kbps":0}},"temperature":{"cpu":null},"top_processes":[{"name":"node","cpu":0.6,"mem":0.2},{"name":"node","cpu":0.4,"mem":0.2},{"name":"systemd","cpu":0,"mem":0},{"name":"init-systemd(Ub","cpu":0,"mem":0},{"name":"init","cpu":0,"mem":0}]}
+[2025-05-08T14:56:15.921Z] INFO: [8db453b5-79eb-4e9c-a913-3dda87e770f8] ✅ Telemetry inserted for agent: agent_1746716095617_17081
+[2025-05-08T14:56:15.921Z] DEBUG: [8db453b5-79eb-4e9c-a913-3dda87e770f8] ⏱️ Exit insertTelemetry | duration=11ms
+[2025-05-08T14:56:15.921Z] DEBUG: [9940c30e-190d-4a0f-81ab-b6f15c2d01e4] ♻️ Enter upsertAgent | hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:56:15.929Z] INFO: [9940c30e-190d-4a0f-81ab-b6f15c2d01e4] 🔄 Agent updated (legacy): DESKTOP-TBUNGH6
+[2025-05-08T14:56:15.929Z] DEBUG: [9940c30e-190d-4a0f-81ab-b6f15c2d01e4] ⏱️ Exit upsertAgent | duration=8ms
+[2025-05-08T14:56:15.929Z] INFO: [264db07a-8d2f-4033-a4c7-a3487bf2a6b9] ✅ Telemetry inserted and agent upserted | hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:56:15.930Z] DEBUG: [264db07a-8d2f-4033-a4c7-a3487bf2a6b9] ⏱️ POST /telemetry complete | duration=20ms
+[2025-05-08T14:56:15.931Z] INFO: [8ef04526-a97e-4576-9008-f877b39a2c55] 📤 POST /api/telemetry | 200 | 22ms
+[2025-05-08T14:56:15.932Z] INFO: [086233a0-5abd-45f9-bd61-b13451247c44] 📥 POST /api/agents/heartbeat
+[2025-05-08T14:56:15.932Z] DEBUG: [5886bb3a-c42b-4737-805e-f12389733cf3] 📝 Running validation on POST /api/agents/heartbeat
+[2025-05-08T14:56:15.932Z] INFO: [5886bb3a-c42b-4737-805e-f12389733cf3] ✅ Validation passed
+[2025-05-08T14:56:15.932Z] DEBUG: [5886bb3a-c42b-4737-805e-f12389733cf3] ⏱️ Validation duration: 0ms
+[2025-05-08T14:56:15.932Z] DEBUG: [88aa204b-3867-4295-96fd-f3ee59e48ff0] 💓 POST /agents/heartbeat | payload={"agentId":"agent_1746716095617_17081","agentVersion":"1.0.0","hostname":"DESKTOP-TBUNGH6","timestamp":1746716175912}
+[2025-05-08T14:56:15.932Z] DEBUG: [2b38ce6f-a413-4393-b7ac-cbc1fcda1455] ❤️ Enter updateHeartbeat | agentId=agent_1746716095617_17081
+[2025-05-08T14:56:15.940Z] DEBUG: [2b38ce6f-a413-4393-b7ac-cbc1fcda1455] 🧽 Agent heartbeat updated: agent_1746716095617_17081, newStatus=1
+[2025-05-08T14:56:15.940Z] DEBUG: [2b38ce6f-a413-4393-b7ac-cbc1fcda1455] ⏱️ Exit updateHeartbeat | duration=8ms
+[2025-05-08T14:56:15.940Z] INFO: [88aa204b-3867-4295-96fd-f3ee59e48ff0] ✅ Heartbeat acknowledged | agentId=agent_1746716095617_17081
+[2025-05-08T14:56:15.940Z] DEBUG: [88aa204b-3867-4295-96fd-f3ee59e48ff0] ⏱️ /agents/heartbeat complete | duration=8ms
+[2025-05-08T14:56:15.941Z] INFO: [086233a0-5abd-45f9-bd61-b13451247c44] 📤 POST /api/agents/heartbeat | 200 | 9ms
+[2025-05-08T14:56:15.941Z] INFO: [335e4701-a2a1-4e20-9891-7d3ec8d907c5] 📥 POST /api/telemetry
+[2025-05-08T14:56:15.942Z] DEBUG: [70572c31-4954-4925-9ff6-9c1cf3ab024f] 📝 Running validation on POST /api/telemetry
+[2025-05-08T14:56:15.942Z] INFO: [70572c31-4954-4925-9ff6-9c1cf3ab024f] ✅ Validation passed
+[2025-05-08T14:56:15.942Z] DEBUG: [70572c31-4954-4925-9ff6-9c1cf3ab024f] ⏱️ Validation duration: 0ms
+[2025-05-08T14:56:15.942Z] DEBUG: [e72e3850-6332-480c-80ff-665bd8efe67d] 🛰️ POST /telemetry | Receiving telemetry | hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:56:15.942Z] DEBUG: [1ed2e701-d59f-4809-884f-0f7828214098] 📥 Enter insertTelemetry | safePreview={"agentId":"agent_1746716095617_17081","hostname":"DESKTOP-TBUNGH6","timestamp":1746716165713,"cpu":{"usage":0,"cores":14},"memory":{"total_mb":30084,"used_mb":581,"percent":1.93},"disk":{"root":21},"network":{},"temperature":{"cpu":null},"top_processes":[{"name":"node","cpu":0.7,"mem":0.2},{"name":"node","cpu":0.4,"mem":0.2},{"name":"systemd","cpu":0,"mem":0},{"name":"init-systemd(Ub","cpu":0,"mem":0},{"name":"init","cpu":0,"mem":0}]}
+[2025-05-08T14:56:15.950Z] INFO: [1ed2e701-d59f-4809-884f-0f7828214098] ✅ Telemetry inserted for agent: agent_1746716095617_17081
+[2025-05-08T14:56:15.950Z] DEBUG: [1ed2e701-d59f-4809-884f-0f7828214098] ⏱️ Exit insertTelemetry | duration=8ms
+[2025-05-08T14:56:15.950Z] DEBUG: [2cd928c3-f676-403b-b908-28342e75b0db] ♻️ Enter upsertAgent | hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:56:15.958Z] INFO: [2cd928c3-f676-403b-b908-28342e75b0db] 🔄 Agent updated (legacy): DESKTOP-TBUNGH6
+[2025-05-08T14:56:15.958Z] DEBUG: [2cd928c3-f676-403b-b908-28342e75b0db] ⏱️ Exit upsertAgent | duration=8ms
+[2025-05-08T14:56:15.958Z] INFO: [e72e3850-6332-480c-80ff-665bd8efe67d] ✅ Telemetry inserted and agent upserted | hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:56:15.959Z] DEBUG: [e72e3850-6332-480c-80ff-665bd8efe67d] ⏱️ POST /telemetry complete | duration=17ms
+[2025-05-08T14:56:15.959Z] INFO: [335e4701-a2a1-4e20-9891-7d3ec8d907c5] 📤 POST /api/telemetry | 200 | 18ms
+[2025-05-08T14:56:20.918Z] INFO: [77013543-0912-462c-909e-d3b8dca9f8c1] 📥 POST /api/agents/heartbeat
+[2025-05-08T14:56:20.919Z] DEBUG: [5886bb3a-c42b-4737-805e-f12389733cf3] 📝 Running validation on POST /api/agents/heartbeat
+[2025-05-08T14:56:20.919Z] INFO: [5886bb3a-c42b-4737-805e-f12389733cf3] ✅ Validation passed
+[2025-05-08T14:56:20.919Z] DEBUG: [5886bb3a-c42b-4737-805e-f12389733cf3] ⏱️ Validation duration: 0ms
+[2025-05-08T14:56:20.920Z] DEBUG: [d8af02f0-9079-4c8e-9f37-838e42285ef4] 💓 POST /agents/heartbeat | payload={"agentId":"agent_1746716095617_17081","agentVersion":"1.0.0","hostname":"DESKTOP-TBUNGH6","timestamp":1746716180913}
+[2025-05-08T14:56:20.920Z] DEBUG: [fd1296b8-df58-46a3-b8b2-63c3e0de429f] ❤️ Enter updateHeartbeat | agentId=agent_1746716095617_17081
+[2025-05-08T14:56:20.936Z] DEBUG: [fd1296b8-df58-46a3-b8b2-63c3e0de429f] 🧽 Agent heartbeat updated: agent_1746716095617_17081, newStatus=1
+[2025-05-08T14:56:20.936Z] DEBUG: [fd1296b8-df58-46a3-b8b2-63c3e0de429f] ⏱️ Exit updateHeartbeat | duration=16ms
+[2025-05-08T14:56:20.936Z] INFO: [d8af02f0-9079-4c8e-9f37-838e42285ef4] ✅ Heartbeat acknowledged | agentId=agent_1746716095617_17081
+[2025-05-08T14:56:20.936Z] DEBUG: [d8af02f0-9079-4c8e-9f37-838e42285ef4] ⏱️ /agents/heartbeat complete | duration=16ms
+[2025-05-08T14:56:20.937Z] INFO: [77013543-0912-462c-909e-d3b8dca9f8c1] 📤 POST /api/agents/heartbeat | 200 | 19ms
+[2025-05-08T14:56:25.916Z] INFO: [6a7cf18d-a1ed-49d1-bfc4-2c4150208269] 📥 POST /api/telemetry
+[2025-05-08T14:56:25.916Z] DEBUG: [70572c31-4954-4925-9ff6-9c1cf3ab024f] 📝 Running validation on POST /api/telemetry
+[2025-05-08T14:56:25.916Z] INFO: [70572c31-4954-4925-9ff6-9c1cf3ab024f] ✅ Validation passed
+[2025-05-08T14:56:25.916Z] DEBUG: [70572c31-4954-4925-9ff6-9c1cf3ab024f] ⏱️ Validation duration: 0ms
+[2025-05-08T14:56:25.916Z] DEBUG: [926d1c36-71f3-4593-9c75-b19613a9c7b1] 🛰️ POST /telemetry | Receiving telemetry | hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:56:25.916Z] DEBUG: [f8a705e7-9f1e-439b-b02a-787faea80745] 📥 Enter insertTelemetry | safePreview={"agentId":"agent_1746716095617_17081","hostname":"DESKTOP-TBUNGH6","timestamp":1746716185723,"cpu":{"usage":0,"cores":14},"memory":{"total_mb":30084,"used_mb":581,"percent":1.93},"disk":{"root":21},"network":{"eth0":{"rx_kbps":0,"tx_kbps":0}},"temperature":{"cpu":null},"top_processes":[{"name":"node","cpu":0.6,"mem":0.2},{"name":"node","cpu":0.4,"mem":0.2},{"name":"systemd","cpu":0,"mem":0},{"name":"init-systemd(Ub","cpu":0,"mem":0},{"name":"init","cpu":0,"mem":0}]}
+[2025-05-08T14:56:25.927Z] INFO: [f8a705e7-9f1e-439b-b02a-787faea80745] ✅ Telemetry inserted for agent: agent_1746716095617_17081
+[2025-05-08T14:56:25.928Z] DEBUG: [f8a705e7-9f1e-439b-b02a-787faea80745] ⏱️ Exit insertTelemetry | duration=12ms
+[2025-05-08T14:56:25.928Z] DEBUG: [44b498d9-e5fb-49c8-9980-1c2d01b1f8c1] ♻️ Enter upsertAgent | hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:56:25.935Z] INFO: [44b498d9-e5fb-49c8-9980-1c2d01b1f8c1] 🔄 Agent updated (legacy): DESKTOP-TBUNGH6
+[2025-05-08T14:56:25.935Z] DEBUG: [44b498d9-e5fb-49c8-9980-1c2d01b1f8c1] ⏱️ Exit upsertAgent | duration=7ms
+[2025-05-08T14:56:25.935Z] INFO: [926d1c36-71f3-4593-9c75-b19613a9c7b1] ✅ Telemetry inserted and agent upserted | hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:56:25.935Z] DEBUG: [926d1c36-71f3-4593-9c75-b19613a9c7b1] ⏱️ POST /telemetry complete | duration=19ms
+[2025-05-08T14:56:25.936Z] INFO: [6a7cf18d-a1ed-49d1-bfc4-2c4150208269] 📤 POST /api/telemetry | 200 | 20ms
+[2025-05-08T14:56:25.936Z] INFO: [5fa53e8f-2103-46bc-8dc5-764634cc8bfc] 📥 POST /api/agents/heartbeat
+[2025-05-08T14:56:25.937Z] DEBUG: [5886bb3a-c42b-4737-805e-f12389733cf3] 📝 Running validation on POST /api/agents/heartbeat
+[2025-05-08T14:56:25.937Z] INFO: [5886bb3a-c42b-4737-805e-f12389733cf3] ✅ Validation passed
+[2025-05-08T14:56:25.937Z] DEBUG: [5886bb3a-c42b-4737-805e-f12389733cf3] ⏱️ Validation duration: 0ms
+[2025-05-08T14:56:25.937Z] DEBUG: [d6f2b12f-a081-4035-a9c4-66ebfe883a8b] 💓 POST /agents/heartbeat | payload={"agentId":"agent_1746716095617_17081","agentVersion":"1.0.0","hostname":"DESKTOP-TBUNGH6","timestamp":1746716185915}
+[2025-05-08T14:56:25.937Z] DEBUG: [86dbdfdb-dc12-4e40-9fa4-7eeaba82c4e1] ❤️ Enter updateHeartbeat | agentId=agent_1746716095617_17081
+[2025-05-08T14:56:25.945Z] DEBUG: [86dbdfdb-dc12-4e40-9fa4-7eeaba82c4e1] 🧽 Agent heartbeat updated: agent_1746716095617_17081, newStatus=1
+[2025-05-08T14:56:25.945Z] DEBUG: [86dbdfdb-dc12-4e40-9fa4-7eeaba82c4e1] ⏱️ Exit updateHeartbeat | duration=8ms
+[2025-05-08T14:56:25.945Z] INFO: [d6f2b12f-a081-4035-a9c4-66ebfe883a8b] ✅ Heartbeat acknowledged | agentId=agent_1746716095617_17081
+[2025-05-08T14:56:25.945Z] DEBUG: [d6f2b12f-a081-4035-a9c4-66ebfe883a8b] ⏱️ /agents/heartbeat complete | duration=8ms
+[2025-05-08T14:56:25.945Z] INFO: [5fa53e8f-2103-46bc-8dc5-764634cc8bfc] 📤 POST /api/agents/heartbeat | 200 | 9ms
+[2025-05-08T14:56:30.924Z] INFO: [e9140b36-e11d-4424-9c4c-808f04f4295e] 📥 POST /api/agents/heartbeat
+[2025-05-08T14:56:30.925Z] DEBUG: [5886bb3a-c42b-4737-805e-f12389733cf3] 📝 Running validation on POST /api/agents/heartbeat
+[2025-05-08T14:56:30.926Z] INFO: [5886bb3a-c42b-4737-805e-f12389733cf3] ✅ Validation passed
+[2025-05-08T14:56:30.926Z] DEBUG: [5886bb3a-c42b-4737-805e-f12389733cf3] ⏱️ Validation duration: 1ms
+[2025-05-08T14:56:30.926Z] DEBUG: [663561cd-9773-4a4d-8493-f01e86dfedf3] 💓 POST /agents/heartbeat | payload={"agentId":"agent_1746716095617_17081","agentVersion":"1.0.0","hostname":"DESKTOP-TBUNGH6","timestamp":1746716190921}
+[2025-05-08T14:56:30.926Z] DEBUG: [67e30350-6c1b-4bac-944e-a93257e56d61] ❤️ Enter updateHeartbeat | agentId=agent_1746716095617_17081
+[2025-05-08T14:56:30.945Z] DEBUG: [67e30350-6c1b-4bac-944e-a93257e56d61] 🧽 Agent heartbeat updated: agent_1746716095617_17081, newStatus=1
+[2025-05-08T14:56:30.945Z] DEBUG: [67e30350-6c1b-4bac-944e-a93257e56d61] ⏱️ Exit updateHeartbeat | duration=19ms
+[2025-05-08T14:56:30.945Z] INFO: [663561cd-9773-4a4d-8493-f01e86dfedf3] ✅ Heartbeat acknowledged | agentId=agent_1746716095617_17081
+[2025-05-08T14:56:30.946Z] DEBUG: [663561cd-9773-4a4d-8493-f01e86dfedf3] ⏱️ /agents/heartbeat complete | duration=20ms
+[2025-05-08T14:56:30.946Z] INFO: [e9140b36-e11d-4424-9c4c-808f04f4295e] 📤 POST /api/agents/heartbeat | 200 | 22ms
+[2025-05-08T14:56:35.916Z] INFO: [e0678f28-b59d-4ac2-954d-cc34fc8d07e0] 📥 POST /api/telemetry
+[2025-05-08T14:56:35.916Z] DEBUG: [70572c31-4954-4925-9ff6-9c1cf3ab024f] 📝 Running validation on POST /api/telemetry
+[2025-05-08T14:56:35.916Z] INFO: [70572c31-4954-4925-9ff6-9c1cf3ab024f] ✅ Validation passed
+[2025-05-08T14:56:35.916Z] DEBUG: [70572c31-4954-4925-9ff6-9c1cf3ab024f] ⏱️ Validation duration: 0ms
+[2025-05-08T14:56:35.916Z] DEBUG: [bef5df53-7062-410a-ba72-43378ade7e35] 🛰️ POST /telemetry | Receiving telemetry | hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:56:35.916Z] DEBUG: [6b842362-579a-43d9-b533-40f9e5696990] 📥 Enter insertTelemetry | safePreview={"agentId":"agent_1746716095617_17081","hostname":"DESKTOP-TBUNGH6","timestamp":1746716195727,"cpu":{"usage":0,"cores":14},"memory":{"total_mb":30084,"used_mb":585,"percent":1.94},"disk":{"root":21},"network":{"eth0":{"rx_kbps":0,"tx_kbps":0}},"temperature":{"cpu":null},"top_processes":[{"name":"node","cpu":0.5,"mem":0.2},{"name":"node","cpu":0.3,"mem":0.2},{"name":"systemd","cpu":0,"mem":0},{"name":"init-systemd(Ub","cpu":0,"mem":0},{"name":"init","cpu":0,"mem":0}]}
+[2025-05-08T14:56:35.930Z] INFO: [6b842362-579a-43d9-b533-40f9e5696990] ✅ Telemetry inserted for agent: agent_1746716095617_17081
+[2025-05-08T14:56:35.930Z] DEBUG: [6b842362-579a-43d9-b533-40f9e5696990] ⏱️ Exit insertTelemetry | duration=14ms
+[2025-05-08T14:56:35.930Z] DEBUG: [f17d6a7a-283e-4631-a086-f98130a5a56a] ♻️ Enter upsertAgent | hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:56:35.937Z] INFO: [f17d6a7a-283e-4631-a086-f98130a5a56a] 🔄 Agent updated (legacy): DESKTOP-TBUNGH6
+[2025-05-08T14:56:35.937Z] DEBUG: [f17d6a7a-283e-4631-a086-f98130a5a56a] ⏱️ Exit upsertAgent | duration=7ms
+[2025-05-08T14:56:35.937Z] INFO: [bef5df53-7062-410a-ba72-43378ade7e35] ✅ Telemetry inserted and agent upserted | hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:56:35.938Z] DEBUG: [bef5df53-7062-410a-ba72-43378ade7e35] ⏱️ POST /telemetry complete | duration=22ms
+[2025-05-08T14:56:35.938Z] INFO: [e0678f28-b59d-4ac2-954d-cc34fc8d07e0] 📤 POST /api/telemetry | 200 | 22ms
+[2025-05-08T14:56:35.939Z] INFO: [364491ce-cfe3-4a7d-9ce3-53db57873b45] 📥 POST /api/agents/heartbeat
+[2025-05-08T14:56:35.940Z] DEBUG: [5886bb3a-c42b-4737-805e-f12389733cf3] 📝 Running validation on POST /api/agents/heartbeat
+[2025-05-08T14:56:35.940Z] INFO: [5886bb3a-c42b-4737-805e-f12389733cf3] ✅ Validation passed
+[2025-05-08T14:56:35.940Z] DEBUG: [5886bb3a-c42b-4737-805e-f12389733cf3] ⏱️ Validation duration: 0ms
+[2025-05-08T14:56:35.940Z] DEBUG: [2f975f97-7ddb-4e8e-9ebd-17fc6a0c4f94] 💓 POST /agents/heartbeat | payload={"agentId":"agent_1746716095617_17081","agentVersion":"1.0.0","hostname":"DESKTOP-TBUNGH6","timestamp":1746716195921}
+[2025-05-08T14:56:35.940Z] DEBUG: [87e4d90f-3541-419e-8252-1ea5da5831fe] ❤️ Enter updateHeartbeat | agentId=agent_1746716095617_17081
+[2025-05-08T14:56:35.948Z] DEBUG: [87e4d90f-3541-419e-8252-1ea5da5831fe] 🧽 Agent heartbeat updated: agent_1746716095617_17081, newStatus=1
+[2025-05-08T14:56:35.949Z] DEBUG: [87e4d90f-3541-419e-8252-1ea5da5831fe] ⏱️ Exit updateHeartbeat | duration=9ms
+[2025-05-08T14:56:35.949Z] INFO: [2f975f97-7ddb-4e8e-9ebd-17fc6a0c4f94] ✅ Heartbeat acknowledged | agentId=agent_1746716095617_17081
+[2025-05-08T14:56:35.949Z] DEBUG: [2f975f97-7ddb-4e8e-9ebd-17fc6a0c4f94] ⏱️ /agents/heartbeat complete | duration=9ms
+[2025-05-08T14:56:35.949Z] INFO: [364491ce-cfe3-4a7d-9ce3-53db57873b45] 📤 POST /api/agents/heartbeat | 200 | 10ms
+[2025-05-08T14:56:36.940Z] INFO: [0c09311e-f853-49a1-ba98-9a45ce0f5136] 📥 GET /api/agents/DESKTOP-TBUNGH6
+[2025-05-08T14:56:36.940Z] DEBUG: [e8e16d46-cb6c-4426-bf6e-3bf4a2602137] 🔐 auth middleware invoked | requiredRole=any
+[2025-05-08T14:56:36.941Z] DEBUG: [e8e16d46-cb6c-4426-bf6e-3bf4a2602137] ✅ Token verified | user=admin, role=admin
+[2025-05-08T14:56:36.941Z] DEBUG: [e8e16d46-cb6c-4426-bf6e-3bf4a2602137] 🔓 Access granted | user=admin
+[2025-05-08T14:56:36.942Z] DEBUG: [c4482e34-140a-4166-ad9c-a9c21f3f6703] 🧩 GET /agents/DESKTOP-TBUNGH6
+[2025-05-08T14:56:36.942Z] DEBUG: [eca4588a-3049-495a-af63-512503375ef5] 🔍 Enter getAgent | hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:56:36.943Z] DEBUG: [eca4588a-3049-495a-af63-512503375ef5] 🔍 getAgent result | found=true
+[2025-05-08T14:56:36.943Z] DEBUG: [eca4588a-3049-495a-af63-512503375ef5] ⏱️ Exit getAgent | duration=1ms
+[2025-05-08T14:56:36.943Z] INFO: [c4482e34-140a-4166-ad9c-a9c21f3f6703] 📦 Agent retrieved | hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:56:36.944Z] DEBUG: [c4482e34-140a-4166-ad9c-a9c21f3f6703] ⏱️ /agents/:hostname complete | duration=2ms
+[2025-05-08T14:56:36.944Z] DEBUG: [e8e16d46-cb6c-4426-bf6e-3bf4a2602137] ⏱️ auth middleware complete | duration=4ms
+[2025-05-08T14:56:36.944Z] INFO: [e8e16d46-cb6c-4426-bf6e-3bf4a2602137] 📤 GET /api/agents/DESKTOP-TBUNGH6 | 200 | 4ms
+[2025-05-08T14:56:40.923Z] INFO: [0cd29715-e25e-475b-989d-8f491af9ba51] 📥 POST /api/agents/heartbeat
+[2025-05-08T14:56:40.923Z] DEBUG: [5886bb3a-c42b-4737-805e-f12389733cf3] 📝 Running validation on POST /api/agents/heartbeat
+[2025-05-08T14:56:40.924Z] INFO: [5886bb3a-c42b-4737-805e-f12389733cf3] ✅ Validation passed
+[2025-05-08T14:56:40.924Z] DEBUG: [5886bb3a-c42b-4737-805e-f12389733cf3] ⏱️ Validation duration: 1ms
+[2025-05-08T14:56:40.924Z] DEBUG: [cbc5ad66-b3e9-4f5f-9c08-8f0488858fbd] 💓 POST /agents/heartbeat | payload={"agentId":"agent_1746716095617_17081","agentVersion":"1.0.0","hostname":"DESKTOP-TBUNGH6","timestamp":1746716200921}
+[2025-05-08T14:56:40.924Z] DEBUG: [daa1856c-6f32-491e-825b-6b562db8d0b4] ❤️ Enter updateHeartbeat | agentId=agent_1746716095617_17081
+[2025-05-08T14:56:40.933Z] DEBUG: [daa1856c-6f32-491e-825b-6b562db8d0b4] 🧽 Agent heartbeat updated: agent_1746716095617_17081, newStatus=1
+[2025-05-08T14:56:40.933Z] DEBUG: [daa1856c-6f32-491e-825b-6b562db8d0b4] ⏱️ Exit updateHeartbeat | duration=9ms
+[2025-05-08T14:56:40.933Z] INFO: [cbc5ad66-b3e9-4f5f-9c08-8f0488858fbd] ✅ Heartbeat acknowledged | agentId=agent_1746716095617_17081
+[2025-05-08T14:56:40.933Z] DEBUG: [cbc5ad66-b3e9-4f5f-9c08-8f0488858fbd] ⏱️ /agents/heartbeat complete | duration=9ms
+[2025-05-08T14:56:40.934Z] INFO: [0cd29715-e25e-475b-989d-8f491af9ba51] 📤 POST /api/agents/heartbeat | 200 | 11ms
+[2025-05-08T14:56:41.016Z] INFO: [b2e25c14-63cd-4e54-b19e-eaf17f582f3c] 📥 GET /api/agents
+[2025-05-08T14:56:41.016Z] DEBUG: [34fe5bf6-3de5-42b2-9ba6-6c243371779d] 🔐 auth middleware invoked | requiredRole=any
+[2025-05-08T14:56:41.017Z] DEBUG: [34fe5bf6-3de5-42b2-9ba6-6c243371779d] ✅ Token verified | user=admin, role=admin
+[2025-05-08T14:56:41.017Z] DEBUG: [34fe5bf6-3de5-42b2-9ba6-6c243371779d] 🔓 Access granted | user=admin
+[2025-05-08T14:56:41.017Z] DEBUG: [aee52840-58f8-4d61-a69e-c01086705c84] 🔎 GET /agents
+[2025-05-08T14:56:41.018Z] DEBUG: [0eb49631-559e-4dda-8e3f-aa64f487bf68] 📋 Enter getAllAgents
+[2025-05-08T14:56:41.019Z] DEBUG: [0eb49631-559e-4dda-8e3f-aa64f487bf68] 📋 Retrieved 1 agents
+[2025-05-08T14:56:41.019Z] DEBUG: [0eb49631-559e-4dda-8e3f-aa64f487bf68] ⏱️ Exit getAllAgents | duration=1ms
+[2025-05-08T14:56:41.019Z] INFO: [aee52840-58f8-4d61-a69e-c01086705c84] 📋 Retrieved 1 agents
+[2025-05-08T14:56:41.020Z] DEBUG: [aee52840-58f8-4d61-a69e-c01086705c84] ⏱️ /agents list complete | duration=3ms
+[2025-05-08T14:56:41.020Z] DEBUG: [34fe5bf6-3de5-42b2-9ba6-6c243371779d] ⏱️ auth middleware complete | duration=4ms
+[2025-05-08T14:56:41.020Z] INFO: [34fe5bf6-3de5-42b2-9ba6-6c243371779d] 📤 GET /api/agents | 200 | 4ms
+[2025-05-08T14:56:45.909Z] INFO: [2ea99d00-349d-4f5a-a8df-289ef390a42c] 📥 POST /api/telemetry
+[2025-05-08T14:56:45.910Z] DEBUG: [70572c31-4954-4925-9ff6-9c1cf3ab024f] 📝 Running validation on POST /api/telemetry
+[2025-05-08T14:56:45.910Z] INFO: [70572c31-4954-4925-9ff6-9c1cf3ab024f] ✅ Validation passed
+[2025-05-08T14:56:45.910Z] DEBUG: [70572c31-4954-4925-9ff6-9c1cf3ab024f] ⏱️ Validation duration: 0ms
+[2025-05-08T14:56:45.910Z] DEBUG: [99f0c53d-c69a-4747-8c35-7e069f820672] 🛰️ POST /telemetry | Receiving telemetry | hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:56:45.910Z] DEBUG: [c5031f95-c5d3-4e4f-8797-26b9521004ab] 📥 Enter insertTelemetry | safePreview={"agentId":"agent_1746716095617_17081","hostname":"DESKTOP-TBUNGH6","timestamp":1746716205732,"cpu":{"usage":0,"cores":14},"memory":{"total_mb":30084,"used_mb":587,"percent":1.95},"disk":{"root":21},"network":{"eth0":{"rx_kbps":0,"tx_kbps":0}},"temperature":{"cpu":null},"top_processes":[{"name":"node","cpu":0.5,"mem":0.2},{"name":"node","cpu":0.3,"mem":0.2},{"name":"systemd","cpu":0,"mem":0},{"name":"init-systemd(Ub","cpu":0,"mem":0},{"name":"init","cpu":0,"mem":0}]}
+[2025-05-08T14:56:45.921Z] INFO: [c5031f95-c5d3-4e4f-8797-26b9521004ab] ✅ Telemetry inserted for agent: agent_1746716095617_17081
+[2025-05-08T14:56:45.922Z] DEBUG: [c5031f95-c5d3-4e4f-8797-26b9521004ab] ⏱️ Exit insertTelemetry | duration=12ms
+[2025-05-08T14:56:45.922Z] DEBUG: [ea328ea0-2b8a-491a-95ba-05610bcf1aab] ♻️ Enter upsertAgent | hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:56:45.929Z] INFO: [ea328ea0-2b8a-491a-95ba-05610bcf1aab] 🔄 Agent updated (legacy): DESKTOP-TBUNGH6
+[2025-05-08T14:56:45.929Z] DEBUG: [ea328ea0-2b8a-491a-95ba-05610bcf1aab] ⏱️ Exit upsertAgent | duration=7ms
+[2025-05-08T14:56:45.929Z] INFO: [99f0c53d-c69a-4747-8c35-7e069f820672] ✅ Telemetry inserted and agent upserted | hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:56:45.930Z] DEBUG: [99f0c53d-c69a-4747-8c35-7e069f820672] ⏱️ POST /telemetry complete | duration=20ms
+[2025-05-08T14:56:45.930Z] INFO: [2ea99d00-349d-4f5a-a8df-289ef390a42c] 📤 POST /api/telemetry | 200 | 21ms
+[2025-05-08T14:56:45.931Z] INFO: [ea033abc-2c0d-4a42-a088-9413c4b31afa] 📥 POST /api/agents/heartbeat
+[2025-05-08T14:56:45.932Z] DEBUG: [5886bb3a-c42b-4737-805e-f12389733cf3] 📝 Running validation on POST /api/agents/heartbeat
+[2025-05-08T14:56:45.932Z] INFO: [5886bb3a-c42b-4737-805e-f12389733cf3] ✅ Validation passed
+[2025-05-08T14:56:45.932Z] DEBUG: [5886bb3a-c42b-4737-805e-f12389733cf3] ⏱️ Validation duration: 0ms
+[2025-05-08T14:56:45.932Z] DEBUG: [8a99cd3d-9e46-4faa-b868-2593bdfab596] 💓 POST /agents/heartbeat | payload={"agentId":"agent_1746716095617_17081","agentVersion":"1.0.0","hostname":"DESKTOP-TBUNGH6","timestamp":1746716205921}
+[2025-05-08T14:56:45.932Z] DEBUG: [599449e8-46f9-486a-a70f-77e5def3f52a] ❤️ Enter updateHeartbeat | agentId=agent_1746716095617_17081
+[2025-05-08T14:56:45.939Z] DEBUG: [599449e8-46f9-486a-a70f-77e5def3f52a] 🧽 Agent heartbeat updated: agent_1746716095617_17081, newStatus=1
+[2025-05-08T14:56:45.939Z] DEBUG: [599449e8-46f9-486a-a70f-77e5def3f52a] ⏱️ Exit updateHeartbeat | duration=7ms
+[2025-05-08T14:56:45.939Z] INFO: [8a99cd3d-9e46-4faa-b868-2593bdfab596] ✅ Heartbeat acknowledged | agentId=agent_1746716095617_17081
+[2025-05-08T14:56:45.940Z] DEBUG: [8a99cd3d-9e46-4faa-b868-2593bdfab596] ⏱️ /agents/heartbeat complete | duration=8ms
+[2025-05-08T14:56:45.940Z] INFO: [ea033abc-2c0d-4a42-a088-9413c4b31afa] 📤 POST /api/agents/heartbeat | 200 | 9ms
+[2025-05-08T14:56:46.445Z] INFO: [01eaf9d9-1fb3-4313-9491-74dd5a3f9c23] 📥 GET /api/telemetry/DESKTOP-TBUNGH6/summary
+[2025-05-08T14:56:46.445Z] DEBUG: [b9440724-4e32-47e6-ac1d-2d1632915204] 🔐 auth middleware invoked | requiredRole=any
+[2025-05-08T14:56:46.446Z] DEBUG: [b9440724-4e32-47e6-ac1d-2d1632915204] ✅ Token verified | user=admin, role=admin
+[2025-05-08T14:56:46.446Z] DEBUG: [b9440724-4e32-47e6-ac1d-2d1632915204] 🔓 Access granted | user=admin
+[2025-05-08T14:56:46.446Z] DEBUG: [60047df4-4bf6-4326-ad5d-230e71596e9e] 📊 GET /telemetry/DESKTOP-TBUNGH6/summary | Fetching latest telemetry
+[2025-05-08T14:56:46.446Z] DEBUG: [5d50da24-87a9-41ae-9ddf-8221caab7657] 🔍 Enter getLatestTelemetry | hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:56:46.447Z] DEBUG: [5d50da24-87a9-41ae-9ddf-8221caab7657] 📤 getLatestTelemetry result | found=true
+[2025-05-08T14:56:46.447Z] DEBUG: [5d50da24-87a9-41ae-9ddf-8221caab7657] ⏱️ Exit getLatestTelemetry | duration=1ms
+[2025-05-08T14:56:46.447Z] DEBUG: [b9440724-4e32-47e6-ac1d-2d1632915204] ⏱️ auth middleware complete | duration=2ms
+[2025-05-08T14:56:46.448Z] INFO: [60047df4-4bf6-4326-ad5d-230e71596e9e] ✅ Latest telemetry retrieved for DESKTOP-TBUNGH6
+[2025-05-08T14:56:46.448Z] DEBUG: [60047df4-4bf6-4326-ad5d-230e71596e9e] ⏱️ GET /telemetry/:hostname/summary complete | duration=2ms
+[2025-05-08T14:56:46.448Z] INFO: [b9440724-4e32-47e6-ac1d-2d1632915204] 📤 GET /api/telemetry/DESKTOP-TBUNGH6/summary | 200 | 3ms
+[2025-05-08T14:56:50.926Z] INFO: [a63eab13-8868-4aac-91cd-a337890bd3a5] 📥 POST /api/agents/heartbeat
+[2025-05-08T14:56:50.927Z] DEBUG: [5886bb3a-c42b-4737-805e-f12389733cf3] 📝 Running validation on POST /api/agents/heartbeat
+[2025-05-08T14:56:50.927Z] INFO: [5886bb3a-c42b-4737-805e-f12389733cf3] ✅ Validation passed
+[2025-05-08T14:56:50.927Z] DEBUG: [5886bb3a-c42b-4737-805e-f12389733cf3] ⏱️ Validation duration: 0ms
+[2025-05-08T14:56:50.928Z] DEBUG: [7e1cc39a-44fa-4542-8695-2fa8c88498d8] 💓 POST /agents/heartbeat | payload={"agentId":"agent_1746716095617_17081","agentVersion":"1.0.0","hostname":"DESKTOP-TBUNGH6","timestamp":1746716210922}
+[2025-05-08T14:56:50.928Z] DEBUG: [00b24223-18d2-4d70-b7ca-f09330a857e8] ❤️ Enter updateHeartbeat | agentId=agent_1746716095617_17081
+[2025-05-08T14:56:50.950Z] DEBUG: [00b24223-18d2-4d70-b7ca-f09330a857e8] 🧽 Agent heartbeat updated: agent_1746716095617_17081, newStatus=1
+[2025-05-08T14:56:50.950Z] DEBUG: [00b24223-18d2-4d70-b7ca-f09330a857e8] ⏱️ Exit updateHeartbeat | duration=22ms
+[2025-05-08T14:56:50.950Z] INFO: [7e1cc39a-44fa-4542-8695-2fa8c88498d8] ✅ Heartbeat acknowledged | agentId=agent_1746716095617_17081
+[2025-05-08T14:56:50.950Z] DEBUG: [7e1cc39a-44fa-4542-8695-2fa8c88498d8] ⏱️ /agents/heartbeat complete | duration=22ms
+[2025-05-08T14:56:50.950Z] INFO: [a63eab13-8868-4aac-91cd-a337890bd3a5] 📤 POST /api/agents/heartbeat | 200 | 24ms
+[2025-05-08T14:56:55.913Z] INFO: [b65e52e9-f5f1-4067-9885-5c07a428b22a] 📥 POST /api/telemetry
+[2025-05-08T14:56:55.914Z] DEBUG: [70572c31-4954-4925-9ff6-9c1cf3ab024f] 📝 Running validation on POST /api/telemetry
+[2025-05-08T14:56:55.914Z] INFO: [70572c31-4954-4925-9ff6-9c1cf3ab024f] ✅ Validation passed
+[2025-05-08T14:56:55.914Z] DEBUG: [70572c31-4954-4925-9ff6-9c1cf3ab024f] ⏱️ Validation duration: 0ms
+[2025-05-08T14:56:55.914Z] DEBUG: [af141261-f7f6-4c3d-b1d9-e86656ddffa2] 🛰️ POST /telemetry | Receiving telemetry | hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:56:55.914Z] DEBUG: [027aa1de-148f-434c-84f3-dd5d9f185224] 📥 Enter insertTelemetry | safePreview={"agentId":"agent_1746716095617_17081","hostname":"DESKTOP-TBUNGH6","timestamp":1746716215736,"cpu":{"usage":0,"cores":14},"memory":{"total_mb":30084,"used_mb":583,"percent":1.94},"disk":{"root":21},"network":{"eth0":{"rx_kbps":0,"tx_kbps":0}},"temperature":{"cpu":null},"top_processes":[{"name":"node","cpu":0.5,"mem":0.2},{"name":"node","cpu":0.3,"mem":0.2},{"name":"systemd","cpu":0,"mem":0},{"name":"init-systemd(Ub","cpu":0,"mem":0},{"name":"init","cpu":0,"mem":0}]}
+[2025-05-08T14:56:55.926Z] INFO: [027aa1de-148f-434c-84f3-dd5d9f185224] ✅ Telemetry inserted for agent: agent_1746716095617_17081
+[2025-05-08T14:56:55.926Z] DEBUG: [027aa1de-148f-434c-84f3-dd5d9f185224] ⏱️ Exit insertTelemetry | duration=12ms
+[2025-05-08T14:56:55.926Z] DEBUG: [9e5d2efd-a5fc-4297-a4d8-0429245e6609] ♻️ Enter upsertAgent | hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:56:55.933Z] INFO: [9e5d2efd-a5fc-4297-a4d8-0429245e6609] 🔄 Agent updated (legacy): DESKTOP-TBUNGH6
+[2025-05-08T14:56:55.933Z] DEBUG: [9e5d2efd-a5fc-4297-a4d8-0429245e6609] ⏱️ Exit upsertAgent | duration=7ms
+[2025-05-08T14:56:55.933Z] INFO: [af141261-f7f6-4c3d-b1d9-e86656ddffa2] ✅ Telemetry inserted and agent upserted | hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:56:55.934Z] DEBUG: [af141261-f7f6-4c3d-b1d9-e86656ddffa2] ⏱️ POST /telemetry complete | duration=20ms
+[2025-05-08T14:56:55.934Z] INFO: [b65e52e9-f5f1-4067-9885-5c07a428b22a] 📤 POST /api/telemetry | 200 | 21ms
+[2025-05-08T14:56:55.935Z] INFO: [6ebbcc17-ed64-4154-8cd6-e49319e19e85] 📥 POST /api/agents/heartbeat
+[2025-05-08T14:56:55.935Z] DEBUG: [5886bb3a-c42b-4737-805e-f12389733cf3] 📝 Running validation on POST /api/agents/heartbeat
+[2025-05-08T14:56:55.935Z] INFO: [5886bb3a-c42b-4737-805e-f12389733cf3] ✅ Validation passed
+[2025-05-08T14:56:55.935Z] DEBUG: [5886bb3a-c42b-4737-805e-f12389733cf3] ⏱️ Validation duration: 0ms
+[2025-05-08T14:56:55.935Z] DEBUG: [47dc64a4-9f50-4969-83ad-24b45e367750] 💓 POST /agents/heartbeat | payload={"agentId":"agent_1746716095617_17081","agentVersion":"1.0.0","hostname":"DESKTOP-TBUNGH6","timestamp":1746716215921}
+[2025-05-08T14:56:55.935Z] DEBUG: [867018bb-4287-4db1-91e5-00bf9e178782] ❤️ Enter updateHeartbeat | agentId=agent_1746716095617_17081
+[2025-05-08T14:56:55.944Z] DEBUG: [867018bb-4287-4db1-91e5-00bf9e178782] 🧽 Agent heartbeat updated: agent_1746716095617_17081, newStatus=1
+[2025-05-08T14:56:55.944Z] DEBUG: [867018bb-4287-4db1-91e5-00bf9e178782] ⏱️ Exit updateHeartbeat | duration=9ms
+[2025-05-08T14:56:55.944Z] INFO: [47dc64a4-9f50-4969-83ad-24b45e367750] ✅ Heartbeat acknowledged | agentId=agent_1746716095617_17081
+[2025-05-08T14:56:55.944Z] DEBUG: [47dc64a4-9f50-4969-83ad-24b45e367750] ⏱️ /agents/heartbeat complete | duration=9ms
+[2025-05-08T14:56:55.944Z] INFO: [6ebbcc17-ed64-4154-8cd6-e49319e19e85] 📤 POST /api/agents/heartbeat | 200 | 9ms
+[2025-05-08T14:56:56.914Z] INFO: [f1c16191-bfba-4d50-a5ea-fc2010a40949] 📥 GET /api/telemetry/DESKTOP-TBUNGH6/chart?from=1710000000000&to=1810500000000
+[2025-05-08T14:56:56.914Z] DEBUG: [5e224181-c101-485f-8480-c629163da546] 🔐 auth middleware invoked | requiredRole=any
+[2025-05-08T14:56:56.915Z] DEBUG: [5e224181-c101-485f-8480-c629163da546] ✅ Token verified | user=admin, role=admin
+[2025-05-08T14:56:56.915Z] DEBUG: [5e224181-c101-485f-8480-c629163da546] 🔓 Access granted | user=admin
+[2025-05-08T14:56:56.915Z] DEBUG: [5e224181-c101-485f-8480-c629163da546] ⏱️ auth middleware complete | duration=1ms
+[2025-05-08T14:56:56.916Z] DEBUG: [babdd7c1-9c9d-487c-aef2-2418e01ed71a] 📝 Running validation on GET /api/telemetry/DESKTOP-TBUNGH6/chart?from=1710000000000&to=1810500000000
+[2025-05-08T14:56:56.916Z] INFO: [babdd7c1-9c9d-487c-aef2-2418e01ed71a] ✅ Validation passed
+[2025-05-08T14:56:56.916Z] DEBUG: [babdd7c1-9c9d-487c-aef2-2418e01ed71a] ⏱️ Validation duration: 0ms
+[2025-05-08T14:56:56.916Z] DEBUG: [33db13b9-3a1e-4c3b-9778-805d385932e3] 📈 GET /telemetry/DESKTOP-TBUNGH6/chart | from=1710000000000, to=1810500000000
+[2025-05-08T14:56:56.916Z] DEBUG: [47b6e515-8c65-47bf-99c7-38f0c18ca248] 📈 Enter getTelemetrySeries | hostname=DESKTOP-TBUNGH6, from=1710000000000, to=1810500000000
+[2025-05-08T14:56:56.917Z] DEBUG: [47b6e515-8c65-47bf-99c7-38f0c18ca248] 📊 getTelemetrySeries result | count=6
+[2025-05-08T14:56:56.917Z] DEBUG: [47b6e515-8c65-47bf-99c7-38f0c18ca248] ⏱️ Exit getTelemetrySeries | duration=1ms
+[2025-05-08T14:56:56.917Z] INFO: [33db13b9-3a1e-4c3b-9778-805d385932e3] 📦 Timeseries data retrieved for DESKTOP-TBUNGH6 | count=6
+[2025-05-08T14:56:56.917Z] DEBUG: [33db13b9-3a1e-4c3b-9778-805d385932e3] ⏱️ GET /telemetry/:hostname/chart complete | duration=1ms
+[2025-05-08T14:56:56.917Z] INFO: [5e224181-c101-485f-8480-c629163da546] 📤 GET /api/telemetry/DESKTOP-TBUNGH6/chart?from=1710000000000&to=1810500000000 | 200 | 3ms
+[2025-05-08T14:57:00.923Z] INFO: [5ed94b14-1ed7-4d07-95aa-8554cdfb7e1e] 📥 POST /api/agents/heartbeat
+[2025-05-08T14:57:00.923Z] DEBUG: [5886bb3a-c42b-4737-805e-f12389733cf3] 📝 Running validation on POST /api/agents/heartbeat
+[2025-05-08T14:57:00.923Z] INFO: [5886bb3a-c42b-4737-805e-f12389733cf3] ✅ Validation passed
+[2025-05-08T14:57:00.923Z] DEBUG: [5886bb3a-c42b-4737-805e-f12389733cf3] ⏱️ Validation duration: 0ms
+[2025-05-08T14:57:00.923Z] DEBUG: [24c317c3-e622-4ce4-9fca-16fd45e16e5c] 💓 POST /agents/heartbeat | payload={"agentId":"agent_1746716095617_17081","agentVersion":"1.0.0","hostname":"DESKTOP-TBUNGH6","timestamp":1746716220922}
+[2025-05-08T14:57:00.923Z] DEBUG: [076345f0-c314-4b23-abe1-fe3279e820b8] ❤️ Enter updateHeartbeat | agentId=agent_1746716095617_17081
+[2025-05-08T14:57:00.934Z] DEBUG: [076345f0-c314-4b23-abe1-fe3279e820b8] 🧽 Agent heartbeat updated: agent_1746716095617_17081, newStatus=1
+[2025-05-08T14:57:00.934Z] DEBUG: [076345f0-c314-4b23-abe1-fe3279e820b8] ⏱️ Exit updateHeartbeat | duration=11ms
+[2025-05-08T14:57:00.934Z] INFO: [24c317c3-e622-4ce4-9fca-16fd45e16e5c] ✅ Heartbeat acknowledged | agentId=agent_1746716095617_17081
+[2025-05-08T14:57:00.935Z] DEBUG: [24c317c3-e622-4ce4-9fca-16fd45e16e5c] ⏱️ /agents/heartbeat complete | duration=12ms
+[2025-05-08T14:57:00.935Z] INFO: [5ed94b14-1ed7-4d07-95aa-8554cdfb7e1e] 📤 POST /api/agents/heartbeat | 200 | 12ms
+[2025-05-08T14:57:05.608Z] INFO: [eae4c6a1-20fa-44d7-8d60-f20e0c953b5e] 📥 GET /api/telemetry/test-host/table?page=1&limit=50
+[2025-05-08T14:57:05.608Z] DEBUG: [4b92b286-1cfa-47d3-98e2-7635f65ca0ba] 🔐 auth middleware invoked | requiredRole=any
+[2025-05-08T14:57:05.609Z] DEBUG: [4b92b286-1cfa-47d3-98e2-7635f65ca0ba] ✅ Token verified | user=admin, role=admin
+[2025-05-08T14:57:05.609Z] DEBUG: [4b92b286-1cfa-47d3-98e2-7635f65ca0ba] 🔓 Access granted | user=admin
+[2025-05-08T14:57:05.609Z] DEBUG: [4b92b286-1cfa-47d3-98e2-7635f65ca0ba] ⏱️ auth middleware complete | duration=1ms
+[2025-05-08T14:57:05.609Z] DEBUG: [bd45f739-b5c5-4187-be8f-740077b2777c] 📝 Running validation on GET /api/telemetry/test-host/table?page=1&limit=50
+[2025-05-08T14:57:05.609Z] INFO: [bd45f739-b5c5-4187-be8f-740077b2777c] ✅ Validation passed
+[2025-05-08T14:57:05.609Z] DEBUG: [bd45f739-b5c5-4187-be8f-740077b2777c] ⏱️ Validation duration: 0ms
+[2025-05-08T14:57:05.610Z] DEBUG: [2882e7b0-3606-4f0c-90e8-cac6b3a9bfcc] 📄 GET /telemetry/test-host/table | page=1, limit=50
+[2025-05-08T14:57:05.610Z] DEBUG: [9dd27bdd-7e3e-48ab-872b-94525ed7e234] 📃 Enter getTelemetryLogs | hostname=test-host, page=1, limit=50
+[2025-05-08T14:57:05.611Z] DEBUG: [9dd27bdd-7e3e-48ab-872b-94525ed7e234] 📄 getTelemetryLogs result | count=0
+[2025-05-08T14:57:05.611Z] DEBUG: [9dd27bdd-7e3e-48ab-872b-94525ed7e234] ⏱️ Exit getTelemetryLogs | duration=1ms
+[2025-05-08T14:57:05.611Z] INFO: [2882e7b0-3606-4f0c-90e8-cac6b3a9bfcc] 📥 Logs retrieved for test-host | page=1, count=0
+[2025-05-08T14:57:05.611Z] DEBUG: [2882e7b0-3606-4f0c-90e8-cac6b3a9bfcc] ⏱️ GET /telemetry/:hostname/table complete | duration=1ms
+[2025-05-08T14:57:05.611Z] INFO: [4b92b286-1cfa-47d3-98e2-7635f65ca0ba] 📤 GET /api/telemetry/test-host/table?page=1&limit=50 | 200 | 3ms
+[2025-05-08T14:57:05.919Z] INFO: [cf9c2fef-f146-4197-bb67-c508efc68d7b] 📥 POST /api/telemetry
+[2025-05-08T14:57:05.920Z] DEBUG: [70572c31-4954-4925-9ff6-9c1cf3ab024f] 📝 Running validation on POST /api/telemetry
+[2025-05-08T14:57:05.920Z] INFO: [70572c31-4954-4925-9ff6-9c1cf3ab024f] ✅ Validation passed
+[2025-05-08T14:57:05.920Z] DEBUG: [70572c31-4954-4925-9ff6-9c1cf3ab024f] ⏱️ Validation duration: 0ms
+[2025-05-08T14:57:05.920Z] DEBUG: [63247a03-271b-4d4c-b9ed-f4dab077c394] 🛰️ POST /telemetry | Receiving telemetry | hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:57:05.920Z] DEBUG: [805e0112-ebd6-49d4-83da-bcd66fd969b0] 📥 Enter insertTelemetry | safePreview={"agentId":"agent_1746716095617_17081","hostname":"DESKTOP-TBUNGH6","timestamp":1746716225742,"cpu":{"usage":0,"cores":14},"memory":{"total_mb":30084,"used_mb":586,"percent":1.95},"disk":{"root":21},"network":{"eth0":{"rx_kbps":0,"tx_kbps":0}},"temperature":{"cpu":null},"top_processes":[{"name":"node","cpu":0.5,"mem":0.2},{"name":"node","cpu":0.3,"mem":0.2},{"name":"systemd","cpu":0,"mem":0},{"name":"init-systemd(Ub","cpu":0,"mem":0},{"name":"init","cpu":0,"mem":0}]}
+[2025-05-08T14:57:05.928Z] INFO: [805e0112-ebd6-49d4-83da-bcd66fd969b0] ✅ Telemetry inserted for agent: agent_1746716095617_17081
+[2025-05-08T14:57:05.928Z] DEBUG: [805e0112-ebd6-49d4-83da-bcd66fd969b0] ⏱️ Exit insertTelemetry | duration=8ms
+[2025-05-08T14:57:05.928Z] DEBUG: [977005ab-4598-4b9b-8a41-4d8c175d2912] ♻️ Enter upsertAgent | hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:57:05.936Z] INFO: [977005ab-4598-4b9b-8a41-4d8c175d2912] 🔄 Agent updated (legacy): DESKTOP-TBUNGH6
+[2025-05-08T14:57:05.936Z] DEBUG: [977005ab-4598-4b9b-8a41-4d8c175d2912] ⏱️ Exit upsertAgent | duration=8ms
+[2025-05-08T14:57:05.937Z] INFO: [63247a03-271b-4d4c-b9ed-f4dab077c394] ✅ Telemetry inserted and agent upserted | hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:57:05.937Z] DEBUG: [63247a03-271b-4d4c-b9ed-f4dab077c394] ⏱️ POST /telemetry complete | duration=17ms
+[2025-05-08T14:57:05.937Z] INFO: [cf9c2fef-f146-4197-bb67-c508efc68d7b] 📤 POST /api/telemetry | 200 | 18ms
+[2025-05-08T14:57:05.938Z] INFO: [b6b0f9bc-19e3-4864-aaa6-ace8a758b803] 📥 POST /api/agents/heartbeat
+[2025-05-08T14:57:05.938Z] DEBUG: [5886bb3a-c42b-4737-805e-f12389733cf3] 📝 Running validation on POST /api/agents/heartbeat
+[2025-05-08T14:57:05.938Z] INFO: [5886bb3a-c42b-4737-805e-f12389733cf3] ✅ Validation passed
+[2025-05-08T14:57:05.938Z] DEBUG: [5886bb3a-c42b-4737-805e-f12389733cf3] ⏱️ Validation duration: 0ms
+[2025-05-08T14:57:05.938Z] DEBUG: [63c1eddc-3be8-4dd8-b348-acca224e858f] 💓 POST /agents/heartbeat | payload={"agentId":"agent_1746716095617_17081","agentVersion":"1.0.0","hostname":"DESKTOP-TBUNGH6","timestamp":1746716225921}
+[2025-05-08T14:57:05.938Z] DEBUG: [b7b3c3c7-f356-4827-8d89-d6ba7e2c9f7c] ❤️ Enter updateHeartbeat | agentId=agent_1746716095617_17081
+[2025-05-08T14:57:05.945Z] DEBUG: [b7b3c3c7-f356-4827-8d89-d6ba7e2c9f7c] 🧽 Agent heartbeat updated: agent_1746716095617_17081, newStatus=1
+[2025-05-08T14:57:05.945Z] DEBUG: [b7b3c3c7-f356-4827-8d89-d6ba7e2c9f7c] ⏱️ Exit updateHeartbeat | duration=7ms
+[2025-05-08T14:57:05.945Z] INFO: [63c1eddc-3be8-4dd8-b348-acca224e858f] ✅ Heartbeat acknowledged | agentId=agent_1746716095617_17081
+[2025-05-08T14:57:05.945Z] DEBUG: [63c1eddc-3be8-4dd8-b348-acca224e858f] ⏱️ /agents/heartbeat complete | duration=7ms
+[2025-05-08T14:57:05.945Z] INFO: [b6b0f9bc-19e3-4864-aaa6-ace8a758b803] 📤 POST /api/agents/heartbeat | 200 | 7ms
+[2025-05-08T14:57:10.926Z] INFO: [fa4ff68a-fd8a-4bcb-a2ce-e5a6d716bf78] 📥 POST /api/agents/heartbeat
+[2025-05-08T14:57:10.926Z] DEBUG: [5886bb3a-c42b-4737-805e-f12389733cf3] 📝 Running validation on POST /api/agents/heartbeat
+[2025-05-08T14:57:10.926Z] INFO: [5886bb3a-c42b-4737-805e-f12389733cf3] ✅ Validation passed
+[2025-05-08T14:57:10.926Z] DEBUG: [5886bb3a-c42b-4737-805e-f12389733cf3] ⏱️ Validation duration: 0ms
+[2025-05-08T14:57:10.926Z] DEBUG: [feeb1f4e-4100-4c28-8107-76959842907d] 💓 POST /agents/heartbeat | payload={"agentId":"agent_1746716095617_17081","agentVersion":"1.0.0","hostname":"DESKTOP-TBUNGH6","timestamp":1746716230924}
+[2025-05-08T14:57:10.926Z] DEBUG: [d1a0deb0-4691-4e00-a6c1-5a8fde95587d] ❤️ Enter updateHeartbeat | agentId=agent_1746716095617_17081
+[2025-05-08T14:57:10.939Z] DEBUG: [d1a0deb0-4691-4e00-a6c1-5a8fde95587d] 🧽 Agent heartbeat updated: agent_1746716095617_17081, newStatus=1
+[2025-05-08T14:57:10.939Z] DEBUG: [d1a0deb0-4691-4e00-a6c1-5a8fde95587d] ⏱️ Exit updateHeartbeat | duration=13ms
+[2025-05-08T14:57:10.939Z] INFO: [feeb1f4e-4100-4c28-8107-76959842907d] ✅ Heartbeat acknowledged | agentId=agent_1746716095617_17081
+[2025-05-08T14:57:10.939Z] DEBUG: [feeb1f4e-4100-4c28-8107-76959842907d] ⏱️ /agents/heartbeat complete | duration=13ms
+[2025-05-08T14:57:10.939Z] INFO: [fa4ff68a-fd8a-4bcb-a2ce-e5a6d716bf78] 📤 POST /api/agents/heartbeat | 200 | 13ms
+[2025-05-08T14:57:15.933Z] INFO: [5eb77f17-90da-4927-bd01-0e334f5ba5fc] 📥 POST /api/telemetry
+[2025-05-08T14:57:15.934Z] DEBUG: [70572c31-4954-4925-9ff6-9c1cf3ab024f] 📝 Running validation on POST /api/telemetry
+[2025-05-08T14:57:15.934Z] INFO: [70572c31-4954-4925-9ff6-9c1cf3ab024f] ✅ Validation passed
+[2025-05-08T14:57:15.934Z] DEBUG: [70572c31-4954-4925-9ff6-9c1cf3ab024f] ⏱️ Validation duration: 0ms
+[2025-05-08T14:57:15.934Z] DEBUG: [bbf5d776-e181-49d8-a66b-717aa4b5763d] 🛰️ POST /telemetry | Receiving telemetry | hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:57:15.934Z] DEBUG: [be83d48d-d2e2-4f16-8048-db3a1cebe529] 📥 Enter insertTelemetry | safePreview={"agentId":"agent_1746716095617_17081","hostname":"DESKTOP-TBUNGH6","timestamp":1746716235747,"cpu":{"usage":0,"cores":14},"memory":{"total_mb":30084,"used_mb":585,"percent":1.94},"disk":{"root":21},"network":{"eth0":{"rx_kbps":0,"tx_kbps":0}},"temperature":{"cpu":null},"top_processes":[{"name":"node","cpu":0.4,"mem":0.2},{"name":"node","cpu":0.3,"mem":0.2},{"name":"systemd","cpu":0,"mem":0},{"name":"init-systemd(Ub","cpu":0,"mem":0},{"name":"init","cpu":0,"mem":0}]}
+[2025-05-08T14:57:15.942Z] INFO: [be83d48d-d2e2-4f16-8048-db3a1cebe529] ✅ Telemetry inserted for agent: agent_1746716095617_17081
+[2025-05-08T14:57:15.942Z] DEBUG: [be83d48d-d2e2-4f16-8048-db3a1cebe529] ⏱️ Exit insertTelemetry | duration=8ms
+[2025-05-08T14:57:15.942Z] DEBUG: [17ceb8fa-9497-4a9d-bf91-7b8e4922fd55] ♻️ Enter upsertAgent | hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:57:15.950Z] INFO: [17ceb8fa-9497-4a9d-bf91-7b8e4922fd55] 🔄 Agent updated (legacy): DESKTOP-TBUNGH6
+[2025-05-08T14:57:15.950Z] DEBUG: [17ceb8fa-9497-4a9d-bf91-7b8e4922fd55] ⏱️ Exit upsertAgent | duration=8ms
+[2025-05-08T14:57:15.950Z] INFO: [bbf5d776-e181-49d8-a66b-717aa4b5763d] ✅ Telemetry inserted and agent upserted | hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:57:15.950Z] DEBUG: [bbf5d776-e181-49d8-a66b-717aa4b5763d] ⏱️ POST /telemetry complete | duration=16ms
+[2025-05-08T14:57:15.950Z] INFO: [5eb77f17-90da-4927-bd01-0e334f5ba5fc] 📤 POST /api/telemetry | 200 | 17ms
+[2025-05-08T14:57:15.951Z] INFO: [ad36717a-fd89-4553-80c5-81741d399710] 📥 POST /api/agents/heartbeat
+[2025-05-08T14:57:15.952Z] DEBUG: [5886bb3a-c42b-4737-805e-f12389733cf3] 📝 Running validation on POST /api/agents/heartbeat
+[2025-05-08T14:57:15.952Z] INFO: [5886bb3a-c42b-4737-805e-f12389733cf3] ✅ Validation passed
+[2025-05-08T14:57:15.952Z] DEBUG: [5886bb3a-c42b-4737-805e-f12389733cf3] ⏱️ Validation duration: 0ms
+[2025-05-08T14:57:15.952Z] DEBUG: [9fb140ce-b986-4eae-9fff-ca26896ab234] 💓 POST /agents/heartbeat | payload={"agentId":"agent_1746716095617_17081","agentVersion":"1.0.0","hostname":"DESKTOP-TBUNGH6","timestamp":1746716235933}
+[2025-05-08T14:57:15.952Z] DEBUG: [c8a01402-20e4-48b2-a488-03d1a62e5b54] ❤️ Enter updateHeartbeat | agentId=agent_1746716095617_17081
+[2025-05-08T14:57:15.962Z] DEBUG: [c8a01402-20e4-48b2-a488-03d1a62e5b54] 🧽 Agent heartbeat updated: agent_1746716095617_17081, newStatus=1
+[2025-05-08T14:57:15.962Z] DEBUG: [c8a01402-20e4-48b2-a488-03d1a62e5b54] ⏱️ Exit updateHeartbeat | duration=10ms
+[2025-05-08T14:57:15.962Z] INFO: [9fb140ce-b986-4eae-9fff-ca26896ab234] ✅ Heartbeat acknowledged | agentId=agent_1746716095617_17081
+[2025-05-08T14:57:15.962Z] DEBUG: [9fb140ce-b986-4eae-9fff-ca26896ab234] ⏱️ /agents/heartbeat complete | duration=10ms
+[2025-05-08T14:57:15.962Z] INFO: [ad36717a-fd89-4553-80c5-81741d399710] 📤 POST /api/agents/heartbeat | 200 | 11ms
+[2025-05-08T14:57:20.942Z] INFO: [1c1a8b67-e49c-4c5b-98f3-8c1416fdaa97] 📥 POST /api/agents/heartbeat
+[2025-05-08T14:57:20.943Z] DEBUG: [5886bb3a-c42b-4737-805e-f12389733cf3] 📝 Running validation on POST /api/agents/heartbeat
+[2025-05-08T14:57:20.943Z] INFO: [5886bb3a-c42b-4737-805e-f12389733cf3] ✅ Validation passed
+[2025-05-08T14:57:20.943Z] DEBUG: [5886bb3a-c42b-4737-805e-f12389733cf3] ⏱️ Validation duration: 0ms
+[2025-05-08T14:57:20.943Z] DEBUG: [cb19e6f1-4590-4928-b173-5919a6547612] 💓 POST /agents/heartbeat | payload={"agentId":"agent_1746716095617_17081","agentVersion":"1.0.0","hostname":"DESKTOP-TBUNGH6","timestamp":1746716240939}
+[2025-05-08T14:57:20.944Z] DEBUG: [04b348b2-63d2-4e1c-a595-ab66b29d1e63] ❤️ Enter updateHeartbeat | agentId=agent_1746716095617_17081
+[2025-05-08T14:57:20.961Z] DEBUG: [04b348b2-63d2-4e1c-a595-ab66b29d1e63] 🧽 Agent heartbeat updated: agent_1746716095617_17081, newStatus=1
+[2025-05-08T14:57:20.961Z] DEBUG: [04b348b2-63d2-4e1c-a595-ab66b29d1e63] ⏱️ Exit updateHeartbeat | duration=17ms
+[2025-05-08T14:57:20.961Z] INFO: [cb19e6f1-4590-4928-b173-5919a6547612] ✅ Heartbeat acknowledged | agentId=agent_1746716095617_17081
+[2025-05-08T14:57:20.962Z] DEBUG: [cb19e6f1-4590-4928-b173-5919a6547612] ⏱️ /agents/heartbeat complete | duration=19ms
+[2025-05-08T14:57:20.962Z] INFO: [1c1a8b67-e49c-4c5b-98f3-8c1416fdaa97] 📤 POST /api/agents/heartbeat | 200 | 20ms
+[2025-05-08T14:57:25.815Z] INFO: [de33d6ee-8470-46d7-a2ed-30c94b69299d] 📥 GET /api/users/me
+[2025-05-08T14:57:25.816Z] DEBUG: [4b3c6525-64b2-40e9-a949-58978ec7be9c] 🔐 auth middleware invoked | requiredRole=any
+[2025-05-08T14:57:25.816Z] DEBUG: [4b3c6525-64b2-40e9-a949-58978ec7be9c] ✅ Token verified | user=admin, role=admin
+[2025-05-08T14:57:25.816Z] DEBUG: [4b3c6525-64b2-40e9-a949-58978ec7be9c] 🔓 Access granted | user=admin
+[2025-05-08T14:57:25.817Z] DEBUG: [4704a8f2-c7fa-4d88-867f-6ebaf4a4d0d1] 🙋‍♂️ GET /me | userId=1
+[2025-05-08T14:57:25.817Z] DEBUG: [4704a8f2-c7fa-4d88-867f-6ebaf4a4d0d1] ⏱️ GET /me complete | duration=0ms
+[2025-05-08T14:57:25.817Z] DEBUG: [4b3c6525-64b2-40e9-a949-58978ec7be9c] ⏱️ auth middleware complete | duration=1ms
+[2025-05-08T14:57:25.817Z] INFO: [4b3c6525-64b2-40e9-a949-58978ec7be9c] 📤 GET /api/users/me | 200 | 2ms
+[2025-05-08T14:57:25.928Z] INFO: [fe8a5eed-e0a5-48b5-b940-fa3dcc08563f] 📥 POST /api/telemetry
+[2025-05-08T14:57:25.929Z] DEBUG: [70572c31-4954-4925-9ff6-9c1cf3ab024f] 📝 Running validation on POST /api/telemetry
+[2025-05-08T14:57:25.929Z] INFO: [70572c31-4954-4925-9ff6-9c1cf3ab024f] ✅ Validation passed
+[2025-05-08T14:57:25.929Z] DEBUG: [70572c31-4954-4925-9ff6-9c1cf3ab024f] ⏱️ Validation duration: 0ms
+[2025-05-08T14:57:25.929Z] DEBUG: [8af1c03b-bdea-4d9b-931a-0a060c54fcac] 🛰️ POST /telemetry | Receiving telemetry | hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:57:25.929Z] DEBUG: [02f8a06f-f0a1-4187-a80e-31c093cbcf7a] 📥 Enter insertTelemetry | safePreview={"agentId":"agent_1746716095617_17081","hostname":"DESKTOP-TBUNGH6","timestamp":1746716245752,"cpu":{"usage":0,"cores":14},"memory":{"total_mb":30084,"used_mb":585,"percent":1.94},"disk":{"root":21},"network":{"eth0":{"rx_kbps":0,"tx_kbps":0}},"temperature":{"cpu":null},"top_processes":[{"name":"node","cpu":0.4,"mem":0.2},{"name":"node","cpu":0.3,"mem":0.2},{"name":"systemd","cpu":0,"mem":0},{"name":"init-systemd(Ub","cpu":0,"mem":0},{"name":"init","cpu":0,"mem":0}]}
+[2025-05-08T14:57:25.938Z] INFO: [02f8a06f-f0a1-4187-a80e-31c093cbcf7a] ✅ Telemetry inserted for agent: agent_1746716095617_17081
+[2025-05-08T14:57:25.938Z] DEBUG: [02f8a06f-f0a1-4187-a80e-31c093cbcf7a] ⏱️ Exit insertTelemetry | duration=9ms
+[2025-05-08T14:57:25.938Z] DEBUG: [78b759cd-27c0-45a3-b381-66e39bedd48c] ♻️ Enter upsertAgent | hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:57:25.946Z] INFO: [78b759cd-27c0-45a3-b381-66e39bedd48c] 🔄 Agent updated (legacy): DESKTOP-TBUNGH6
+[2025-05-08T14:57:25.946Z] DEBUG: [78b759cd-27c0-45a3-b381-66e39bedd48c] ⏱️ Exit upsertAgent | duration=8ms
+[2025-05-08T14:57:25.946Z] INFO: [8af1c03b-bdea-4d9b-931a-0a060c54fcac] ✅ Telemetry inserted and agent upserted | hostname=DESKTOP-TBUNGH6
+[2025-05-08T14:57:25.946Z] DEBUG: [8af1c03b-bdea-4d9b-931a-0a060c54fcac] ⏱️ POST /telemetry complete | duration=17ms
+[2025-05-08T14:57:25.947Z] INFO: [fe8a5eed-e0a5-48b5-b940-fa3dcc08563f] 📤 POST /api/telemetry | 200 | 19ms
+[2025-05-08T14:57:25.948Z] INFO: [168c9d45-da75-470f-95cc-575abb476a81] 📥 POST /api/agents/heartbeat
+[2025-05-08T14:57:25.948Z] DEBUG: [5886bb3a-c42b-4737-805e-f12389733cf3] 📝 Running validation on POST /api/agents/heartbeat
+[2025-05-08T14:57:25.948Z] INFO: [5886bb3a-c42b-4737-805e-f12389733cf3] ✅ Validation passed
+[2025-05-08T14:57:25.948Z] DEBUG: [5886bb3a-c42b-4737-805e-f12389733cf3] ⏱️ Validation duration: 0ms
+[2025-05-08T14:57:25.948Z] DEBUG: [087928a9-46ce-4402-9fdb-c74b5ec09120] 💓 POST /agents/heartbeat | payload={"agentId":"agent_1746716095617_17081","agentVersion":"1.0.0","hostname":"DESKTOP-TBUNGH6","timestamp":1746716245939}
+[2025-05-08T14:57:25.948Z] DEBUG: [a638ca4c-ca8c-417c-b959-b0e7e03c6a5d] ❤️ Enter updateHeartbeat | agentId=agent_1746716095617_17081
+[2025-05-08T14:57:25.956Z] DEBUG: [a638ca4c-ca8c-417c-b959-b0e7e03c6a5d] 🧽 Agent heartbeat updated: agent_1746716095617_17081, newStatus=1
+[2025-05-08T14:57:25.956Z] DEBUG: [a638ca4c-ca8c-417c-b959-b0e7e03c6a5d] ⏱️ Exit updateHeartbeat | duration=8ms
+[2025-05-08T14:57:25.956Z] INFO: [087928a9-46ce-4402-9fdb-c74b5ec09120] ✅ Heartbeat acknowledged | agentId=agent_1746716095617_17081
+[2025-05-08T14:57:25.957Z] DEBUG: [087928a9-46ce-4402-9fdb-c74b5ec09120] ⏱️ /agents/heartbeat complete | duration=9ms
+[2025-05-08T14:57:25.957Z] INFO: [168c9d45-da75-470f-95cc-575abb476a81] 📤 POST /api/agents/heartbeat | 200 | 9ms
+[2025-05-08T14:57:30.941Z] INFO: [da7df64b-480f-41ee-8c53-21c5503f51a3] 📥 POST /api/agents/heartbeat
+[2025-05-08T14:57:30.941Z] DEBUG: [5886bb3a-c42b-4737-805e-f12389733cf3] 📝 Running validation on POST /api/agents/heartbeat
+[2025-05-08T14:57:30.941Z] INFO: [5886bb3a-c42b-4737-805e-f12389733cf3] ✅ Validation passed
+[2025-05-08T14:57:30.942Z] DEBUG: [5886bb3a-c42b-4737-805e-f12389733cf3] ⏱️ Validation duration: 1ms
+[2025-05-08T14:57:30.942Z] DEBUG: [697e2e23-f72d-4390-957e-a22eee232b44] 💓 POST /agents/heartbeat | payload={"agentId":"agent_1746716095617_17081","agentVersion":"1.0.0","hostname":"DESKTOP-TBUNGH6","timestamp":1746716250940}
+[2025-05-08T14:57:30.942Z] DEBUG: [33dfce1f-3223-47f3-83b2-974efa12e3b2] ❤️ Enter updateHeartbeat | agentId=agent_1746716095617_17081
+[2025-05-08T14:57:30.955Z] DEBUG: [33dfce1f-3223-47f3-83b2-974efa12e3b2] 🧽 Agent heartbeat updated: agent_1746716095617_17081, newStatus=1
+[2025-05-08T14:57:30.955Z] DEBUG: [33dfce1f-3223-47f3-83b2-974efa12e3b2] ⏱️ Exit updateHeartbeat | duration=13ms
+[2025-05-08T14:57:30.955Z] INFO: [697e2e23-f72d-4390-957e-a22eee232b44] ✅ Heartbeat acknowledged | agentId=agent_1746716095617_17081
+[2025-05-08T14:57:30.955Z] DEBUG: [697e2e23-f72d-4390-957e-a22eee232b44] ⏱️ /agents/heartbeat complete | duration=13ms
+[2025-05-08T14:57:30.955Z] INFO: [da7df64b-480f-41ee-8c53-21c5503f51a3] 📤 POST /api/agents/heartbeat | 200 | 14ms

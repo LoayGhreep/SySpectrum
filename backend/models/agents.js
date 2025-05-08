@@ -131,7 +131,7 @@ function getAllAgents() {
 
   try {
     const result = db.prepare(`
-      SELECT agent_id, hostname, first_seen, last_seen, label, status, platform, version
+      SELECT agent_id, hostname, first_seen, last_seen, label, status, platform, version, cpu_cores, memory_total_mb, arch
       FROM agents
       ORDER BY last_seen DESC
     `).all();
@@ -236,24 +236,50 @@ function updateHeartbeat(agentId) {
 }
 
 // 🔹 Legacy fallback — upsert by hostname
-function upsertAgent(hostname) {
+function upsertAgent(hostname, telemetry = {}) {
   const traceId = traceScope();
   const start = Date.now();
+
   logger.debug(`[${traceId}] ♻️ Enter upsertAgent | hostname=${hostname}`);
 
   try {
-    const now = Date.now();
-    const existing = db.prepare('SELECT hostname FROM agents WHERE hostname = ?').get(hostname);
+    const existing = db.prepare(`SELECT * FROM agents WHERE hostname = ?`).get(hostname);
+
+    const timestamp = Date.now();
+    const cpuCores = telemetry?.cpu?.cores ?? null;
+    const memoryTotal = telemetry?.memory?.total_mb ?? null;
+    const arch = telemetry?.arch ?? null; // optional if you extract from agent registration
 
     if (existing) {
-      db.prepare('UPDATE agents SET last_seen = ? WHERE hostname = ?').run(now, hostname);
+      db.prepare(`
+        UPDATE agents SET
+          last_seen = ?,
+          cpu_cores = COALESCE(?, cpu_cores),
+          memory_total_mb = COALESCE(?, memory_total_mb),
+          arch = COALESCE(?, arch)
+        WHERE hostname = ?
+      `).run(timestamp, cpuCores, memoryTotal, arch, hostname);
       logger.info(`[${traceId}] 🔄 Agent updated (legacy): ${hostname}`);
     } else {
+      const agentId = `agent_${timestamp}_${Math.floor(Math.random() * 10000)}`;
       db.prepare(`
-        INSERT INTO agents (agent_id, hostname, first_seen, last_seen, status)
-        VALUES (?, ?, ?, ?, ?)
-      `).run(`legacy_${now}`, hostname, now, now, agentStatus.STABLE);
-      logger.info(`[${traceId}] 🎕 Agent registered (legacy): ${hostname}`);
+        INSERT INTO agents (
+          agent_id, hostname, platform, version,
+          first_seen, last_seen,
+          cpu_cores, memory_total_mb, arch
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+      `).run(
+        agentId,
+        hostname,
+        telemetry.platform ?? null,
+        telemetry.agentVersion ?? null,
+        timestamp,
+        timestamp,
+        cpuCores,
+        memoryTotal,
+        arch
+      );
+      logger.info(`[${traceId}] 🆕 New agent inserted: ${hostname}`);
     }
   } catch (err) {
     logger.error(`[${traceId}] ❌ Error in upsertAgent: ${err.message}`, { stack: err.stack });
@@ -262,6 +288,7 @@ function upsertAgent(hostname) {
     logger.debug(`[${traceId}] ⏱️ Exit upsertAgent | duration=${Date.now() - start}ms`);
   }
 }
+
 
 function updateHeartbeat(agentId) {
   const traceId = traceScope();
