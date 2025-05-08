@@ -11,12 +11,17 @@ function traceScope() {
 function insertTelemetry(data) {
   const traceId = traceScope();
   const start = Date.now();
+
   const safePreview = {
+    agentId: data.agentId,
     hostname: data.hostname,
     timestamp: data.timestamp,
-    cpu_usage: data.cpu_usage,
-    memory_percent: data.memory_percent,
-    temperature: data.temperature
+    cpu: data.cpu,
+    memory: data.memory,
+    disk: data.disk,
+    network: data.network,
+    temperature: data.temperature,
+    top_processes: data.top_processes
   };
 
   logger.debug(`[${traceId}] 📥 Enter insertTelemetry | safePreview=${JSON.stringify(safePreview)}`);
@@ -24,28 +29,31 @@ function insertTelemetry(data) {
   try {
     const stmt = db.prepare(`
       INSERT INTO telemetry (
-        hostname, timestamp,
+        agent_id, hostname, timestamp,
         cpu_usage, cpu_cores,
         memory_total, memory_used, memory_percent,
         disk, network, processes, temperature
-      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `);
 
     stmt.run(
+      data.agentId,
       data.hostname,
       data.timestamp,
-      data.cpu_usage,
-      data.cpu_cores,
-      data.memory_total,
-      data.memory_used,
-      data.memory_percent,
-      JSON.stringify(data.disk),
-      JSON.stringify(data.network),
-      JSON.stringify(data.top_processes),
-      data.temperature
+      data.cpu?.usage ?? null,
+      data.cpu?.cores ?? null,
+      data.memory?.total ?? null,
+      data.memory?.used ?? null,
+      data.memory?.percent ?? null,
+      JSON.stringify(data.disk ?? {}),
+      JSON.stringify(data.network ?? {}),
+      JSON.stringify(data.top_processes ?? []),
+      typeof data.temperature === 'object'
+        ? data.temperature?.cpu ?? null
+        : data.temperature ?? null // support legacy or simplified inputs
     );
 
-    logger.info(`[${traceId}] ✅ Telemetry inserted for host: ${data.hostname}`);
+    logger.info(`[${traceId}] ✅ Telemetry inserted for agent: ${data.agentId}`);
   } catch (err) {
     logger.error(`[${traceId}] ❌ Failed to insert telemetry: ${err.message}`, { stack: err.stack });
     throw err;
@@ -87,7 +95,7 @@ function getTelemetrySeries(hostname, fromTimestamp, toTimestamp) {
 
   try {
     const stmt = db.prepare(`
-      SELECT timestamp, cpu_usage, memory_percent, temperature
+      SELECT *
       FROM telemetry
       WHERE hostname = ?
         AND timestamp BETWEEN ? AND ?
@@ -95,6 +103,14 @@ function getTelemetrySeries(hostname, fromTimestamp, toTimestamp) {
     `);
 
     const rows = stmt.all(hostname, fromTimestamp, toTimestamp);
+
+    // Parse JSON fields
+    for (const row of rows) {
+      row.disk = JSON.parse(row.disk || '{}');
+      row.network = JSON.parse(row.network || '{}');
+      row.processes = JSON.parse(row.processes || '[]');
+    }
+
     logger.debug(`[${traceId}] 📊 getTelemetrySeries result | count=${rows.length}`);
     return rows;
   } catch (err) {

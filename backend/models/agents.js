@@ -263,6 +263,41 @@ function upsertAgent(hostname) {
   }
 }
 
+function updateHeartbeat(agentId) {
+  const traceId = traceScope();
+  const start = Date.now();
+  logger.debug(`[${traceId}] ❤️ Enter updateHeartbeat | agentId=${agentId}`);
+
+  try {
+    const now = Date.now();
+
+    const agent = db.prepare('SELECT status FROM agents WHERE agent_id = ?').get(agentId);
+    if (!agent) {
+      logger.warn(`[${traceId}] ❌ Agent not found for heartbeat: ${agentId}`);
+      return false;
+    }
+
+    const newStatus = agent.status === agentStatus.ACKNOWLEDGED
+      ? agentStatus.STABLE
+      : agent.status;
+
+    db.prepare(`
+      UPDATE agents
+      SET last_seen = ?, status = ?
+      WHERE agent_id = ?
+    `).run(now, newStatus, agentId);
+
+    logger.debug(`[${traceId}] 🧽 Agent heartbeat updated: ${agentId}, newStatus=${newStatus}`);
+    return true;
+  } catch (err) {
+    logger.error(`[${traceId}] ❌ Error in updateHeartbeat: ${err.message}`, { stack: err.stack });
+    throw err;
+  } finally {
+    logger.debug(`[${traceId}] ⏱️ Exit updateHeartbeat | duration=${Date.now() - start}ms`);
+  }
+}
+
+
 module.exports = {
   registerAgent,
   getClaimedAgent,

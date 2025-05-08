@@ -156,7 +156,7 @@ async function heartbeat() {
   };
 
   try {
-    await axios.post(`${config.baseUrl}/api/heartbeat`, payload, {
+    await axios.post(`${config.baseUrl}/api/agents/heartbeat`, payload, {
       headers: {
         'Agent-Version': config.version,
         'Agent-Id': agentId

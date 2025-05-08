@@ -178,4 +178,30 @@ router.get('/:hostname/health', auth(), (req, res) => {
   }
 });
 
+// Step 4: Heartbeat — agent keep-alive ping
+router.post('/heartbeat', validate([
+  body('agentId').isString()
+]), (req, res) => {
+  const traceId = traceScope();
+  const start = Date.now();
+  logger.debug(`[${traceId}] 💓 POST /agents/heartbeat | payload=${JSON.stringify(req.body)}`);
+
+  try {
+    const updated = agentsModel.updateHeartbeat(req.body.agentId);
+    if (updated) {
+      logger.info(`[${traceId}] ✅ Heartbeat acknowledged | agentId=${req.body.agentId}`);
+      return success(res, { message: 'Heartbeat updated' });
+    } else {
+      logger.warn(`[${traceId}] ❌ Agent not found or invalid | agentId=${req.body.agentId}`);
+      return fail(res, 'Agent not found', 404);
+    }
+  } catch (err) {
+    logger.error(`[${traceId}] ❌ Error in /heartbeat: ${err.message}`, { stack: err.stack });
+    return fail(res, 'Failed to process heartbeat');
+  } finally {
+    logger.debug(`[${traceId}] ⏱️ /agents/heartbeat complete | duration=${Date.now() - start}ms`);
+  }
+});
+
+
 module.exports = router;
