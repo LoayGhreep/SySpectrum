@@ -2,6 +2,11 @@
   <img src="./syspectrum.png" alt="SySpectrum Logo" width="250"/>
 </p>
 
+# 🚨 Deprecation Notice
+
+This repository has been deprecated as of the 1st of June 2025.
+Due to strategic prioritization and focus on new projects, further development of Syspectrum has been paused till further notice.
+
 # 🛰️ Syspectrum
 
 **Syspectrum** is a high-performance, agent-based system monitoring platform built for developers, sysadmins, and DevOps engineers who want **real-time, low-footprint, no-nonsense telemetry** — without vendor lock-in or bloat.
@@ -11,13 +16,17 @@
 
 ---
 
+| ![Screenshot1](./screenshots/screenshot1.png) | ![Screenshot2](./screenshots/screenshot2.png) |
+|-----------------------------------------|-----------------------------------------|
+| ![Screenshot3](./screenshots/screenshot3.png) | ![Screenshot4](./screenshots/screenshot4.png) |
+
+---
+
 ## 📚 Table of Contents
 
 - [🚀 Why Syspectrum?](#-why-syspectrum)
 - [🧠 Architecture Overview](#-architecture-overview)
 - [🧩 Project Roadmap Phases](#-project-roadmap-phases)
-- [🖥️ Deploy Like a Pro](#️-deploy-like-a-pro)
-- [📁 Repo Layout](#-repo-layout)
 - [🧑‍💻 About the Author](#-about-the-author)
 - [🧾 License](#-license)
 
@@ -147,42 +156,6 @@
 - 🧩 Plugin system for extending modules
 - 💰 Licensing engine + offline key validation  
 💡 **Outcome**: Enterprise SaaS capability, investor-grade power
-
----
-
-## 🖥️ Deploy Like a Pro
-
-```bash
-# 1. Install everything
-chmod +x install.sh && ./install.sh
-
-# 2. Start in background (auto-restart, screen-based)
-./start.sh
-
-# 3. Stop cleanly
-./stop.sh
-
-# 4. Monitor screen session (optional)
-screen -r wrapper
-```
-
-> Logs are written to `wrapper.log`, telemetry to your backend.
-
----
-
-## 📁 Repo Layout
-
-```
-agent/
-├── install.sh        → Installs Node modules + OS deps
-├── start.sh          → Starts agent inside 'screen', auto-restart loop
-├── stop.sh           → Stops screen session
-├── index.js          → Main agent orchestrator
-├── config.js         → Backend URL, interval, log file
-├── utils/            → shell.js, logger.js, dependencies.js
-├── modules/          → cpu, memory, disk, network, temperature, processes
-├── agent.json        → Agent metadata
-```
 
 ---
 

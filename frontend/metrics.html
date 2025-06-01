@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Live Metrics | SySpectrum</title>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --font-base: clamp(12px, 1.1vw, 18px);
+      --radius: 1.2vw;
+      --header-height: 11vh;
+      --footer-height: 5vh;
+      --padding: 2vh 2vw;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Exo 2', sans-serif;
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+      font-size: var(--font-base);
+      background: radial-gradient(ellipse at center, #085065 0%, #01232c 100%);
+      overflow: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 0;
+    }
+
+    .row2 {
+      height: var(--header-height);
+      background: url("img/ef2.png") no-repeat center;
+      background-size: auto 100%;
+      animation: logoFloat 4s ease-in-out infinite;
+      position: relative;
+      z-index: 1;
+      flex-shrink: 0;
+    }
+
+    @keyframes logoFloat {
+      0%, 100% {
+        transform: translateY(0) scale(1);
+        filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.2));
+      }
+      50% {
+        transform: translateY(-1px) scale(1.015);
+        filter: drop-shadow(0 0 14px rgba(0, 255, 50, 0.4));
+      }
+    }
+
+    #page {
+      display: flex;
+      flex-direction: column;
+      height: calc(100vh - var(--header-height) - var(--footer-height));
+      padding: var(--padding);
+      z-index: 1;
+      position: relative;
+    }
+
+    .filter-bar {
+      display: flex;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      gap: 1rem 2vw;
+      margin-bottom: 2vh;
+      z-index: 2;
+    }
+
+    .filter-bar select,
+    .dropdown-toggle {
+      padding: 0.6rem 1rem;
+      border-radius: 8px;
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(0, 255, 200, 0.3);
+      color: #00ffc2;
+      font-size: 1rem;
+      backdrop-filter: blur(4px);
+      cursor: pointer;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 110%;
+      left: 0;
+      background: rgba(0, 0, 0, 0.8);
+      border: 1px solid rgba(0, 255, 200, 0.3);
+      border-radius: 10px;
+      padding: 0.5rem;
+      z-index: 10;
+      display: none;
+      flex-direction: column;
+    }
+
+    .dropdown.open .dropdown-menu {
+      display: flex;
+    }
+
+    .dropdown-menu label {
+      color: #00ffc2;
+      padding: 0.3rem 0.6rem;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .dropdown-menu input[type="checkbox"] {
+      margin-right: 8px;
+    }
+
+    .charts-wrapper {
+      flex: 1;
+      overflow-y: auto;
+    }
+
+    .chart-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2vh 2vw;
+    }
+
+    .chart-grid.one-metric {
+      grid-template-columns: 1fr;
+    }
+
+    @media (max-width: 900px) {
+      .chart-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .chart-box {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(0, 255, 200, 0.2);
+      border-radius: 1vw;
+      padding: 2vh 2vw;
+      height: 40vh;
+    }
+
+    .chart-grid.one-metric .chart-box {
+      min-height: 55vh;
+    }
+
+    .chart-title {
+      text-align: center;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #00ffc2;
+      margin-bottom: 1vh;
+    }
+
+    canvas {
+      width: 100%;
+      height: 100%;
+    }
+
+    .back-button {
+      margin-top: 2vh;
+      text-align: center;
+    }
+
+    .back-button img {
+      width: clamp(100px, 10vw, 160px);
+      cursor: pointer;
+      filter: drop-shadow(0 0 10px rgba(0, 255, 200, 0.3));
+      transition: all 0.3s ease;
+    }
+
+    .back-button img:hover {
+      transform: scale(1.05);
+      filter: drop-shadow(0 0 14px rgba(0, 255, 200, 0.6));
+    }
+
+    .footer {
+      height: var(--footer-height);
+      text-align: center;
+      color: #ccc;
+      padding: 1.2vh 0;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .footer a {
+      color: #00ffc2;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="row2"></div>
+
+  <div id="page">
+    <div class="filter-bar">
+      <select id="metricFilter">
+        <option value="all">All Metrics</option>
+        <option value="cpu">CPU</option>
+        <option value="memory">Memory</option>
+        <option value="disk">Disk</option>
+        <option value="network">Network</option>
+      </select>
+
+      <div class="dropdown" id="agentDropdown">
+        <div class="dropdown-toggle">Select Agents</div>
+        <div class="dropdown-menu">
+          <label><input type="checkbox" checked> agent_01</label>
+          <label><input type="checkbox" checked> agent_02</label>
+          <label><input type="checkbox" checked> agent_03</label>
+        </div>
+      </div>
+
+      <div class="dropdown" id="groupDropdown">
+        <div class="dropdown-toggle">Select Group</div>
+        <div class="dropdown-menu">
+          <label><input type="checkbox" checked> Prod</label>
+          <label><input type="checkbox" checked> Dev</label>
+          <label><input type="checkbox" checked> QA</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="charts-wrapper">
+      <div class="chart-grid" id="chartGrid">
+        <div class="chart-box" id="cpuBox">
+          <div class="chart-title">CPU Usage</div>
+          <canvas id="cpuChart"></canvas>
+        </div>
+        <div class="chart-box" id="memoryBox">
+          <div class="chart-title">Memory Usage</div>
+          <canvas id="memoryChart"></canvas>
+        </div>
+        <div class="chart-box" id="diskBox">
+          <div class="chart-title">Disk Usage</div>
+          <canvas id="diskChart"></canvas>
+        </div>
+        <div class="chart-box" id="networkBox">
+          <div class="chart-title">Network Usage</div>
+          <canvas id="networkChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="back-button">
+      <img src="img/back.png" alt="Back" onclick="history.back()" />
+    </div>
+  </div>
+
+  <div class="footer">
+    © 2025 SySpectrum | Built by <a href="https://github.com/LoayGhreep" target="_blank">Loay Ghreep</a>
+  </div>
+
+  <script>
+    const metricSelect = document.getElementById("metricFilter");
+    const chartGrid = document.getElementById("chartGrid");
+
+    metricSelect.addEventListener("change", () => {
+      const selected = metricSelect.value;
+
+      const charts = {
+        cpu: document.getElementById("cpuBox"),
+        memory: document.getElementById("memoryBox"),
+        disk: document.getElementById("diskBox"),
+        network: document.getElementById("networkBox")
+      };
+
+      Object.values(charts).forEach(box => {
+        box.style.display = "none";
+      });
+
+      if (selected === "all") {
+        Object.values(charts).forEach(box => box.style.display = "block");
+        chartGrid.classList.remove("one-metric");
+      } else {
+        charts[selected].style.display = "block";
+        chartGrid.classList.add("one-metric");
+      }
+    });
+
+    // Toggle dropdowns
+    document.getElementById("agentDropdown").onclick = function () {
+      this.classList.toggle("open");
+    };
+
+    document.getElementById("groupDropdown").onclick = function () {
+      this.classList.toggle("open");
+    };
+
+    // Close dropdowns on outside click (but not on label clicks)
+    document.addEventListener("click", function (e) {
+      const agent = document.getElementById("agentDropdown");
+      const group = document.getElementById("groupDropdown");
+
+      if (!agent.contains(e.target)) agent.classList.remove("open");
+      if (!group.contains(e.target)) group.classList.remove("open");
+    });
+
+    // Prevent dropdowns from closing when clicking checkboxes
+    document.querySelectorAll(".dropdown-menu").forEach(menu => {
+      menu.addEventListener("click", e => e.stopPropagation());
+    });
+  </script>
+</body>
+</html>

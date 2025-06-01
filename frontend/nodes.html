@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Node Overview | SySpectrum</title>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Exo 2', 'Segoe UI', sans-serif;
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      background: radial-gradient(ellipse at center, #085065 0%, #01232c 100%);
+      background-attachment: fixed;
+      background-size: cover;
+      color: #e0f7f7;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(6px);
+      z-index: 0;
+    }
+
+    .row2 {
+      height: 11vh;
+      background: url("img/ef2.png") no-repeat center;
+      background-size: auto 100%;
+      flex-shrink: 0;
+      z-index: 1;
+      position: relative;
+      animation: logoFloat 2s ease-in-out infinite;
+    }
+
+    @keyframes logoFloat {
+      0%, 100% {
+        transform: translateY(0) scale(1);
+        filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.2));
+      }
+      50% {
+        transform: translateY(-1px) scale(1.015);
+        filter: drop-shadow(0 0 14px rgba(0, 255, 50, 0.4));
+      }
+    }
+
+    #page {
+      flex: 1;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2vh 2vw;
+      height: 78vh;
+    }
+
+.back-button {
+  margin: 1rem 0 1.2rem;
+}
+
+.back-button img {
+  width: clamp(120px, 10vw, 160px); /* never below 80px, scale with viewport */
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease;
+  filter: drop-shadow(0 0 10px rgba(0, 255, 200, 0.2));
+}
+
+.back-button img:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 16px rgba(0, 255, 200, 0.6));
+}
+
+
+    h1 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #00ffc2;
+    }
+
+    .table-wrapper {
+      width: 95%;
+      max-width: 95%;
+      overflow-y: auto;
+      flex: 1;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,255,200,0.1);
+      background: rgba(0,0,0,0.4);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 100%;
+    }
+
+    th, td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(0, 255, 200, 0.1);
+    }
+
+    th {
+      background-color: rgba(0, 255, 200, 0.08);
+      color: #00ffc2;
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(6px);
+    }
+
+    tr:hover {
+      background-color: rgba(0, 255, 200, 0.05);
+    }
+
+    input[type="text"] {
+      background: rgba(255, 255, 255, 0.07);
+      border: none;
+      padding: 0.4rem 0.6rem;
+      border-radius: 6px;
+      color: #e0e0e0;
+    }
+
+    input:focus {
+      outline: none;
+      background: rgba(255,255,255,0.12);
+    }
+
+    select {
+      background: rgba(0, 255, 200, 0.05);
+      border: 1px solid rgba(0, 255, 200, 0.2);
+      color: #00ffc2;
+      padding: 0.4rem 0.6rem;
+      border-radius: 6px;
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg width='10' height='6' viewBox='0 0 10 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%2300ffc2'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+      background-size: 10px 6px;
+      font-size: 0.95rem;
+    }
+
+    select:focus {
+      outline: none;
+      background-color: rgba(0, 0, 0, 0.9);
+      box-shadow: 0 0 8px rgba(0, 255, 200, 0.3);
+    }
+
+    .footer {
+      height: 5vh;
+      padding: 1.5vh 0;
+      width: 100%;
+      text-align: center;
+      color: #ccc;
+      font-size: 0.9rem;
+      background: transparent;
+      z-index: 1;
+    }
+
+    .footer a {
+      color: #00ffc2;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="row2"></div>
+  <div id="page">
+    <h1>Node Overview</h1>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Hostname</th>
+            <th>Label</th>
+            <th>Status</th>
+            <th>Group</th>
+            <th>Platform</th>
+            <th>IP</th>
+            <th>CPU</th>
+            <th>Memory (MB)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>DESKTOP-TBUNGH6</td>
+            <td><input type="text" value="WebServer" /></td>
+            <td>
+              <select>
+                <option value="0">Pending</option>
+                <option value="1" selected>Approved</option>
+                <option value="2">Sent for Approval</option>
+                <option value="3">Acknowledged</option>
+                <option value="4">Stable</option>
+                <option value="10">Rejected</option>
+                <option value="11">Disabled</option>
+              </select>
+            </td>
+            <td><input type="text" value="Prod" /></td>
+            <td>Linux</td>
+            <td>192.168.3.13</td>
+            <td>14</td>
+            <td>30084</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="back-button" onclick="history.back()">
+      <img src="img/back.png" alt="Back" />
+    </div>
+  </div>
+
+  <div class="footer">
+    © 2025 SySpectrum | Built by <a href="https://github.com/LoayGhreep" target="_blank">Loay Ghreep</a>
+  </div>
+</body>
+</html>

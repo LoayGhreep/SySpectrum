@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600&display=swap" rel="stylesheet">
+  <title>Syspectrum</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background: radial-gradient(ellipse at center, #085065 0%, #01232c 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 0;
+}
+
+
+body::before {
+  content: '';
+  position: fixed; /* ← important */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
+  z-index: 0;
+}
+
+
+.row2 {
+  height: 11vh;
+  background: url("img/ef2.png") no-repeat center;
+  background-size: auto 100%;
+  flex-shrink: 0;
+  z-index: 1;
+  position: relative;
+  animation: logoFloat 2s ease-in-out infinite;
+}
+@keyframes logoFloat {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.2));
+  }
+  50% {
+    transform: translateY(-1px) scale(1.015);
+    filter: drop-shadow(0 0 14px rgba(0, 255, 50, 0.4));
+  }
+}
+
+
+    #page {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 3vh 2vw;
+      z-index: 1;
+      position: relative;
+      color: #f0f0f0;
+    }
+
+.header {
+  text-align: center;
+  margin-bottom: 3vh;
+}
+
+.header h1 {
+  font-family: 'Exo 2', 'Segoe UI', sans-serif;
+  font-size: 2.8rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  opacity: 0.0;
+  animation: fadeSlideIn 1s ease-out forwards;
+}
+
+.header p {
+  font-family: 'Exo 2', 'Segoe UI', sans-serif;
+  font-size: 1.1rem;
+  opacity: 0.0;
+  animation: fadeSlideIn 2s ease-out forwards;
+  animation-delay: 0.3s;
+}
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+
+    .main-container {
+      width: 100%;
+      max-width: 1200px;
+      display: flex;
+      flex-direction: column;
+      gap: 3vh;
+      align-items: center;
+    }
+
+.chartCard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.chartBox {
+  flex: 1 1 clamp(200px, 22%, 300px);
+  aspect-ratio: 1 / 1;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  overflow: visible;
+  cursor: pointer;
+  display: flex;
+  z-index: 1;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: transform 0.25s ease;
+}
+
+/* Force 2-per-row on tablets */
+@media (max-width: 1024px) and (min-width: 601px) {
+  .chartBox {
+    flex: 1 1 45%;
+  }
+}
+
+.chartBox img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), filter 0.3s ease;
+  filter: drop-shadow(0 0 12px rgba(0, 255, 200, 0.25));
+  will-change: transform, filter;
+  z-index: 1;
+  position: relative;
+}
+
+.chartBox:hover img {
+  transform: scale(1.06) rotateZ(0.5deg);
+  filter:
+    drop-shadow(0 0 8px rgba(0, 255, 200, 0.25))
+    drop-shadow(0 0 18px rgba(0, 255, 200, 0.4));
+}
+
+.chartBox::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 120%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.4) 25%, transparent 65%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.chartBox:hover::before {
+  animation: pulseWhite 0.5s ease-in-out infinite;
+  opacity: 1;
+}
+
+@keyframes pulseWhite {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.25;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.6;
+  }
+}
+
+.chartBox h3 {
+  position: absolute;
+  bottom: -2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1rem;
+  color: #ccc;
+  opacity: 0.8;
+  font-weight: 500;
+}
+
+.soon-badge {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  max-width: 80%;
+  width: fit-content;
+  text-align: center;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(0, 255, 200, 0.4);
+  color: #00ffc2;
+  font-size: 1rem;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: 500;
+  backdrop-filter: blur(3px);
+  pointer-events: none;
+  z-index: 2;
+  text-shadow: 0 0 4px #01232c;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 480px) {
+  .soon-badge {
+    font-size: 0.85rem;
+    padding: 3px 8px;
+    max-width: 90%;
+  }
+}
+
+.footer {
+  margin-top: auto;
+  padding: 2vh 0;
+  width: 100%;
+  text-align: center;
+  color: #ccc;
+  font-size: 0.9rem;
+  background: rgba(0, 0, 0, 0);
+  font-family: 'Exo 2', 'Segoe UI', sans-serif;
+}
+
+    .footer a {
+      color: #00ffc2;
+      text-decoration: none;
+	  font-family: 'Exo 2', 'Segoe UI', sans-serif;
+      font-weight: bold;
+    }
+
+#loader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 30%;
+  height: 30$;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 4px solid rgba(0, 255, 200, 0.2);
+  border-top: 4px solid #00ffc2;
+  animation: spinLoader 0.9s linear infinite, glowPulse 2s ease-in-out infinite;
+  z-index: 9999;
+  background: transparent;
+  transition: opacity 0.5s ease;
+}
+
+@keyframes spinLoader {
+  0%   { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 0px rgba(0,255,200,0.1), 0 0 15px rgba(0,255,200,0.4);
+  }
+  50% {
+    box-shadow: 0 0 12px rgba(0,255,200,0.3), 0 0 25px rgba(0,255,200,0.6);
+  }
+}
+
+
+#page {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3vh 2vw;
+  z-index: 1;
+  position: relative;
+  color: #f0f0f0;
+  width: 100%;
+}
+
+
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 2rem;
+      }
+
+      .chartBox h3 {
+        font-size: 0.95rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .chartCard {
+        gap: 1.5rem;
+      }
+
+      .chartBox {
+        flex: 1 1 80%;
+        aspect-ratio: 16 / 9;
+      }
+
+      .chartBox h3 {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="row2"></div>
+
+<div id="loader" aria-label="Loading, please wait"></div>
+
+  <div id="page">
+    <div class="header">
+      <h1>Welcome to SySpectrum</h1>
+      <p>Choose a module to explore your system</p>
+    </div>
+
+    <div class="main-container">
+<div class="main-container">
+  <!-- First Row -->
+  <div class="chartCard">
+    <div class="chartBox" onclick="location.href='settlement.html'">
+      <img src="img/1.png" alt="Settlement" />
+    </div>
+    <div class="chartBox" onclick="location.href='track.html'">
+      <img src="img/2.png" alt="Live Tracking" />
+    </div>
+    <div class="chartBox" onclick="location.href='trips.html'">
+      <img src="img/3.png" alt="Trips" />
+    </div>
+    <div class="chartBox">
+      <img src="img/4.png" alt="Coming Soon" /><span class="soon-badge">Coming Soon</span>
+    </div>
+  </div>
+
+  <!-- Second Row: Coming Soon -->
+  <div class="chartCard">
+    <div class="chartBox">
+      <img src="img/5.png" alt="Coming Soon" /><span class="soon-badge">Coming Soon</span>
+    </div>
+    <div class="chartBox">
+      <img src="img/6.png" alt="Coming Soon" /><span class="soon-badge">Coming Soon</span>
+    </div>
+    <div class="chartBox">
+      <img src="img/7.png" alt="Coming Soon" /><span class="soon-badge">Coming Soon</span>
+    </div>
+    <div class="chartBox">
+      <img src="img/8.png" alt="Coming Soon" /><span class="soon-badge">Coming Soon</span>
+    </div>
+  </div>
+</div>
+
+    </div>
+
+    <div class="footer">
+      © 2025 SySpectrum | Built by <a href="https://github.com/LoayGhreep" target="_blank">Loay Ghreep</a>
+    </div>
+  </div>
+
+  <script>
+/*    function showPage() {
+      document.getElementById("loader").style.display = "none";
+      document.getElementById("page").style.display = "flex";
+    }
+*/
+	document.getElementById("page").style.display = "none";
+document.addEventListener("DOMContentLoaded", () => {
+  const loader = document.getElementById("loader");
+  setTimeout(() => {
+    loader.style.opacity = "0";
+    setTimeout(() => loader.style.display = "none", 500);
+    document.getElementById("page").style.display = "flex";
+  }, 1000);
+});
+
+
+  </script>
+</body>
+</html>

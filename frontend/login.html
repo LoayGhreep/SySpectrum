@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Syspectrum Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Exo 2', 'Segoe UI', sans-serif;
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      background: radial-gradient(ellipse at center, #085065 0%, #01232c 100%);
+      background-attachment: fixed;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(6px);
+      z-index: 0;
+    }
+
+    .row2 {
+      height: 35vh;
+      background: url("img/ef2.png") no-repeat center;
+      background-size: auto 100%;
+      flex-shrink: 0;
+      z-index: 1;
+      position: relative;
+      animation: logoFloat 4s ease-in-out infinite;
+    }
+
+    @keyframes logoFloat {
+      0%, 100% {
+        transform: translateY(0) scale(1);
+        filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.2));
+      }
+      50% {
+        transform: translateY(-1px) scale(1.015);
+        filter: drop-shadow(0 0 14px rgba(0, 255, 50, 0.4));
+      }
+    }
+
+    #page {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+      padding: 2rem;
+    }
+
+    .login-box {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(0, 255, 200, 0.3);
+      padding: 2.5rem 2rem;
+      border-radius: 16px;
+      box-shadow: 0 0 25px rgba(0, 255, 200, 0.1);
+      width: 100%;
+      max-width: 400px;
+      position: relative;
+      z-index: 2;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .login-box h2 {
+      text-align: center;
+      color: #00ffc2;
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+      letter-spacing: 1px;
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 12px 14px;
+      margin-bottom: 1.2rem;
+      border: none;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.07);
+      color: #e0e0e0;
+      outline: none;
+      font-size: 1rem;
+      transition: background 0.3s ease;
+    }
+
+    .login-box input::placeholder {
+      color: #aaa;
+    }
+
+    .login-box input:focus {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .login-box input:focus::placeholder {
+      opacity: 0.3;
+      transition: opacity 0.3s;
+    }
+
+    .login-box .login-btn {
+      width: 100%;
+      margin-top: 1rem;
+      border: none;
+      background: none;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .login-box .login-btn img {
+      width: 100%;
+      max-width: 200px;
+      display: block;
+      margin: 0 auto;
+      transition: transform 0.3s ease;
+      filter: drop-shadow(0 0 10px rgba(0, 255, 200, 0.3));
+    }
+
+    .login-box .login-btn img:hover {
+      transform: scale(1.05);
+      filter: drop-shadow(0 0 15px rgba(0, 255, 200, 0.6));
+    }
+
+    .footer {
+      padding: 2vh 0;
+      width: 100%;
+      text-align: center;
+      color: #ccc;
+      font-size: 0.9rem;
+      background: transparent;
+      z-index: 1;
+    }
+
+    .footer a {
+      color: #00ffc2;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+  <script>
+    // Disable right click
+    document.addEventListener("contextmenu", e => e.preventDefault());
+
+    // Block dev tools shortcuts (not foolproof)
+    document.addEventListener("keydown", e => {
+      if (
+        e.key === "F12" ||
+        (e.ctrlKey && e.shiftKey && ["I", "J", "C"].includes(e.key)) ||
+        (e.ctrlKey && e.key === "U")
+      ) {
+        e.preventDefault();
+      }
+    });
+  </script>
+</head>
+<body>
+  <div class="row2"></div>
+
+  <div id="page">
+    <div class="login-box">
+      <input type="text" placeholder="Username" />
+      <input type="password" placeholder="Password" />
+      <button class="login-btn">
+        <img src="img/login.png" alt="Login" />
+      </button>
+    </div>
+  </div>
+
+  <div class="footer">
+    © 2025 SySpectrum | Built by <a href="https://github.com/LoayGhreep" target="_blank">Loay Ghreep</a>
+  </div>
+</body>
+</html>
